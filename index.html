@@ -41,6 +41,7 @@ h1{font-size:26px;margin:6px 0 18px}
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
 label.fld{display:block;margin-bottom:12px}
+.slotstack{flex:1;display:flex;flex-direction:column;gap:8px;min-width:0}.slotstack .slotappt{flex:none}
 .attbl{width:100%;border-collapse:collapse;font-size:14px}.attbl th,.attbl td{padding:8px 6px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap}.attbl th{color:var(--muted);font-size:12px}
 .repnav{display:flex;align-items:center;gap:10px;margin:0 0 18px}.repnav select{width:auto;min-width:180px;font-weight:700}.repnav .btn{padding:10px 16px}
 .callbtn{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:8px;background:#16a34a;color:#fff;text-decoration:none;font-weight:700;font-size:15px;padding:12px 16px;border-radius:10px}
@@ -545,25 +546,42 @@ function renderCalendar(){
   // --- selected day's slots (vertical) ---
   const selDate=cols.find(d=>ymd(d)===selectedDay)||cols[0];
   html+=`<div class="dayslots">`;
+  const dayJobs=DB.data.jobs.filter(j=>ymd(new Date(j.when))===selectedDay)
+    .sort((a,b)=>new Date(a.when)-new Date(b.when));
+  const shown=new Set();
+  const minsOf=j=>{const d=new Date(j.when);return d.getHours()*60+d.getMinutes();};
+  const hm=j=>{const d=new Date(j.when);return String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0');};
+  const apptHtml=(job,showTime)=>{
+    const car=(job.model||'')+(job.year?' '+job.year:'');
+    const who=[job.first,job.last].filter(Boolean).join(' ');
+    return `<div class="slotappt ${job.paid?'paid':''}" onclick="openJob('${job.id}')">
+        <b>${showTime?hm(job)+' · ':''}${car||'—'}</b><span>${who||'Клиент'}</span>
+        ${job.paid?'<i class="paidtag">Платено</i>':''}
+      </div>`;
+  };
   slots.forEach(h=>{
     const hh=Math.floor(h), mm=Math.round((h-hh)*60);
     const label=String(hh).padStart(2,'0')+':'+String(mm).padStart(2,'0');
-    const job=DB.data.jobs.find(j=>{ const jd=new Date(j.when);
-      return ymd(jd)===selectedDay && jd.getHours()===hh && Math.abs(jd.getMinutes()-mm)<1; });
+    const start=hh*60+mm, end=start+s.slotMin;
+    const inSlot=dayJobs.filter(j=>{const m=minsOf(j);return m>=start&&m<end;});
     html+=`<div class="slotrow"><div class="slottime">${label}</div>`;
-    if(job){
-      const car=(job.model||'')+(job.year?' '+job.year:'');
-      const who=[job.first,job.last].filter(Boolean).join(' ');
-      html+=`<div class="slotappt ${job.paid?'paid':''}" onclick="openJob('${job.id}')">
-        <b>${car||'—'}</b><span>${who||'Клиент'}</span>
-        ${job.paid?'<i class="paidtag">Платено</i>':''}
-      </div>`;
+    if(inSlot.length){
+      html+=`<div class="slotstack">`;
+      inSlot.forEach(job=>{ shown.add(job.id); html+=apptHtml(job, minsOf(job)!==start); });
+      html+=`</div>`;
     }else{
       const iso=selectedDay+'T'+String(hh).padStart(2,'0')+':'+String(mm).padStart(2,'0');
       html+=`<div class="slotempty" onclick="openJob(null,'${iso}')">+ Резервирај</div>`;
     }
     html+=`</div>`;
   });
+  // jobs outside working hours (before start / after end)
+  const other=dayJobs.filter(j=>!shown.has(j.id));
+  if(other.length){
+    html+=`<div class="slotrow"><div class="slottime">Друго</div><div class="slotstack">`;
+    other.forEach(job=>{ html+=apptHtml(job,true); });
+    html+=`</div></div>`;
+  }
   html+=`</div>`;
   $('#app').innerHTML=html;
 }
