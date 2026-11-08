@@ -41,6 +41,9 @@ h1{font-size:26px;margin:6px 0 18px}
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
 label.fld{display:block;margin-bottom:12px}
+.callbtn{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:8px;background:#16a34a;color:#fff;text-decoration:none;font-weight:700;font-size:15px;padding:12px 16px;border-radius:10px}
+.callbtn.off{display:none}
+.calllink{color:#16a34a;font-weight:700;text-decoration:none;white-space:nowrap}
 label.fld small{display:block;color:var(--muted);margin-bottom:5px;font-size:13px}
 input[type=text],input[type=tel],input[type=number],input[type=datetime-local],input[type=date],select{
   width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:10px;background:#fff}
@@ -213,7 +216,7 @@ input:focus,select:focus{outline:none;border-color:var(--dark)}
             <label class="fld"><small>Име</small><input type="text" id="j_first"></label>
             <label class="fld"><small>Презиме</small><input type="text" id="j_last"></label>
           </div>
-          <label class="fld"><small>Телефон</small><input type="tel" id="j_phone"></label>
+          <div class="fld" style="margin-bottom:12px"><small style="display:block;color:var(--muted);margin-bottom:5px;font-size:13px">Телефон</small><input type="tel" id="j_phone" oninput="updCallBtn()"><a id="j_call" class="callbtn off" href="#">📞 Call now</a></div>
           <label class="checkline"><input type="checkbox" id="j_firma"> Фирма</label>
         </div>
         <div class="card" style="margin:14px 0 0 0;padding:16px">
@@ -292,6 +295,9 @@ input:focus,select:focus{outline:none;border-color:var(--dark)}
 </div><!-- /appShell -->
 
 <script>
+function telHref(p){return 'tel:'+String(p||'').replace(/[^\d+]/g,'');}
+function updCallBtn(){const v=document.getElementById('j_phone').value.trim(),a=document.getElementById('j_call');if(!a)return;const ok=v.replace(/\D/g,'').length>=6;a.href=ok?telHref(v):'#';a.textContent='📞 Call now · '+v;a.classList.toggle('off',!ok);}
+
 /* ============================================================
    SUPABASE CONFIG
    ============================================================ */
@@ -577,7 +583,7 @@ function openJob(id=null, presetWhen=null){
   $('#j_when').value=def;
   $('#j_first').value=job?.first||'';
   $('#j_last').value=job?.last||'';
-  $('#j_phone').value=job?.phone||'';
+  $('#j_phone').value=job?.phone||''; updCallBtn();
   $('#j_firma').checked=job?.firma||false;
   $('#j_model').value=job?.model||'';
   $('#j_year').value=job?.year||'';
@@ -1015,7 +1021,7 @@ function renderOrders(){
     html+=`<div class="card">
       <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px">
         <div>
-          <b>${o.customer_name}</b> · ${o.phone}<br>
+          <b>${o.customer_name}</b> · ${o.phone?`<a class="calllink" href="${telHref(o.phone)}">📞 ${o.phone}</a>`:''}<br>
           <small class="muted">${o.address}</small><br>
           <small class="muted">${items} — <b>${money(o.total)}</b></small>
           ${o.note?`<br><small class="muted">Забелешка: ${o.note}</small>`:''}
