@@ -41,6 +41,7 @@ h1{font-size:26px;margin:6px 0 18px}
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
 label.fld{display:block;margin-bottom:12px}
+.repnav{display:flex;align-items:center;gap:10px;margin:0 0 18px}.repnav select{width:auto;min-width:180px;font-weight:700}.repnav .btn{padding:10px 16px}
 .callbtn{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:8px;background:#16a34a;color:#fff;text-decoration:none;font-weight:700;font-size:15px;padding:12px 16px;border-radius:10px}
 .callbtn.off{display:none}
 .calllink{color:#16a34a;font-weight:700;text-decoration:none;white-space:nowrap}
@@ -874,12 +875,15 @@ async function removeSvc(id){ if(!confirm('Да се отстрани услуг
 
 /* ============ REPORTS ============ */
 let repPeriod='month';
+let repMonth=new Date(new Date().getFullYear(),new Date().getMonth(),1);
+let repYear=new Date().getFullYear();
+const MK_MONTHS=['Јануари','Февруари','Март','Април','Мај','Јуни','Јули','Август','Септември','Октомври','Ноември','Декември'];
 function periodRange(){
   const now=new Date(); let from,to;
   if(repPeriod==='today'){ from=new Date(now); from.setHours(0,0,0,0); to=new Date(now); to.setHours(23,59,59,999); }
   else if(repPeriod==='week'){ from=startOfWeek(now); to=new Date(from); to.setDate(to.getDate()+6); to.setHours(23,59,59,999); }
-  else if(repPeriod==='month'){ from=new Date(now.getFullYear(),now.getMonth(),1); to=new Date(now.getFullYear(),now.getMonth()+1,0,23,59,59,999); }
-  else { from=new Date(now.getFullYear(),0,1); to=new Date(now.getFullYear(),11,31,23,59,59,999); }
+  else if(repPeriod==='month'){ const y=repMonth.getFullYear(),m=repMonth.getMonth(); from=new Date(y,m,1); to=new Date(y,m+1,0,23,59,59,999); }
+  else { from=new Date(repYear,0,1); to=new Date(repYear,11,31,23,59,59,999); }
   return {from,to};
 }
 function renderReports(){
@@ -900,9 +904,19 @@ function renderReports(){
   <div class="chips">
     <button class="${repPeriod==='today'?'active':''}" onclick="setPeriod('today')">Денес</button>
     <button class="${repPeriod==='week'?'active':''}" onclick="setPeriod('week')">Оваа недела</button>
-    <button class="${repPeriod==='month'?'active':''}" onclick="setPeriod('month')">Овој месец</button>
-    <button class="${repPeriod==='year'?'active':''}" onclick="setPeriod('year')">Оваа година</button>
+    <button class="${repPeriod==='month'?'active':''}" onclick="setPeriod('month')">Месец</button>
+    <button class="${repPeriod==='year'?'active':''}" onclick="setPeriod('year')">Година</button>
   </div>
+  ${repPeriod==='month'?`<div class="repnav">
+    <button class="btn ghost" onclick="shiftRepMonth(-1)">←</button>
+    <select onchange="pickRepMonth(this.value)">${repMonthOptions()}</select>
+    <button class="btn ghost" onclick="shiftRepMonth(1)">→</button>
+  </div>`:''}
+  ${repPeriod==='year'?`<div class="repnav">
+    <button class="btn ghost" onclick="repYear--;renderReports()">←</button>
+    <b style="font-size:18px;min-width:80px;text-align:center">${repYear}</b>
+    <button class="btn ghost" onclick="repYear++;renderReports()">→</button>
+  </div>`:''}
   <div class="stats">
     <div class="stat"><small>Наплатен приход</small><div class="big">${money(revenue)}</div><div class="sub">${paid.length} платени работи</div></div>
     <div class="stat"><small>ДДВ (${s.vatOn?s.vatRate+'%':'исклучено'})</small><div class="big">${money(vat)}</div><div class="sub">Нето ${money(revenue-vat)}</div></div>
@@ -925,6 +939,16 @@ function renderReports(){
   $('#app').innerHTML=html;
 }
 function setPeriod(p){ repPeriod=p; renderReports(); }
+function shiftRepMonth(n){ repMonth=new Date(repMonth.getFullYear(),repMonth.getMonth()+n,1); renderReports(); }
+function pickRepMonth(v){ const [y,m]=v.split('-').map(Number); repMonth=new Date(y,m,1); renderReports(); }
+function repMonthOptions(){
+  // all months that have jobs + the selected one + current month, newest first
+  const keys=new Set(DB.data.jobs.map(j=>{const d=new Date(j.when);return isNaN(d)?null:d.getFullYear()+'-'+d.getMonth();}).filter(Boolean));
+  const now=new Date(); keys.add(now.getFullYear()+'-'+now.getMonth());
+  const sel=repMonth.getFullYear()+'-'+repMonth.getMonth(); keys.add(sel);
+  return [...keys].map(k=>k.split('-').map(Number)).sort((a,b)=>b[0]-a[0]||b[1]-a[1])
+    .map(([y,m])=>`<option value="${y}-${m}" ${y+'-'+m===sel?'selected':''}>${MK_MONTHS[m]} ${y}</option>`).join('');
+}
 
 /* ============ PRODUCTS (online store) ============ */
 let prodCatFilter='Сите';
