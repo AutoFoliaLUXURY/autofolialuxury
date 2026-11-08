@@ -879,10 +879,16 @@ let repPeriod='month';
 let repMonth=new Date(new Date().getFullYear(),new Date().getMonth(),1);
 let repYear=new Date().getFullYear();
 let repWeek=startOfWeek(new Date());
-// Услуги каде дел од цената оди кај друга фирма за атест (трошок, не наш приход).
-// Клуч = име на услугата (мали букви), вредност = износ за атест во MKD.
-const ATEST_COST={ 'задни стакла со атест седан':2000 };
-function atestOf(sv){ return sv ? (ATEST_COST[String(sv.name||'').trim().toLowerCase()]||0) : 0; }
+// Секоја услуга што во името има „Атест“ -> 2.000 MKD одат кај фирмата за атест
+// (трошок, не наш приход). За друг износ за одредена услуга, додај ја во ATEST_OVERRIDE.
+const ATEST_DEFAULT=2000;
+const ATEST_OVERRIDE={ /* 'име на услуга (мали букви)': 2500 */ };
+function atestOf(sv){
+  if(!sv) return 0;
+  const name=String(sv.name||'').trim().toLowerCase();
+  if(name in ATEST_OVERRIDE) return ATEST_OVERRIDE[name];
+  return /[аa][тt][еe][сc][тt]/i.test(name) ? ATEST_DEFAULT : 0;
+}
 function jobAtest(j){ return (j.services||[]).reduce((a,id)=>a+atestOf(DB.data.services.find(x=>x.id===id)),0); }
 const MK_MONTHS=['Јануари','Февруари','Март','Април','Мај','Јуни','Јули','Август','Септември','Октомври','Ноември','Декември'];
 function periodRange(){
