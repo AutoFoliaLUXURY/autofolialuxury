@@ -41,6 +41,7 @@ h1{font-size:26px;margin:6px 0 18px}
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
 label.fld{display:block;margin-bottom:12px}
+.attbl{width:100%;border-collapse:collapse;font-size:14px}.attbl th,.attbl td{padding:8px 6px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap}.attbl th{color:var(--muted);font-size:12px}
 .repnav{display:flex;align-items:center;gap:10px;margin:0 0 18px}.repnav select{width:auto;min-width:180px;font-weight:700}.repnav .btn{padding:10px 16px}
 .callbtn{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:8px;background:#16a34a;color:#fff;text-decoration:none;font-weight:700;font-size:15px;padding:12px 16px;border-radius:10px}
 .callbtn.off{display:none}
@@ -121,7 +122,7 @@ input:focus,select:focus{outline:none;border-color:var(--dark)}
 .calscroll{overflow-x:auto}
 
 /* reports */
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:16px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;margin-bottom:16px}
 @media(max-width:820px){.stats{grid-template-columns:1fr 1fr}}
 .stat{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px}
 .stat small{display:block;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px}
@@ -877,11 +878,17 @@ async function removeSvc(id){ if(!confirm('Да се отстрани услуг
 let repPeriod='month';
 let repMonth=new Date(new Date().getFullYear(),new Date().getMonth(),1);
 let repYear=new Date().getFullYear();
+let repWeek=startOfWeek(new Date());
+// Услуги каде дел од цената оди кај друга фирма за атест (трошок, не наш приход).
+// Клуч = име на услугата (мали букви), вредност = износ за атест во MKD.
+const ATEST_COST={ 'задни стакла со атест седан':2000 };
+function atestOf(sv){ return sv ? (ATEST_COST[String(sv.name||'').trim().toLowerCase()]||0) : 0; }
+function jobAtest(j){ return (j.services||[]).reduce((a,id)=>a+atestOf(DB.data.services.find(x=>x.id===id)),0); }
 const MK_MONTHS=['Јануари','Февруари','Март','Април','Мај','Јуни','Јули','Август','Септември','Октомври','Ноември','Декември'];
 function periodRange(){
   const now=new Date(); let from,to;
   if(repPeriod==='today'){ from=new Date(now); from.setHours(0,0,0,0); to=new Date(now); to.setHours(23,59,59,999); }
-  else if(repPeriod==='week'){ from=startOfWeek(now); to=new Date(from); to.setDate(to.getDate()+6); to.setHours(23,59,59,999); }
+  else if(repPeriod==='week'){ from=new Date(repWeek); to=new Date(from); to.setDate(to.getDate()+6); to.setHours(23,59,59,999); }
   else if(repPeriod==='month'){ const y=repMonth.getFullYear(),m=repMonth.getMonth(); from=new Date(y,m,1); to=new Date(y,m+1,0,23,59,59,999); }
   else { from=new Date(repYear,0,1); to=new Date(repYear,11,31,23,59,59,999); }
   return {from,to};
@@ -890,20 +897,23 @@ function renderReports(){
   const {from,to}=periodRange();
   const inRange=DB.data.jobs.filter(j=>{const d=new Date(j.when);return d>=from&&d<=to;});
   const paid=inRange.filter(j=>j.paid);
-  const revenue=paid.reduce((a,j)=>a+(j.total||0),0);
+  const gross=paid.reduce((a,j)=>a+(j.total||0),0);
+  const atest=paid.reduce((a,j)=>a+jobAtest(j),0);
+  const atestJobs=paid.filter(j=>jobAtest(j)>0).length;
+  const revenue=gross-atest;
   const unpaid=inRange.filter(j=>!j.paid).length;
   const avg=paid.length?Math.round(revenue/paid.length):0;
   const s=DB.data.settings;
   const vat= s.vatOn ? Math.round(revenue - revenue/(1+s.vatRate/100)) : 0;
   // sold services
   const sold={};
-  paid.forEach(j=>(j.services||[]).forEach(id=>{ const sv=DB.data.services.find(x=>x.id===id); if(sv){ if(!sold[id])sold[id]={name:sv.name,count:0,sum:0}; sold[id].count++; sold[id].sum+=sv.price; }}));
+  paid.forEach(j=>(j.services||[]).forEach(id=>{ const sv=DB.data.services.find(x=>x.id===id); if(sv){ if(!sold[id])sold[id]={name:sv.name,count:0,sum:0}; sold[id].count++; sold[id].sum+=sv.price-atestOf(sv); }}));
   const soldArr=Object.values(sold).sort((a,b)=>b.sum-a.sum);
 
   let html=`<h1>Извештаи</h1>
   <div class="chips">
     <button class="${repPeriod==='today'?'active':''}" onclick="setPeriod('today')">Денес</button>
-    <button class="${repPeriod==='week'?'active':''}" onclick="setPeriod('week')">Оваа недела</button>
+    <button class="${repPeriod==='week'?'active':''}" onclick="setPeriod('week')">Недела</button>
     <button class="${repPeriod==='month'?'active':''}" onclick="setPeriod('month')">Месец</button>
     <button class="${repPeriod==='year'?'active':''}" onclick="setPeriod('year')">Година</button>
   </div>
@@ -912,13 +922,19 @@ function renderReports(){
     <select onchange="pickRepMonth(this.value)">${repMonthOptions()}</select>
     <button class="btn ghost" onclick="shiftRepMonth(1)">→</button>
   </div>`:''}
+  ${repPeriod==='week'?`<div class="repnav">
+    <button class="btn ghost" onclick="shiftRepWeek(-1)">←</button>
+    <b style="font-size:16px;min-width:190px;text-align:center">${fmtD(from)} – ${fmtD(to)}</b>
+    <button class="btn ghost" onclick="shiftRepWeek(1)">→</button>
+  </div>`:''}
   ${repPeriod==='year'?`<div class="repnav">
     <button class="btn ghost" onclick="repYear--;renderReports()">←</button>
     <b style="font-size:18px;min-width:80px;text-align:center">${repYear}</b>
     <button class="btn ghost" onclick="repYear++;renderReports()">→</button>
   </div>`:''}
   <div class="stats">
-    <div class="stat"><small>Наплатен приход</small><div class="big">${money(revenue)}</div><div class="sub">${paid.length} платени работи</div></div>
+    <div class="stat"><small>Наплатен приход</small><div class="big">${money(revenue)}</div><div class="sub">${paid.length} платени работи${atest?` · вкупно наплатено ${money(gross)}`:''}</div></div>
+    <div class="stat"><small>Атест (трошок)</small><div class="big" style="color:var(--red)">${money(atest)}</div><div class="sub">${atestJobs} возила · оди кај друга фирма</div></div>
     <div class="stat"><small>ДДВ (${s.vatOn?s.vatRate+'%':'исклучено'})</small><div class="big">${money(vat)}</div><div class="sub">Нето ${money(revenue-vat)}</div></div>
     <div class="stat"><small>Платени работи</small><div class="big">${paid.length}</div><div class="sub">Просечен смет ${money(avg)}</div></div>
     <div class="stat"><small>Сè уште неплатени</small><div class="big">${unpaid}</div><div class="sub">Закажани во периодот</div></div>
@@ -929,16 +945,59 @@ function renderReports(){
   soldArr.forEach(x=>{ html+=`<div class="catrow" style="margin-bottom:8px"><div class="info"><b>${x.name}</b><small>${x.count} автомобили</small></div><b>${money(x.sum)}</b></div>`; });
   html+=`</div>
     <div class="card"><h2>Плаќања</h2>
-      <div class="catrow" style="margin-bottom:8px"><div class="info"><b>Cash</b><small>${paid.length} работи</small></div><b>${money(revenue)}</b></div>
+      <div class="catrow" style="margin-bottom:8px"><div class="info"><b>Cash</b><small>${paid.length} работи</small></div><b>${money(gross)}</b></div>
+      ${atest?`<div class="catrow" style="margin-bottom:8px"><div class="info"><b>− Атест (трошок)</b><small>${atestJobs} возила</small></div><b style="color:var(--red)">−${money(atest)}</b></div>
+      <div class="catrow" style="margin-bottom:8px"><div class="info"><b>= Наш приход</b></div><b>${money(revenue)}</b></div>`:''}
       <h2 style="margin-top:20px">Работен тек</h2>
       <div class="checkline"><span class="muted" style="flex:1">Закажано</span><b>${inRange.length}</b></div>
       <div class="checkline"><span class="muted" style="flex:1">Наплатено</span><b>${paid.length}</b></div>
       <div class="checkline"><span class="muted" style="flex:1">Неплатено</span><b>${unpaid}</b></div>
     </div>
   </div>`;
+  const atList=atestJobsIn(from,to);
+  if(atList.length){
+    const tot=atList.reduce((a,j)=>a+jobAtest(j),0);
+    html+=`<div class="card"><div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px">
+      <h2 style="margin:0">Возила со атест (${atList.length})</h2>
+      <button class="btn" onclick="printAtest()">🖨 Печати атест</button></div>
+      <div style="overflow-x:auto"><table class="attbl"><thead><tr><th>Датум</th><th>Клиент</th><th>Возило</th><th>Рег.</th><th>Платено</th><th style="text-align:right">Атест</th></tr></thead><tbody>
+      ${atList.map(j=>`<tr><td>${fmtD(new Date(j.when))}</td><td>${esc2([j.first,j.last].filter(Boolean).join(' ')||'—')}</td><td>${esc2([j.model,j.year].filter(Boolean).join(' ')||'—')}</td><td>${esc2(j.plate||'—')}</td><td>${j.paid?'✔':'✘'}</td><td style="text-align:right">${money(jobAtest(j))}</td></tr>`).join('')}
+      <tr><td colspan="5"><b>Вкупно за атест</b></td><td style="text-align:right"><b>${money(tot)}</b></td></tr></tbody></table></div></div>`;
+  }
   $('#app').innerHTML=html;
 }
 function setPeriod(p){ repPeriod=p; renderReports(); }
+function fmtD(d){ return String(d.getDate()).padStart(2,'0')+'.'+String(d.getMonth()+1).padStart(2,'0')+'.'+d.getFullYear(); }
+function shiftRepWeek(n){ repWeek=new Date(repWeek); repWeek.setDate(repWeek.getDate()+7*n); renderReports(); }
+function atestJobsIn(from,to){
+  return DB.data.jobs.filter(j=>{const d=new Date(j.when);return d>=from&&d<=to&&jobAtest(j)>0;})
+    .sort((a,b)=>new Date(a.when)-new Date(b.when));
+}
+function printAtest(){
+  const {from,to}=periodRange(); const list=atestJobsIn(from,to); const st=DB.data.settings;
+  const cur=st.currency||'MKD'; const n=v=>Number(v||0).toLocaleString('en-US')+' '+cur;
+  let tot=0;
+  const rows=list.map((j,i)=>{ const a=jobAtest(j); tot+=a;
+    const svc=(j.services||[]).map(id=>DB.data.services.find(x=>x.id===id)).filter(sv=>atestOf(sv)>0).map(sv=>sv.name).join(', ');
+    return '<tr><td>'+(i+1)+'</td><td>'+fmtD(new Date(j.when))+'</td><td>'+esc2([j.first,j.last].filter(Boolean).join(' ')||'—')+'</td><td>'+esc2(j.phone||'')+'</td><td>'+esc2([j.model,j.year].filter(Boolean).join(' ')||'—')+'</td><td>'+esc2(j.plate||'')+'</td><td>'+esc2(svc)+'</td><td class="amt">'+n(a)+'</td></tr>'; }).join('');
+  const html='<!doctype html><html><head><meta charset="utf-8"><title>Атест '+fmtD(from)+' - '+fmtD(to)+'</title><style>'
+   +'body{font-family:Arial,sans-serif;margin:28px;color:#111;font-size:12px}'
+   +'h1{font-size:20px;margin:0}.m{color:#555;margin:4px 0 18px}'
+   +'table{width:100%;border-collapse:collapse}th,td{border:1px solid #bbb;padding:6px 8px;text-align:left}'
+   +'th{background:#f2f2f2}.amt{text-align:right;white-space:nowrap}.tot td{font-weight:700;font-size:14px}'
+   +'.sig{display:flex;justify-content:space-between;margin-top:46px}'
+   +'</style></head><body>'
+   +'<h1>'+esc2(st.name||'Auto Folia LUXURY')+' — Извештај за атест</h1>'
+   +'<div class="m">Период: <b>'+fmtD(from)+' – '+fmtD(to)+'</b> · Возила: <b>'+list.length+'</b></div>'
+   +'<table><thead><tr><th>#</th><th>Датум</th><th>Клиент</th><th>Телефон</th><th>Возило</th><th>Рег.</th><th>Услуга</th><th class="amt">Атест</th></tr></thead><tbody>'
+   +rows+'<tr class="tot"><td colspan="7">Вкупно за плаќање</td><td class="amt">'+n(tot)+'</td></tr></tbody></table>'
+   +'<div class="sig"><div>'+esc2(st.name||'Auto Folia LUXURY')+': ____________________</div><div>Фирма за атест: ____________________</div></div>'
+   +'</body></html>';
+  const w=window.open('','_blank');
+  if(!w){ toast('Дозволи pop-up за печатење'); return; }
+  w.document.open(); w.document.write(html); w.document.close();
+  setTimeout(function(){ try{ w.focus(); w.print(); }catch(e){} }, 400);
+}
 function shiftRepMonth(n){ repMonth=new Date(repMonth.getFullYear(),repMonth.getMonth()+n,1); renderReports(); }
 function pickRepMonth(v){ const [y,m]=v.split('-').map(Number); repMonth=new Date(y,m,1); renderReports(); }
 function repMonthOptions(){
