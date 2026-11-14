@@ -1,0 +1,22 @@
+name: Sinkronizo produktet nga Autoking
+
+on:
+  schedule:
+    - cron: '0 3 * * *'   # çdo ditë në 03:00 UTC (04:00 / 05:00 ora jonë)
+  workflow_dispatch:       # butoni "Run workflow" për ta nisur me dorë
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Sinkronizo
+        run: node sync/sync-autoking.mjs
+        env:
+          SUPABASE_URL: https://fzgnhfbsibskkuiwcrls.supabase.co
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+          DISCOUNT_PERCENT: '1'
