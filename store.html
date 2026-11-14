@@ -9,14 +9,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#0E0F12;
-    --surface:#16181D;
-    --surface-2:#1D2027;
-    --border:#2A2D35;
-    --text:#F1EFEA;
-    --text-muted:#9A9DA6;
-    --gold:#C6A15B;
-    --gold-soft:rgba(198,161,91,.14);
+    color-scheme:light;
+    --bg:#FFFFFF;          /* background */
+    --header:#FFFFFF;      /* header */
+    --gold:#C8A45D;        /* butonat */
+    --text:#111111;        /* teksti kryesor */
+    --text-muted:#6B6E73;  /* teksti sekondar */
+    --surface:#F6F6F7;     /* kartelat */
+    --surface-2:#EDEEF0;
+    --border:#E2E3E6;
+    --silver:#7E838A;
+    --silver-light:#C9CCD1;
+    --silver-grad:linear-gradient(135deg,#5E636A 0%,#A9ADB3 45%,#6F747B 70%,#3E4247 100%);
+    --gold-soft:rgba(200,164,93,.14);
     --danger:#D2543A;
     --radius:2px;
     --maxw:1180px;
@@ -43,13 +48,13 @@
   /* ---------- header ---------- */
   header{
     position:sticky;top:0;z-index:40;
-    background:rgba(14,15,18,.9);
+    background:rgba(255,255,255,.94);
     backdrop-filter:blur(10px);
     border-bottom:1px solid var(--border);
   }
   .headbar{display:flex;align-items:center;justify-content:space-between;height:76px;}
   .logo{font-family:'Unbounded',sans-serif;font-weight:800;font-size:20px;letter-spacing:.02em;}
-  .logo span{color:var(--gold);}
+  .logo span{background:var(--silver-grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
   .navlinks{display:flex;gap:32px;font-size:14px;color:var(--text-muted);}
   .navlinks a:hover{color:var(--text);}
   .head-right{display:flex;align-items:center;gap:18px;}
@@ -66,25 +71,97 @@
     width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;
   }
 
-  /* ---------- hero ---------- */
-  .hero{
-    padding:88px 0 64px;
-    border-bottom:1px solid var(--border);
-    background:
-      radial-gradient(ellipse at 80% 0%, rgba(198,161,91,.10), transparent 55%),
-      var(--bg);
+  /* ---------- hero slider ---------- */
+  .slider{
+    position:relative;height:clamp(440px,62vh,600px);overflow:hidden;
+    border-bottom:1px solid var(--border);background:var(--bg);
   }
-  .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:end;}
-  .kicker{color:var(--gold);font-size:13px;font-weight:600;margin-bottom:18px;}
-  .hero h1{font-size:clamp(34px,5vw,58px);line-height:1.05;max-width:14ch;}
-  .hero p{color:var(--text-muted);font-size:16px;max-width:46ch;margin-top:20px;}
-  .hero-stats{display:flex;flex-direction:column;gap:18px;border-left:1px solid var(--border);padding-left:32px;}
-  .stat b{font-family:'Unbounded',sans-serif;font-size:26px;display:block;color:var(--gold);}
-  .stat span{font-size:13px;color:var(--text-muted);}
+  .slide{
+    position:absolute;inset:0;opacity:0;visibility:hidden;
+    transition:opacity .9s ease, visibility 0s linear .9s;
+    background:
+      radial-gradient(ellipse at 75% 45%, rgba(126,131,138,.16), transparent 60%),
+      radial-gradient(ellipse at 10% 100%, rgba(200,164,93,.10), transparent 55%),
+      linear-gradient(180deg,#FFFFFF 0%,#F1F2F4 100%);
+  }
+  .slide.active{opacity:1;visibility:visible;transition:opacity .9s ease;}
+  .slide .wrap{height:100%;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;}
+  .slide-text > *{opacity:0;transform:translateY(26px);}
+  .slide.active .slide-text > *{animation:rise .8s cubic-bezier(.2,.7,.2,1) forwards;}
+  .slide.active .slide-text > *:nth-child(2){animation-delay:.12s;}
+  .slide.active .slide-text > *:nth-child(3){animation-delay:.24s;}
+  .slide.active .slide-text > *:nth-child(4){animation-delay:.36s;}
+  @keyframes rise{to{opacity:1;transform:none;}}
+  .kicker{
+    font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;margin-bottom:18px;
+    background:var(--silver-grad);-webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .slide h1{font-size:clamp(32px,4.8vw,60px);line-height:1.04;max-width:13ch;}
+  .slide p{color:var(--text-muted);font-size:16px;max-width:42ch;margin:18px 0 28px;}
+  .cta{
+    display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:#111;
+    padding:14px 26px;border-radius:999px;font-weight:700;font-size:14px;border:none;
+    transition:transform .2s, box-shadow .2s;
+  }
+  .cta:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(200,164,93,.25);}
+  .slide-visual{position:relative;height:78%;display:flex;align-items:center;justify-content:center;}
+  .slide-visual::before{
+    content:"";position:absolute;width:78%;aspect-ratio:1;border-radius:50%;
+    background:radial-gradient(circle, rgba(126,131,138,.14), transparent 65%);
+    border:1px solid rgba(126,131,138,.22);
+  }
+  .slide-visual img{
+    position:relative;max-width:78%;max-height:92%;object-fit:contain;border-radius:14px;
+    border:1px solid var(--border);background:#fff;
+    opacity:0;transform:scale(.9) translateX(40px);
+    box-shadow:0 24px 50px rgba(17,17,17,.14);
+  }
+  .slide.active .slide-visual img{animation:float-in 1.1s cubic-bezier(.2,.7,.2,1) .15s forwards;}
+  @keyframes float-in{to{opacity:1;transform:none;}}
+  .slider-btn{
+    position:absolute;top:50%;transform:translateY(-50%);z-index:5;
+    width:46px;height:46px;border-radius:50%;border:1px solid var(--border);
+    background:rgba(255,255,255,.85);color:var(--text);font-size:20px;
+  }
+  .slider-btn:hover{border-color:var(--silver);}
+  .slider-btn.prev{left:20px;} .slider-btn.next{right:20px;}
+  .dots{position:absolute;bottom:26px;left:0;right:0;display:flex;justify-content:center;gap:10px;z-index:5;}
+  .dot{width:28px;height:3px;border:none;padding:0;background:var(--silver-light);position:relative;overflow:hidden;}
+  .dot.active::after{
+    content:"";position:absolute;inset:0;background:var(--text);
+    transform-origin:left;animation:progress var(--slide-ms,6000ms) linear forwards;
+  }
+  .slider.paused .dot.active::after{animation-play-state:paused;}
+  @keyframes progress{from{transform:scaleX(0);}to{transform:scaleX(1);}}
+
+  /* ---------- main categories ---------- */
+  .groups{padding:56px 0 8px;}
+  .groups h2{font-size:22px;margin-bottom:22px;}
+  .group-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:12px;}
+  @media(max-width:1100px){ .group-grid{grid-template-columns:repeat(4,1fr);} }
+  .group-tile{
+    position:relative;background:var(--surface);border:1px solid var(--border);border-radius:10px;
+    padding:18px 14px;display:flex;flex-direction:column;gap:12px;text-align:left;color:var(--text);
+    overflow:hidden;transition:border-color .2s, transform .2s;
+    opacity:0;transform:translateY(18px);
+  }
+  .group-tile.in{opacity:1;transform:none;transition:opacity .6s ease, transform .6s ease, border-color .2s;}
+  .group-tile::after{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:linear-gradient(115deg, transparent 30%, rgba(255,255,255,.75) 50%, transparent 70%);
+    transform:translateX(-100%);transition:transform .7s ease;
+  }
+  .group-tile:hover{border-color:var(--silver);transform:translateY(-3px);box-shadow:0 12px 28px rgba(17,17,17,.08);}
+  .group-tile:hover::after{transform:translateX(100%);}
+  .group-tile.active{border-color:var(--gold);background:linear-gradient(180deg,var(--gold-soft),var(--surface));}
+  .group-tile svg{width:30px;height:30px;stroke:var(--silver);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;}
+  .group-tile.active svg{stroke:var(--gold);}
+  .group-tile b{font-size:13px;font-weight:700;letter-spacing:.02em;line-height:1.3;}
+  .group-tile span{font-size:12px;color:var(--text-muted);}
 
   /* ---------- categories ---------- */
   .cat-row{
-    display:flex;gap:10px;overflow-x:auto;padding:28px 0;
+    display:flex;gap:10px;overflow-x:auto;padding:22px 0 28px;
     border-bottom:1px solid var(--border);
   }
   .cat-row::-webkit-scrollbar{display:none;}
@@ -110,12 +187,12 @@
   }
   .card:hover{border-color:var(--gold);}
   .card-img{
-    aspect-ratio:1/1;background:var(--surface-2);display:flex;align-items:center;justify-content:center;
+    aspect-ratio:1/1;background:#FFFFFF;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:center;
     color:var(--border);font-family:'Unbounded',sans-serif;font-size:13px;overflow:hidden;
   }
-  .card-img img{width:100%;height:100%;object-fit:cover;}
+  .card-img img{width:100%;height:100%;object-fit:contain;}
   .card-body{padding:16px;display:flex;flex-direction:column;gap:10px;flex:1;}
-  .card-cat{font-size:11px;color:var(--gold);text-transform:uppercase;letter-spacing:.06em;}
+  .card-cat{font-size:11px;color:var(--silver);text-transform:uppercase;letter-spacing:.06em;}
   .card-name{font-size:15px;font-weight:600;flex:1;}
   .card-row{display:flex;align-items:center;justify-content:space-between;margin-top:auto;}
   .card-price{font-family:'Unbounded',sans-serif;font-size:17px;color:var(--text);}
@@ -124,6 +201,16 @@
     padding:8px 14px;border-radius:var(--radius);font-size:13px;font-weight:600;
   }
   .add-btn:hover{background:var(--gold);color:#141414;}
+  .search-box{
+    width:100%;margin-top:24px;padding:12px 16px;background:var(--surface);border:1px solid var(--border);
+    color:var(--text);border-radius:var(--radius);font:inherit;font-size:14px;
+  }
+  .search-box:focus{outline:none;border-color:var(--gold);}
+  .more-btn{
+    display:block;margin:32px auto 0;border:1px solid var(--gold);background:transparent;color:var(--gold);
+    padding:12px 28px;border-radius:var(--radius);font-size:14px;font-weight:600;
+  }
+  .more-btn:hover{background:var(--gold);color:#141414;}
   .empty-state{
     text-align:center;padding:64px 20px;color:var(--text-muted);border:1px dashed var(--border);
   }
@@ -190,12 +277,17 @@
   .foot-row{display:flex;justify-content:space-between;color:var(--text-muted);font-size:13px;flex-wrap:wrap;gap:10px;}
 
   @media(max-width:760px){
-    .hero-grid{grid-template-columns:1fr;}
-    .hero-stats{flex-direction:row;border-left:none;border-top:1px solid var(--border);padding:20px 0 0;gap:28px;}
-    .navlinks{display:none;}
+    .wrap{padding:0 16px;}
+    .navlinks,.phone-badge{display:none;}
+    .slider{height:560px;}
+    .slide .wrap{grid-template-columns:1fr;grid-template-rows:auto 1fr;gap:0;padding-top:40px;padding-bottom:70px;align-items:start;}
+    .slide-visual{height:200px;order:-1;}
+    .slider-btn{display:none;}
+    .group-grid{grid-template-columns:repeat(2,1fr);}
   }
   @media(prefers-reduced-motion:reduce){
-    *{transition:none!important;}
+    *,*::before,*::after{transition:none!important;animation-duration:.01ms!important;animation-delay:0s!important;}
+    .group-tile{opacity:1;transform:none;}
   }
 </style>
 </head>
@@ -205,6 +297,8 @@
   <div class="wrap headbar">
     <div class="logo">AUTO<span>LUXURY</span></div>
     <nav class="navlinks">
+      <a href="#top">Почетна</a>
+      <a href="#categories">Категории</a>
       <a href="#products">Производи</a>
       <a href="#contact">Контакт</a>
     </nav>
@@ -217,21 +311,22 @@
   </div>
 </header>
 
-<section class="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <div class="kicker">ФОЛИИ · ОПРЕМА · СТИЛ</div>
-      <h1>Изгледот на вашето возило, подигнат на друго ниво.</h1>
-      <p>Премиум фолии за стакла и селектирана опрема за возила — набавени со внимание, испорачани до вашата врата.</p>
-    </div>
-    <div class="hero-stats">
-      <div class="stat"><b id="statCount">—</b><span>производи достапни</span></div>
-      <div class="stat"><b>MKD</b><span>плаќање при достава</span></div>
-    </div>
+<section class="slider" id="top" aria-roledescription="carousel">
+  <div id="slides"></div>
+  <button class="slider-btn prev" id="prevSlide" aria-label="Претходен">&#8249;</button>
+  <button class="slider-btn next" id="nextSlide" aria-label="Следен">&#8250;</button>
+  <div class="dots" id="dots"></div>
+</section>
+
+<section class="groups" id="categories">
+  <div class="wrap">
+    <h2>Категории</h2>
+    <div class="group-grid" id="groupGrid"></div>
   </div>
 </section>
 
 <div class="wrap">
+  <input class="search-box" id="searchBox" type="search" placeholder="Пребарај производи...">
   <div class="cat-row" id="catRow"></div>
 </div>
 
@@ -242,6 +337,7 @@
       <span id="resultCount"></span>
     </div>
     <div class="grid" id="grid"></div>
+    <button class="more-btn" id="moreBtn" style="display:none">Прикажи повеќе</button>
   </div>
 </section>
 
@@ -316,16 +412,77 @@ function saveCart(){ localStorage.setItem('al_cart', JSON.stringify(CART)); rend
 
 /* ================= LOAD PRODUCTS ================= */
 async function loadProducts(){
+  // Supabase returns max 1000 rows per request, so fetch in pages
+  PRODUCTS = [];
   try{
-    PRODUCTS = await sbGet('products?select=*&active=eq.true&order=created_at.desc');
-  }catch(e){ PRODUCTS = []; console.error(e); }
-  document.getElementById('statCount').textContent = PRODUCTS.length;
+    const PAGE = 1000;
+    for(let from=0; ; from+=PAGE){
+      const chunk = await sbGet(`products?select=id,name,price,category,image_url&active=eq.true&order=created_at.desc&offset=${from}&limit=${PAGE}`);
+      PRODUCTS.push(...chunk);
+      if(chunk.length < PAGE) break;
+    }
+  }catch(e){ console.error(e); }
+  PRODUCTS.forEach(p=>{ p.category = normCat(p.category); p.group = CAT_TO_GROUP[p.category] || ''; });
+  buildGroups();
   buildCategories();
+  buildSlider();
   renderGrid();
 }
 
+/* ================= GROUPS (kategoritë kryesore) ================= */
+const normCat = c => String(c||'').replace(/&#8211;|–|—/g,'-').replace(/\s+/g,' ').trim();
+const ICON = {
+  car:'<path d="M3 13l2-5a2 2 0 0 1 2-1.3h10A2 2 0 0 1 19 8l2 5v4h-2"/><path d="M5 17H3v-4h18"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/><path d="M9 17h6"/>',
+  spray:'<path d="M9 8h6v13H9z"/><path d="M10 8V5h4v3"/><path d="M14 5h3M18 3v.01M20 5v.01M18 7v.01"/>',
+  wheel:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><path d="M12 3v6M4.2 16.5l5.2-3M19.8 16.5l-5.2-3"/>',
+  seat:'<path d="M7 3h5a2 2 0 0 1 2 2v9H7z"/><path d="M5 14h12a2 2 0 0 1 2 2v1H5z"/><path d="M8 17v4M16 17v4"/>',
+  light:'<path d="M14 5a7 7 0 0 1 0 14"/><path d="M14 5H11a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h3"/><path d="M3 8h4M2 12h5M3 16h4"/>',
+  bolt:'<path d="M13 2L4 14h7l-1 8 9-12h-7z"/>',
+  key:'<circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M17 6l3 3M15 8l2 2"/>'
+};
+const GROUPS = [
+  { name:'АВТО ОПРЕМА',   icon:'car',   cats:['АВТО ОПРЕМА','АЛАТИ','БРИШАЧИ','ПАТУВАЊЕ','ЦЕРАДИ'] },
+  { name:'АВТОКОЗМЕТИКА', icon:'spray', cats:['89 AROMATIC','BRIO','DTR','K2','АВТОКОЗМЕТИКА','АРЕОН','АУТОЛАНД','КЛИ','МОТИП','ПАРФЕМИ IMAO','ТУРТЛЕ','ЧЕТКИ, КРПИ И СУНЃЕРИ'] },
+  { name:'ЕКСТЕРИЕР',     icon:'wheel', cats:['THOR','БОДИ КИТОВИ','ДИФУЗЕРИ','ЕКСТЕРИЕР','КАПАЦИ ЗА СТРАНИЧНИ РЕТРОВИЗОРИ','НАКРАЈНИК ЗА АУСПУХ','ПРАГОВИ','ПРЕДЕН ЛИП СПОЈЛЕР','ПРЕДНА МАСКА','ПРЕДНИ/ЗАДНИ БРАНИЦИ','РАТКАПНИ','СПОЈЛЕР'] },
+  { name:'ИНТЕРИЕР',      icon:'seat',  cats:['ВОЛАНИ','ИНТЕРИЕР','НАВЛАКИ ЗА ВОЛАН','НАВЛАКИ ЗА СЕДИШТИ','ПАТОСНИЦИ','РАЧКА ЗА МЕНУВАЧ','РАЧКИ ЗА ВРАТИ'] },
+  { name:'ОСВЕТЛУВАЊЕ',   icon:'light', cats:['PHOTON СИЈАЛИЦИ','КСЕНОН','ЛЕД','ОСВЕТЛУВАЊЕ','ТРАФОА','ФАРОВИ','ХАЛОГЕН','ШТОПОВИ'] },
+  { name:'ЕЛЕКТРИКА',     icon:'bolt',  cats:['АКУМУЛАТОРИ - БАТЕРИИ','ДРУГО','ЕЛЕКТРИКА','КАМЕРА ЗА КОЛА','МП3 ТРАНСМИТЕРИ','ПАРКИНГ СЕНЗОРИ','ПРЕКИДАЧИ','РАДИО И ОПРЕМА'] },
+  { name:'АВТО ДОДАТОЦИ', icon:'key',   cats:['АВТО ДОДАТОЦИ','ГАЛАНТЕРИЈА','КЛУЧЕВИ','МОБИЛНА ГАЛАНТЕРИЈА','ПАНЦИР ЦРЕВА','ПРИВЕЗОК','СТАКЛО ЗА РЕТРОВИЗОР','СТИКЕРИ','ФОЛИЈА'] },
+];
+const CAT_TO_GROUP = {};
+GROUPS.forEach(g=>g.cats.forEach(c=>CAT_TO_GROUP[normCat(c)] = g.name));
+let ACTIVE_GROUP = '';
+
+function buildGroups(){
+  const grid = document.getElementById('groupGrid');
+  const counts = {};
+  PRODUCTS.forEach(p=>{ if(p.group) counts[p.group] = (counts[p.group]||0)+1; });
+  grid.innerHTML = GROUPS.map((g,i)=>`
+    <button class="group-tile${g.name===ACTIVE_GROUP?' active':''}" data-group="${escH(g.name)}" style="transition-delay:${i*60}ms">
+      <svg viewBox="0 0 24 24" aria-hidden="true">${ICON[g.icon]}</svg>
+      <b>${escH(g.name)}</b>
+      <span>${(counts[g.name]||0).toLocaleString('mk-MK')} производи</span>
+    </button>`).join('');
+  grid.querySelectorAll('.group-tile').forEach(t=>{
+    t.onclick = ()=> selectGroup(t.dataset.group === ACTIVE_GROUP ? '' : t.dataset.group, true);
+  });
+  // animacion kur shfaqen në ekran
+  const io = new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} }),{threshold:.2});
+  grid.querySelectorAll('.group-tile').forEach(t=>io.observe(t));
+}
+
+function selectGroup(name, scroll){
+  ACTIVE_GROUP = name;
+  ACTIVE_CAT = 'Сите';
+  document.querySelectorAll('.group-tile').forEach(t=>t.classList.toggle('active', t.dataset.group===ACTIVE_GROUP));
+  buildCategories();
+  renderGrid();
+  if(scroll) document.getElementById('searchBox').scrollIntoView({behavior:'smooth', block:'start'});
+}
+
 function buildCategories(){
-  const cats = ['Сите', ...new Set(PRODUCTS.map(p=>p.category).filter(Boolean))];
+  const inGroup = ACTIVE_GROUP ? PRODUCTS.filter(p=>p.group===ACTIVE_GROUP) : PRODUCTS;
+  const cats = ['Сите', ...new Set(inGroup.map(p=>p.category).filter(Boolean))];
   const row = document.getElementById('catRow');
   row.innerHTML = '';
   cats.forEach(c=>{
@@ -337,20 +494,110 @@ function buildCategories(){
   });
 }
 
-function renderGrid(){
+/* ================= SLIDER =================
+   Ndrysho tekstet këtu. "group" = cila kategori hapet me butonin.
+   "image" = link i figurës (nëse e lë bosh, merret automatikisht një produkt nga ajo kategori). */
+const SLIDE_MS = 6000;
+const SLIDES = [
+  { kicker:'Ексклузивни модели', title:'Накрајници за ауспух', text:'Карбон, хром и црни завршници за секој стил.', group:'ЕКСТЕРИЕР', cat:'НАКРАЈНИК ЗА АУСПУХ', image:'' },
+  { kicker:'Нова генерација',     title:'ЛЕД светла и барови', text:'Посилна светлина, помала потрошувачка.',      group:'ОСВЕТЛУВАЊЕ', cat:'ЛЕД', image:'' },
+  { kicker:'Чистење и нега',      title:'Автокозметика',       text:'Сè што ви треба за возило што сјае.',         group:'АВТОКОЗМЕТИКА', cat:'', image:'' },
+  { kicker:'Ентериер',            title:'Волани и навлаки',    text:'Премиум допир при секое возење.',             group:'ИНТЕРИЕР', cat:'ВОЛАНИ', image:'' },
+];
+let slideIdx = 0, slideTimer = null;
+
+function buildSlider(){
+  const wrap = document.getElementById('slides');
+  const dots = document.getElementById('dots');
+  document.querySelector('.slider').style.setProperty('--slide-ms', SLIDE_MS+'ms');
+  wrap.innerHTML = SLIDES.map((s,i)=>{
+    let img = s.image;
+    if(!img){
+      const pool = PRODUCTS.filter(p=>p.image_url && (s.cat ? p.category===normCat(s.cat) : p.group===s.group));
+      pool.sort((a,b)=>Number(b.price)-Number(a.price));
+      img = pool[0]?.image_url || '';
+    }
+    return `
+    <div class="slide${i===0?' active':''}" aria-hidden="${i!==0}">
+      <div class="wrap">
+        <div class="slide-text">
+          <div class="kicker">${escH(s.kicker)}</div>
+          <h1>${escH(s.title)}</h1>
+          <p>${escH(s.text)}</p>
+          <button class="cta" data-i="${i}">Види повеќе <span aria-hidden="true">→</span></button>
+        </div>
+        <div class="slide-visual">${img ? `<img src="${escH(img)}" alt="">` : ''}</div>
+      </div>
+    </div>`;
+  }).join('');
+  dots.innerHTML = SLIDES.map((_,i)=>`<button class="dot${i===0?' active':''}" aria-label="Слајд ${i+1}" data-i="${i}"></button>`).join('');
+  wrap.querySelectorAll('.cta').forEach(b=>b.onclick = ()=>{
+    const s = SLIDES[+b.dataset.i];
+    selectGroup(s.group, true);
+    if(s.cat){ ACTIVE_CAT = normCat(s.cat); buildCategories(); renderGrid(); }
+  });
+  dots.querySelectorAll('.dot').forEach(d=>d.onclick = ()=>goSlide(+d.dataset.i));
+  slideIdx = 0;
+  startAuto();
+}
+function goSlide(i){
+  const slides = document.querySelectorAll('.slide');
+  const dots = document.querySelectorAll('.dot');
+  if(!slides.length) return;
+  slideIdx = (i + slides.length) % slides.length;
+  slides.forEach((s,k)=>{ s.classList.toggle('active', k===slideIdx); s.setAttribute('aria-hidden', k!==slideIdx); });
+  dots.forEach((d,k)=>{ d.classList.remove('active'); if(k===slideIdx){ void d.offsetWidth; d.classList.add('active'); } });
+  startAuto();
+}
+function startAuto(){
+  clearInterval(slideTimer);
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  slideTimer = setInterval(()=>{ if(!document.querySelector('.slider').classList.contains('paused')) goSlide(slideIdx+1); }, SLIDE_MS);
+}
+document.getElementById('prevSlide').onclick = ()=>goSlide(slideIdx-1);
+document.getElementById('nextSlide').onclick = ()=>goSlide(slideIdx+1);
+(()=>{
+  const sl = document.querySelector('.slider');
+  sl.addEventListener('mouseenter', ()=>sl.classList.add('paused'));
+  sl.addEventListener('mouseleave', ()=>{ sl.classList.remove('paused'); goSlide(slideIdx); });
+  let x0 = null;
+  sl.addEventListener('touchstart', e=>{ x0 = e.touches[0].clientX; }, {passive:true});
+  sl.addEventListener('touchend', e=>{
+    if(x0===null) return; const dx = e.changedTouches[0].clientX - x0; x0 = null;
+    if(Math.abs(dx) > 40) goSlide(slideIdx + (dx < 0 ? 1 : -1));
+  });
+})();
+
+const SHOW_STEP = 60;
+let SHOWN = SHOW_STEP;
+let SEARCH = '';
+const escH = s => String(s ?? '').replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+function currentList(){
+  let list = ACTIVE_GROUP ? PRODUCTS.filter(p=>p.group===ACTIVE_GROUP) : PRODUCTS;
+  if(ACTIVE_CAT!=='Сите') list = list.filter(p=>p.category===ACTIVE_CAT);
+  if(SEARCH){ const q = SEARCH.toLowerCase(); list = list.filter(p=>(p.name||'').toLowerCase().includes(q)); }
+  return list;
+}
+
+function renderGrid(keepCount){
+  if(!keepCount) SHOWN = SHOW_STEP;
   const grid = document.getElementById('grid');
-  const list = ACTIVE_CAT==='Сите' ? PRODUCTS : PRODUCTS.filter(p=>p.category===ACTIVE_CAT);
+  const moreBtn = document.getElementById('moreBtn');
+  const list = currentList();
   document.getElementById('resultCount').textContent = list.length + ' производи';
   if(list.length===0){
-    grid.innerHTML = '<div class="empty-state" style="grid-column:1/-1">Нема производи во оваа категорија сеуште.</div>';
+    grid.innerHTML = '<div class="empty-state" style="grid-column:1/-1">Нема производи.</div>';
+    moreBtn.style.display = 'none';
     return;
   }
-  grid.innerHTML = list.map(p=>`
+  moreBtn.style.display = list.length > SHOWN ? 'block' : 'none';
+  grid.innerHTML = list.slice(0, SHOWN).map(p=>`
     <div class="card">
-      <div class="card-img">${p.image_url ? `<img src="${p.image_url}" alt="${p.name}">` : 'AUTO LUXURY'}</div>
+      <div class="card-img">${p.image_url ? `<img src="${escH(p.image_url)}" alt="${escH(p.name)}" loading="lazy">` : 'AUTO LUXURY'}</div>
       <div class="card-body">
-        <div class="card-cat">${p.category||''}</div>
-        <div class="card-name">${p.name}</div>
+        <div class="card-cat">${escH(p.category)}</div>
+        <div class="card-name">${escH(p.name)}</div>
         <div class="card-row">
           <div class="card-price">${money(p.price)}</div>
           <button class="add-btn" onclick="addToCart('${p.id}')">Додади</button>
@@ -359,6 +606,12 @@ function renderGrid(){
     </div>
   `).join('');
 }
+document.getElementById('moreBtn').onclick = ()=>{ SHOWN += SHOW_STEP; renderGrid(true); };
+let searchTimer;
+document.getElementById('searchBox').oninput = e=>{
+  clearTimeout(searchTimer);
+  searchTimer = setTimeout(()=>{ SEARCH = e.target.value.trim(); renderGrid(); }, 200);
+};
 
 /* ================= CART ================= */
 function addToCart(id){
