@@ -160,6 +160,22 @@ input:focus,select:focus{outline:none;border-color:var(--dark)}
 .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#22c55e;margin-right:5px}
 .empty{text-align:center;color:var(--muted);padding:40px}
 .checkline{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+/* expenses */
+.exform{display:grid;grid-template-columns:160px 1fr auto;gap:12px;align-items:end}
+@media(max-width:820px){.exform{grid-template-columns:1fr}}
+.excats{display:flex;gap:8px;flex-wrap:wrap;margin:4px 0 14px}
+.excats button{border:1px solid var(--line);background:#fff;padding:9px 14px;border-radius:999px;font-weight:600;color:var(--muted);font-size:14px}
+.excats button.active{background:var(--dark);color:#fff;border-color:var(--dark)}
+.exsum{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:16px}
+@media(max-width:820px){.exsum{grid-template-columns:1fr 1fr}.exsum .stat:last-child{grid-column:1/-1}}
+.exrow{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
+.exrow:last-child{border-bottom:none}
+.exrow .info{flex:1;min-width:0}
+.exrow .info b{display:block;font-size:15px}
+.exrow .info small{color:var(--muted)}
+.exrow .amt{font-weight:800;color:var(--red);white-space:nowrap}
+.exdel{border:1px solid var(--line);background:#fff;color:var(--muted);width:34px;height:34px;border-radius:999px;font-size:16px;flex:none}
+.exdel:hover{color:var(--red);border-color:#fca5a5}
 </style>
 </head>
 <body>
@@ -189,6 +205,7 @@ input:focus,select:focus{outline:none;border-color:var(--dark)}
     <nav>
       <button data-view="calendar" class="active">Календар</button>
       <button data-view="reports">Извештаи</button>
+      <button data-view="expenses">Трошоци</button>
       <button data-view="services">Услуги</button>
       <button data-view="products">Продукти</button>
       <button data-view="orders">Порачки</button>
@@ -342,7 +359,8 @@ const DEFAULT_SETTINGS={ name:'Auto Folia LUXURY',address:'Saraj/Skopje',
   startHour:10,endHour:20,slotMin:120,days:[1,2,3,4,5] };
 
 const DB = {
-  data:{ services:[], jobs:[], settings:{}, products:[], orders:[] },
+  data:{ services:[], jobs:[], settings:{}, products:[], orders:[], expenses:[] },
+  expensesMissing:false,
 
   // map a DB row -> app job shape used by the UI
   jobFromRow(r){ return { id:r.id, when:wallClock(r.when_at), first:r.first_name, last:r.last_name,
@@ -388,6 +406,26 @@ const DB = {
       const ords = await sbRest('orders?select=*&order=created_at.desc');
       this.data.orders = ords||[];
     }catch(e){ console.warn('orders load failed', e); this.data.orders = []; }
+
+    // daily expenses (optional — needs the `expenses` table in Supabase)
+    try{
+      const ex = await sbRest('expenses?select=*&order=day.desc,created_at.desc');
+      this.data.expenses = (ex||[]).map(r=>this.expFromRow(r));
+      this.expensesMissing = false;
+    }catch(e){ console.warn('expenses load failed', e); this.data.expenses = []; this.expensesMissing = true; }
+  },
+
+  // ---- expenses ----
+  expFromRow(r){ return { id:r.id, day:String(r.day||'').slice(0,10), amount:Number(r.amount)||0,
+    category:r.category||'', note:r.note||'', created_at:r.created_at }; },
+  async addExpense(x){
+    const [r] = await sbRest('expenses', { method:'POST',
+      headers:{'Prefer':'return=representation'}, body:JSON.stringify([{day:x.day,amount:x.amount,category:x.category,note:x.note}]) });
+    const nx=this.expFromRow(r); this.data.expenses.unshift(nx); return nx.id;
+  },
+  async deleteExpense(id){
+    await sbRest('expenses?id=eq.'+id, { method:'DELETE' });
+    this.data.expenses=this.data.expenses.filter(x=>x.id!==id);
   },
 
   async seedServices(){
@@ -491,6 +529,7 @@ document.querySelectorAll('nav button').forEach(b=>{
 function render(){
   if(view==='calendar') renderCalendar();
   else if(view==='reports') renderReports();
+  else if(view==='expenses') renderExpenses();
   else if(view==='services') renderServices();
   else if(view==='settings') renderSettings();
   else if(view==='products') renderProducts();
@@ -933,6 +972,10 @@ function renderReports(){
   const sold={};
   paid.forEach(j=>(j.services||[]).forEach(id=>{ const sv=DB.data.services.find(x=>x.id===id); if(sv){ if(!sold[id])sold[id]={name:sv.name,count:0,sum:0}; sold[id].count++; sold[id].sum+=sv.price-atestOf(sv); }}));
   const soldArr=Object.values(sold).sort((a,b)=>b.sum-a.sum);
+  const fromD=ymd(from), toD=ymd(to);
+  const expIn=(DB.data.expenses||[]).filter(x=>x.day>=fromD&&x.day<=toD);
+  const expTot=expIn.reduce((a,x)=>a+x.amount,0);
+  const net=revenue-expTot;
 
   let html=`<h1>Извештаи</h1>
   <div class="chips">
@@ -958,6 +1001,8 @@ function renderReports(){
   </div>`:''}
   <div class="stats">
     <div class="stat"><small>Наплатен приход</small><div class="big">${money(revenue)}</div><div class="sub">${paid.length} платени работи${atest?` · вкупно наплатено ${money(gross)}`:''}</div></div>
+    <div class="stat"><small>Трошоци</small><div class="big" style="color:var(--red)">${money(expTot)}</div><div class="sub">${expIn.length} ставки · <a href="#" onclick="view='expenses';document.querySelectorAll('nav button').forEach(x=>x.classList.toggle('active',x.dataset.view==='expenses'));render();return false" style="color:inherit">види</a></div></div>
+    <div class="stat"><small>Останува (чисто)</small><div class="big" style="color:${net<0?'var(--red)':'var(--green)'}">${money(net)}</div><div class="sub">Приход − трошоци</div></div>
     <div class="stat"><small>Атест (трошок)</small><div class="big" style="color:var(--red)">${money(atest)}</div><div class="sub">${atestJobs} возила · оди кај друга фирма</div></div>
     <div class="stat"><small>ДДВ (${s.vatOn?s.vatRate+'%':'исклучено'})</small><div class="big">${money(vat)}</div><div class="sub">Нето ${money(revenue-vat)}</div></div>
     <div class="stat"><small>Платени работи</small><div class="big">${paid.length}</div><div class="sub">Просечен смет ${money(avg)}</div></div>
@@ -972,6 +1017,8 @@ function renderReports(){
       <div class="catrow" style="margin-bottom:8px"><div class="info"><b>Cash</b><small>${paid.length} работи</small></div><b>${money(gross)}</b></div>
       ${atest?`<div class="catrow" style="margin-bottom:8px"><div class="info"><b>− Атест (трошок)</b><small>${atestJobs} возила</small></div><b style="color:var(--red)">−${money(atest)}</b></div>
       <div class="catrow" style="margin-bottom:8px"><div class="info"><b>= Наш приход</b></div><b>${money(revenue)}</b></div>`:''}
+      ${expTot?`<div class="catrow" style="margin-bottom:8px"><div class="info"><b>− Трошоци</b><small>${expIn.length} ставки</small></div><b style="color:var(--red)">−${money(expTot)}</b></div>
+      <div class="catrow" style="margin-bottom:8px"><div class="info"><b>= Останува</b></div><b>${money(net)}</b></div>`:''}
       <h2 style="margin-top:20px">Работен тек</h2>
       <div class="checkline"><span class="muted" style="flex:1">Закажано</span><b>${inRange.length}</b></div>
       <div class="checkline"><span class="muted" style="flex:1">Наплатено</span><b>${paid.length}</b></div>
@@ -1031,6 +1078,101 @@ function repMonthOptions(){
   const sel=repMonth.getFullYear()+'-'+repMonth.getMonth(); keys.add(sel);
   return [...keys].map(k=>k.split('-').map(Number)).sort((a,b)=>b[0]-a[0]||b[1]-a[1])
     .map(([y,m])=>`<option value="${y}-${m}" ${y+'-'+m===sel?'selected':''}>${MK_MONTHS[m]} ${y}</option>`).join('');
+}
+
+/* ============ EXPENSES (daily spending) ============ */
+const EXP_CATS=['Гориво','Храна','Фолија / материјал','Алат','Кирија','Сметки','Плата','Друго'];
+let expDay=ymd(new Date());
+let expCat='Друго';
+const EXP_SQL=`create table if not exists public.expenses (
+  id uuid primary key default gen_random_uuid(),
+  created_at timestamptz not null default now(),
+  day date not null default current_date,
+  amount numeric not null default 0,
+  category text,
+  note text
+);
+alter table public.expenses enable row level security;
+create policy "expenses_logged_in" on public.expenses
+  for all to authenticated using (true) with check (true);`;
+function dayIncome(d){
+  // paid jobs booked on that day, minus the атест part that goes to the other firm
+  return DB.data.jobs.filter(j=>j.paid&&ymd(new Date(j.when))===d)
+    .reduce((a,j)=>a+(j.total||0)-jobAtest(j),0);
+}
+function renderExpenses(){
+  const today=ymd(new Date());
+  const [yy,mm,dd]=expDay.split('-').map(Number);
+  const dObj=new Date(yy,mm-1,dd);
+  const wk=['Недела','Понеделник','Вторник','Среда','Четврток','Петок','Сабота'][dObj.getDay()];
+  let html=`<h1>Трошоци</h1>`;
+  if(DB.expensesMissing){
+    html+=`<div class="card" style="border-color:#fca5a5;background:#fff7f7">
+      <h2>Треба уште еден чекор</h2>
+      <p style="margin-top:-6px">Табелата <b>expenses</b> не постои во Supabase. Отвори Supabase → <b>SQL Editor</b>, залепи го ова и стисни <b>Run</b>, па стисни ↻ Освежи.</p>
+      <pre id="exsql" style="background:#111827;color:#e5e7eb;padding:14px;border-radius:10px;overflow:auto;font-size:12px;white-space:pre">${esc2(EXP_SQL)}</pre>
+      <button class="btn ghost sm" onclick="navigator.clipboard&&navigator.clipboard.writeText(EXP_SQL).then(()=>toast('Копирано'))">Копирај SQL</button>
+    </div>`;
+  }
+  const list=DB.data.expenses.filter(x=>x.day===expDay)
+    .sort((a,b)=>String(b.created_at||'').localeCompare(String(a.created_at||'')));
+  const tot=list.reduce((a,x)=>a+x.amount,0);
+  const inc=dayIncome(expDay);
+  const left=inc-tot;
+  const mFrom=expDay.slice(0,7)+'-01', mTo=expDay.slice(0,7)+'-31';
+  const monthTot=DB.data.expenses.filter(x=>x.day>=mFrom&&x.day<=mTo).reduce((a,x)=>a+x.amount,0);
+
+  html+=`<div class="repnav">
+    <button class="btn ghost" onclick="shiftExpDay(-1)">←</button>
+    <input type="date" value="${expDay}" onchange="if(this.value){expDay=this.value;renderExpenses()}" style="width:auto;font-weight:700">
+    <button class="btn ghost" onclick="shiftExpDay(1)">→</button>
+    ${expDay!==today?`<button class="btn ghost sm" onclick="expDay=ymd(new Date());renderExpenses()">Денес</button>`:''}
+  </div>
+  <p class="muted" style="margin:-8px 0 14px">${wk}${expDay===today?' · денес':''}</p>
+  <div class="exsum">
+    <div class="stat"><small>Потрошено</small><div class="big" style="color:var(--red)">${money(tot)}</div><div class="sub">${list.length} ставки</div></div>
+    <div class="stat"><small>Наплатено</small><div class="big">${money(inc)}</div><div class="sub">Платени работи (без атест)</div></div>
+    <div class="stat"><small>Останува</small><div class="big" style="color:${left<0?'var(--red)':'var(--green)'}">${money(left)}</div><div class="sub">Овој месец потрошено ${money(monthTot)}</div></div>
+  </div>
+  <div class="card"><h2>Додади трошок</h2>
+    <div class="excats">${EXP_CATS.map(c=>`<button class="${c===expCat?'active':''}" onclick="pickExpCat(this,'${c}')">${c}</button>`).join('')}</div>
+    <div class="exform">
+      <label class="fld" style="margin:0"><small>Износ (${esc2(DB.data.settings.currency||'MKD')})</small><input type="number" inputmode="decimal" id="ex_amt" placeholder="0" onkeydown="if(event.key==='Enter')addExp()"></label>
+      <label class="fld" style="margin:0"><small>За што (опц.)</small><input type="text" id="ex_note" placeholder="пр. дизел, кафе, фолија 20%" onkeydown="if(event.key==='Enter')addExp()"></label>
+      <button class="btn" id="ex_add" onclick="addExp()">+ Додади</button>
+    </div>
+  </div>
+  <div class="card"><h2>Трошоци за ${fmtD(dObj)}</h2>`;
+  if(!list.length) html+=`<div class="empty" style="padding:24px">Нема внесени трошоци за овој ден.</div>`;
+  list.forEach(x=>{
+    const t=x.created_at?new Date(x.created_at).toLocaleTimeString('mk-MK',{hour:'2-digit',minute:'2-digit'}):'';
+    html+=`<div class="exrow"><div class="info"><b>${esc2(x.note||x.category||'Трошок')}</b><small>${esc2(x.category||'')}${t?' · '+t:''}</small></div>
+      <span class="amt">−${money(x.amount)}</span>
+      <button class="exdel" title="Избриши" onclick="removeExp('${x.id}')">×</button></div>`;
+  });
+  if(list.length) html+=`<div class="totbar"><span class="muted">Вкупно за денот</span><span class="t" style="color:var(--red)">${money(tot)}</span></div>`;
+  html+=`</div>`;
+  $('#app').innerHTML=html;
+}
+function pickExpCat(btn,c){ expCat=c; document.querySelectorAll('.excats button').forEach(b=>b.classList.toggle('active',b===btn)); $('#ex_amt').focus(); }
+function shiftExpDay(n){ const [y,m,d]=expDay.split('-').map(Number); expDay=ymd(new Date(y,m-1,d+n)); renderExpenses(); }
+async function addExp(){
+  const amount=Number(String($('#ex_amt').value).replace(',','.'));
+  if(!amount||amount<=0){ toast('Внеси износ'); $('#ex_amt').focus(); return; }
+  if(DB.expensesMissing){ toast('Прво направи ја табелата (SQL горе)'); return; }
+  const note=$('#ex_note').value.trim();
+  busy(true); $('#ex_add').disabled=true;
+  try{ await DB.addExpense({day:expDay,amount,category:expCat,note}); renderExpenses(); toast('Додадено'); setTimeout(()=>{const a=$('#ex_amt');if(a)a.focus();},50); }
+  catch(e){ alert('Грешка при зачувување:\n\n'+(e.message||e)); console.error(e); const b=$('#ex_add'); if(b) b.disabled=false; }
+  busy(false);
+}
+async function removeExp(id){
+  const x=DB.data.expenses.find(e=>e.id===id); if(!x) return;
+  if(!confirm('Да се избрише трошокот '+money(x.amount)+'?')) return;
+  busy(true);
+  try{ await DB.deleteExpense(id); renderExpenses(); toast('Избришано'); }
+  catch(e){ toast('Грешка'); console.error(e); }
+  busy(false);
 }
 
 /* ============ PRODUCTS (online store) ============ */
