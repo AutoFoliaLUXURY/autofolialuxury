@@ -1,0 +1,56 @@
+name: Krijo faqet e produkteve (për Google)
+
+on:
+  # pas sinkronizimit të natës me Autoking
+  workflow_run:
+    workflows: ["Sinkronizo produktet nga Autoking"]
+    types: [completed]
+  # kur ndryshon gjeneruesi
+  push:
+    branches: [main]
+    paths: ['sync/build-pages.mjs', '.github/workflows/build-pages.yml']
+  # butoni "Run workflow" për ta nisur me dorë
+  workflow_dispatch:
+
+permissions:
+  contents: write   # për të ruajtur faqet e krijuara në repo
+  pages: write      # për t'i kërkuar GitHub Pages të rifreskojë sajtin
+
+concurrency:
+  group: build-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Krijo faqet
+        run: node sync/build-pages.mjs
+        env:
+          SUPABASE_URL: https://fzgnhfbsibskkuiwcrls.supabase.co
+          SUPABASE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+      - name: Ruaj ndryshimet
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A p c assets sitemap.xml .nojekyll
+          if git diff --cached --quiet; then
+            echo "Asnjë ndryshim."
+            echo "CHANGED=0" >> "$GITHUB_ENV"
+          else
+            git commit -q -m "Përditëso faqet e produkteve"
+            git push
+            echo "CHANGED=1" >> "$GITHUB_ENV"
+          fi
+      - name: Rifresko GitHub Pages
+        if: env.CHANGED == '1'
+        run: gh api -X POST "repos/${{ github.repository }}/pages/builds" || echo "Pages do të rifreskohet vetë."
+        env:
+          GH_TOKEN: ${{ github.token }}

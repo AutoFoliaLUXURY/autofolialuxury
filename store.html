@@ -3,7 +3,38 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Auto Luxury — Премиум опрема за вашето возило</title>
+<title>Auto Luxury – Авто опрема, ЛЕД светла и додатоци | Сарај, Скопје</title>
+<meta name="description" content="Онлајн продавница за авто опрема: ЛЕД светла и амбиент, волани, навлаки, спојлери, автокозметика и додатоци. Над 7.900 производи, брза достава низ Македонија. ☎ +389 70 855 355">
+<link rel="canonical" href="https://autofolialuxury.github.io/autofolialuxury/store.html">
+<meta name="theme-color" content="#111111">
+<script>
+  // faqet e rezultateve të kërkimit (?q=...) dhe të produktit të hapur (?p=...) nuk futen në Google;
+  // Google i ndjek linket, por indekson faqet e vërteta të produkteve (/p/...)
+  if(/[?&](q|p)=/.test(location.search)){ const m=document.createElement('meta'); m.name='robots'; m.content='noindex,follow'; document.head.appendChild(m); }
+</script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23C8A45D'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='28' font-weight='800' text-anchor='middle' fill='%23111'%3EAL%3C/text%3E%3C/svg%3E">
+<!-- kur linku ndahet në Facebook / Viber / WhatsApp -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Auto Luxury">
+<meta property="og:locale" content="mk_MK">
+<meta property="og:title" content="Auto Luxury – Авто опрема, ЛЕД светла и додатоци">
+<meta property="og:description" content="Над 7.900 производи за вашето возило. Брза достава низ Македонија. ☎ +389 70 855 355">
+<meta property="og:url" content="https://autofolialuxury.github.io/autofolialuxury/store.html">
+<meta name="twitter:card" content="summary">
+<!-- të dhënat e biznesit për Google (dyqan pjesësh makinash në Sarај) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AutoPartsStore",
+  "name": "Auto Luxury",
+  "url": "https://autofolialuxury.github.io/autofolialuxury/store.html",
+  "telephone": "+38970855355",
+  "priceRange": "MKD",
+  "currenciesAccepted": "MKD",
+  "areaServed": "MK",
+  "address": { "@type": "PostalAddress", "addressLocality": "Сарај", "addressRegion": "Скопје", "addressCountry": "MK" }
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -173,7 +204,7 @@
     font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;margin-bottom:18px;color:#8a7240;
   }
   .kicker::before{content:"";width:36px;height:2px;background:var(--gold);border-radius:2px;}
-  .slide h1{font-size:clamp(34px,5vw,64px);line-height:1.02;max-width:13ch;letter-spacing:-.01em;}
+  .slide h2{font-size:clamp(34px,5vw,64px);line-height:1.02;max-width:13ch;letter-spacing:-.01em;}
   .slide p{color:var(--text-muted);font-size:17px;max-width:40ch;margin:18px 0 30px;line-height:1.55;}
   .cta{
     display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:#111;
@@ -248,6 +279,10 @@
   /* ---------- main categories ---------- */
   .groups{padding:56px 0 8px;}
   .groups h2{font-size:22px;margin-bottom:22px;}
+  /* titulli kryesor i faqes (një h1 i vetëm, për Google dhe lexuesit e ekranit) */
+  .site-intro{margin-bottom:34px;}
+  .site-intro h1{font-size:28px;line-height:1.2;max-width:28ch;}
+  .site-intro p{color:var(--text-muted);font-size:15px;margin:8px 0 0;max-width:70ch;line-height:1.6;}
   .group-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:12px;}
   @media(max-width:1100px){ .group-grid{grid-template-columns:repeat(4,1fr);} }
   .group-tile{
@@ -333,6 +368,12 @@
     padding:12px 28px;border-radius:var(--radius);font-size:14px;font-weight:600;
   }
   .more-btn:hover{background:var(--gold);color:#141414;}
+  /* karta skeleton gjatë ngarkimit */
+  .sk{background:linear-gradient(90deg,#eeeeec 0%,#f7f7f5 50%,#eeeeec 100%);background-size:200% 100%;}
+  @media (prefers-reduced-motion: no-preference){ .sk{animation:sk-shine 1.2s linear infinite;} }
+  @keyframes sk-shine{from{background-position:200% 0;}to{background-position:-200% 0;}}
+  .sk-card .card-img{border-bottom:1px solid var(--border);}
+  .sk-line{height:12px;border-radius:6px;width:100%;}
   .empty-state{
     text-align:center;padding:64px 20px;color:var(--text-muted);border:1px dashed var(--border);
   }
@@ -398,8 +439,10 @@
   .ghost-btn{background:none;border:1px solid var(--border);color:var(--text-muted);padding:12px 16px;border-radius:var(--radius);flex:0 0 auto;}
   /* ---------- product details ---------- */
   .card-img{cursor:pointer;}
-  button.card-name{background:none;border:none;padding:0;color:inherit;font:inherit;font-size:15px;font-weight:600;text-align:left;cursor:pointer;}
-  button.card-name:hover,button.card-name:focus-visible{color:var(--gold);}
+  a.card-name{display:block;color:inherit;text-decoration:none;font-size:15px;font-weight:600;flex:1;}
+  a.card-name:hover,a.card-name:focus-visible{color:var(--gold);}
+  .pd-page{font-size:13px;font-weight:600;color:#8a7240;text-decoration:none;}
+  .pd-page:hover{text-decoration:underline;}
   .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0;}
   dialog.modal.pd-modal{max-width:1180px;width:calc(100% - 32px);padding:0;max-height:calc(100dvh - 32px);overflow-y:auto;}
   .pd-close{position:sticky;top:0;float:right;margin:8px 10px -48px 0;font-size:26px;z-index:3;width:40px;height:40px;background:var(--surface);border-radius:50%;}
@@ -469,7 +512,8 @@
     .slider{height:580px;}
     .slide .wrap{grid-template-columns:1fr;grid-template-rows:auto 1fr;gap:0;padding:28px 20px 80px;align-items:start;}
     .slide-visual{height:220px;order:-1;}
-    .slide h1{font-size:34px;}
+    .slide h2{font-size:34px;}
+    .site-intro h1{font-size:22px;}
     .slide p{font-size:15px;margin:12px 0 22px;}
     .slider-bar{bottom:18px;}
     .dot{width:30px;}
@@ -535,6 +579,10 @@
 
 <section class="groups" id="categories">
   <div class="wrap">
+    <div class="site-intro">
+      <h1>Авто опрема, ЛЕД светла и додатоци за вашето возило</h1>
+      <p>Auto Luxury од Сарај, Скопје – над 7.900 производи: ЛЕД амбиент и осветлување, волани и навлаки, спојлери и дифузери, автокозметика и опрема. Брза достава низ цела Македонија.</p>
+    </div>
     <h2>Категории</h2>
     <div class="group-grid" id="groupGrid"></div>
   </div>
@@ -571,6 +619,10 @@
     <section aria-labelledby="contactTitle">
       <h3 id="contactTitle">Контакт</h3>
       <p>Сарај, Скопје<br>Телефон: <a id="footPhone" href="tel:+38970855355"></a></p>
+    </section>
+    <section aria-labelledby="catsTitle">
+      <h3 id="catsTitle">Производи</h3>
+      <p><a href="c/index.html">Сите категории</a></p>
     </section>
   </div>
   <div class="wrap foot-row">
@@ -664,26 +716,54 @@ let CART = JSON.parse(localStorage.getItem('al_cart') || '[]');
 function saveCart(){ localStorage.setItem('al_cart', JSON.stringify(CART)); renderCart(); }
 
 /* ================= LOAD PRODUCTS ================= */
+/* Ngarkimi i produkteve:
+   - Supabase jep maksimum 1.000 rreshta për kërkesë, ndaj merren në pjesë;
+   - pjesa e parë vjen e para dhe shfaqet menjëherë; pjesët e tjera merren të gjitha NJËKOHËSISHT;
+   - renditja si te autoking: më të rejat lart (source_id = numri i produktit te autoking),
+     produktet e tua (pa source_id) dalin të parat. */
+let PRODUCTS_READY = false;
+const PRODUCT_QUERY = 'products?select=id,source_id,name,price,category,image_url&active=eq.true&order=source_id.desc.nullsfirst,created_at.desc,id';
+const prepProduct = p=>{ p.category = normCat(p.category); p.group = CAT_TO_GROUP[p.category] || ''; p.price = roundPrice(p.price); return p; };
+async function fetchPage(from, size, withCount){
+  const res = await fetch(`${SB_URL}/rest/v1/${PRODUCT_QUERY}&offset=${from}&limit=${size}`, {
+    headers: { apikey: SB_KEY, Authorization: 'Bearer ' + SB_KEY, ...(withCount ? {Prefer:'count=exact'} : {}) }
+  });
+  if(!res.ok) throw new Error(await res.text());
+  const total = withCount ? Number((res.headers.get('content-range')||'').split('/')[1]) || 0 : 0;
+  return { rows: await res.json(), total };
+}
+function refreshAll(keepCount){
+  buildGroups();
+  buildCategories();
+  renderGrid(keepCount);
+}
 async function loadProducts(){
-  // Supabase returns max 1000 rows per request, so fetch in pages
-  PRODUCTS = [];
+  const PAGE = 1000;
+  renderSkeleton();
   try{
-    const PAGE = 1000;
-    for(let from=0; ; from+=PAGE){
-      const chunk = await sbGet(`products?select=id,name,price,category,image_url&active=eq.true&order=source_id.desc.nullsfirst,created_at.desc,id&offset=${from}&limit=${PAGE}`);
-      // renditja si te autoking: më të rejat lart (source_id = numri i produktit te autoking, më i madh = më i ri);
-      // produktet e tua (pa source_id) dalin të parat
-      PRODUCTS.push(...chunk);
-      if(chunk.length < PAGE) break;
-    }
-  }catch(e){ console.error(e); }
-  PRODUCTS.forEach(p=>{ p.category = normCat(p.category); p.group = CAT_TO_GROUP[p.category] || ''; p.price = roundPrice(p.price); });
+    // 1) pjesa e parë (+ sa produkte janë gjithsej) → shfaqet menjëherë
+    const first = await fetchPage(0, PAGE, true);
+    PRODUCTS = first.rows.map(prepProduct);
+    refreshAll();
+    // 2) pjesët e tjera njëkohësisht
+    const rest = [];
+    for(let from = PAGE; from < (first.total || 0); from += PAGE) rest.push(fetchPage(from, PAGE, false));
+    const pages = await Promise.all(rest);
+    pages.forEach(pg=> PRODUCTS.push(...pg.rows.map(prepProduct)));
+  }catch(e){
+    console.error(e);
+    if(!PRODUCTS.length) document.getElementById('grid').innerHTML =
+      `<div class="empty-state" style="grid-column:1/-1">Производите не можеа да се вчитаат. Освежете ја страницата или јавете се на ${CONTACT_PHONE}.</div>`;
+  }
+  PRODUCTS_READY = true;
   // shporta e ruajtur më parë merr çmimet e reja
   CART.forEach(it=>{ const p = PRODUCTS.find(x=>String(x.id)===String(it.id)); if(p) it.price = Number(p.price); });
   saveCart();
-  buildGroups();
-  buildCategories();
-  renderGrid();
+  refreshAll(true); // ruan sa produkte ishin të hapura
+  if(SEARCH) searchDescriptions(SEARCH);
+  // store.html?p=<shifra> (nga butoni "Нарачај онлајн" në faqen e produktit) → hap produktin
+  const pk = new URLSearchParams(location.search).get('p');
+  if(pk){ const p = PRODUCTS.find(x=>productKey(x)===pk); if(p) openProduct(p.id); }
   // link i drejtpërdrejtë te rezultatet (p.sh. store.html?q=ambient)
   const q0 = new URLSearchParams(location.search).get('q');
   if(q0){ history.replaceState({view:'search', q:q0, y:0}, ''); showSearchPage(q0); }
@@ -808,7 +888,7 @@ function buildSlider(){
       <div class="wrap">
         <div class="slide-text">
           <div class="kicker">${escH(s.kicker)}</div>
-          <h1>${escH(s.title)}</h1>
+          <h2>${escH(s.title)}</h2>
           <p>${escH(s.text)}</p>
           <button class="cta" data-i="${i}">Види повеќе <span aria-hidden="true">→</span></button>
         </div>
@@ -900,6 +980,16 @@ const LAT2CYR = [['dzh','џ'],['zh','ж'],['ch','ч'],['sh','ш'],['gj','ѓ'],['
   ['o','о'],['p','п'],['r','р'],['s','с'],['t','т'],['u','у'],['f','ф'],['h','х'],['c','ц'],['ç','ч'],['ë','е'],['q','ќ'],['x','ѕ'],['y','и'],['w','в']];
 const toCyr = s => { let out=''; for(let i=0;i<s.length;){ const m = LAT2CYR.find(([l])=>s.startsWith(l,i)); if(m){ out+=m[1]; i+=m[0].length; } else { out+=s[i]; i++; } } return out; };
 const normS = s => toLat(String(s||'').toLowerCase()).replace(/ç/g,'ch').replace(/ë/g,'e');
+// adresa e faqes së produktit (p/<emri>-<shifra>.html) – e njëjta rregull si te sync/build-pages.mjs
+const decodeEnt = s => String(s||'').replace(/&nbsp;/g,' ').replace(/&quot;/g,'"').replace(/&#0?39;|&apos;/g,"'")
+  .replace(/&#(\d+);/g,(_,n)=>String.fromCodePoint(+n)).replace(/&#x([0-9a-f]+);/gi,(_,n)=>String.fromCodePoint(parseInt(n,16)))
+  .replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&amp;/g,'&');
+const slugify = s => decodeEnt(s).toLowerCase().replace(/[а-яёѓѕјљњќџ]/g, c => CYR2LAT[c] ?? c)
+  .normalize('NFKD').replace(/[̀-ͯ]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'').slice(0,70).replace(/-+$/,'');
+const productKey = p => p.source_id != null ? String(p.source_id) : String(p.id).replace(/-/g,'').slice(0,10);
+const productHref = p => `p/${slugify(p.name) || 'proizvod'}-${productKey(p)}.html`;
+// klik i thjeshtë hap dritaren; Ctrl/Cmd/Shift-klik ose "hape në tab të ri" hap faqen e produktit
+function cardClick(e, id){ if(e.ctrlKey || e.metaKey || e.shiftKey || e.button === 1) return true; e.preventDefault(); openProduct(id); return false; }
 const compactS = s => normS(s).replace(/[\s\-–—_\/.,:;()+]+/g,'');
 const searchTokens = q => normS(q).split(/[\s,;]+/).filter(Boolean);
 let DESC_HITS = new Set(), DESC_HITS_FOR = '';
@@ -958,12 +1048,13 @@ function renderGrid(keepCount){
   const grid = document.getElementById('grid');
   const moreBtn = document.getElementById('moreBtn');
   const list = currentList();
+  grid.removeAttribute('aria-busy');
   document.getElementById('productsTitle').textContent = NEW_ONLY ? 'Нови производи' : SEARCH ? `Резултати за „${SEARCH}“` : 'Производи';
   document.querySelectorAll('.navbar2 [data-nav]').forEach(a=>{
     const cur = (a.dataset.nav==='new' && NEW_ONLY) || (a.dataset.nav==='all' && !NEW_ONLY && !SEARCH && !ACTIVE_GROUP && ACTIVE_CAT==='Сите');
     if(cur) a.setAttribute('aria-current','true'); else a.removeAttribute('aria-current');
   });
-  document.getElementById('resultCount').textContent = list.length + ' производи';
+  document.getElementById('resultCount').textContent = list.length.toLocaleString('mk-MK') + ' производи' + (PRODUCTS_READY ? '' : ' · се вчитуваат уште…');
   if(list.length===0){
     grid.innerHTML = '<div class="empty-state" style="grid-column:1/-1">Нема производи.</div>';
     moreBtn.style.display = 'none';
@@ -975,7 +1066,7 @@ function renderGrid(keepCount){
       <div class="card-img" onclick="openProduct('${p.id}')">${p.image_url ? `<img src="${escH(p.image_url)}" alt="${escH(p.name)}" loading="lazy">` : 'AUTO LUXURY'}</div>
       <div class="card-body">
         <div class="card-cat">${escH(p.category)}</div>
-        <button type="button" class="card-name" onclick="openProduct('${p.id}')">${escH(p.name)}</button>
+        <a class="card-name" href="${escH(productHref(p))}" onclick="return cardClick(event,'${p.id}')">${escH(p.name)}</a>
         <div class="card-row">
           <div class="card-price">${money(p.price)}</div>
           <button class="add-btn" onclick="addToCart('${p.id}')">Додади</button>
@@ -984,7 +1075,27 @@ function renderGrid(keepCount){
     </article>
   `).join('');
 }
+// karta gri që "ngarkohen" derisa të vijnë produktet
+function renderSkeleton(){
+  document.getElementById('resultCount').textContent = 'Се вчитува…';
+  document.getElementById('grid').innerHTML = Array.from({length:12}, ()=>`
+    <div class="card sk-card" aria-hidden="true">
+      <div class="card-img sk"></div>
+      <div class="card-body"><div class="sk sk-line" style="width:40%"></div><div class="sk sk-line"></div><div class="sk sk-line" style="width:70%"></div></div>
+    </div>`).join('');
+  document.getElementById('grid').setAttribute('aria-busy','true');
+}
 document.getElementById('moreBtn').onclick = ()=>{ SHOWN += SHOW_STEP; renderGrid(true); };
+// kur zbret afër fundit, shtohen vetë 60 produktet e radhës (butoni mbetet për tastierë)
+const moreIO = new IntersectionObserver(es=>{
+  const btn = document.getElementById('moreBtn');
+  if(es[0].isIntersecting && btn.style.display !== 'none'){
+    SHOWN += SHOW_STEP; renderGrid(true);
+    // rivëzhgo, që nëse butoni është ende afër, të shtohen edhe 60 të tjera
+    moreIO.unobserve(btn); requestAnimationFrame(()=> moreIO.observe(btn));
+  }
+}, {rootMargin:'0px 0px 800px 0px'});
+moreIO.observe(document.getElementById('moreBtn'));
 /* ================= FAQJA E REZULTATEVE =================
    Enter / 🔍 hap një faqe të veçantë me rezultatet (adresa bëhet ?q=...).
    Butoni "mbrapa" i shfletuesit ose "← Назад" të kthen aty ku ishe, në të njëjtin vend të faqes. */
@@ -1197,6 +1308,7 @@ async function openProduct(id){
       <div class="pd-info">
         <div class="card-cat">${escH(p.category)}</div>
         <h3 id="pdTitle">${escH(p.name)}</h3>
+        <a class="pd-page" href="${escH(productHref(p))}">Отвори ја страницата на производот ↗</a>
         <div class="pd-price">${money(p.price)}</div>
         <button class="primary-btn" autofocus onclick="closeProduct();addToCart(PRODUCTS.find(x=>String(x.id)==='${p.id}').id)">Додади во кошничка</button>
         <div class="pd-desc" id="pdDesc">Се вчитува...</div>
