@@ -24,6 +24,25 @@ const strip = s => (s || '')
   .replace(/&nbsp;/g, ' ').replace(/&#8211;/g, '–').replace(/&#8217;/g, '’')
   .replace(/&quot;/g, '"').replace(/&amp;/g, '&')
   .replace(/\s+/g, ' ').trim();
+// tekst me rreshta (përshkrimi): ruan paragrafët dhe listat si te autoking
+const decodeAll = s => s
+  .replace(/&nbsp;/g, ' ').replace(/&quot;/g, '"').replace(/&#0?39;|&apos;/g, "'")
+  .replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(+n))
+  .replace(/&#x([0-9a-f]+);/gi, (_, n) => String.fromCodePoint(parseInt(n, 16)))
+  .replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&');
+const stripText = s => decodeAll((s || '')
+    .replace(/\s*\r?\n\s*/g, ' ') // kalimet e rreshtit brenda HTML nuk kanë rëndësi; rreshtat vijnë nga <br>, <p>, <div>
+    .replace(/<br\s*\/?>/gi, '\n')
+    .replace(/<li[^>]*>/gi, '\n• ')
+    .replace(/<\/(p|div|li|ul|ol|h[1-6]|tr)>/gi, '\n')
+    .replace(/<[^>]+>/g, ''))
+  .split('\n').map(l => l.replace(/[ \t ]+/g, ' ').trim()).join('\n')
+  .replace(/\n{3,}/g, '\n\n').trim();
+// të dy tekstet e autoking: i shkurtri (shpesh: për cilat makina, p.sh. "A/CLA Class 2013-2017") + i plotë
+const fullDescription = p => {
+  const parts = [stripText(p.short_description), stripText(p.description)].filter(Boolean);
+  return [...new Set(parts)].join('\n\n');
+};
 // rrumbullakim në denar të plotë (me rrumbullakim në 10 den, 1% humbet te çmimet e vogla, p.sh. 300 → 297 → 300)
 // gjithmonë të paktën 1 den më lirë (te çmimet nën 50 den, 1% rrumbullakohet në 0)
 const newPrice = orig => Math.max(1, Math.min(Math.round(orig * (1 - DISCOUNT / 100)), orig - 1));
@@ -61,7 +80,7 @@ async function fetchSource() {
     rows.set(p.id, {
       source_id: p.id,
       name: strip(p.name),
-      description: strip(p.description || p.short_description),
+      description: fullDescription(p),
       price: newPrice(orig),
       category: strip(p.categories?.[0]?.name).replace(/–/g, '-'),
       image_url: p.images?.[0]?.src || '',
