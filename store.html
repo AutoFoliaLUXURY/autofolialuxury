@@ -270,6 +270,23 @@
   .field input:focus,.field textarea:focus{outline:none;border-color:var(--gold);}
   .modal-actions{display:flex;gap:10px;margin-top:18px;}
   .ghost-btn{background:none;border:1px solid var(--border);color:var(--text-muted);padding:12px 16px;border-radius:var(--radius);flex:0 0 auto;}
+  /* ---------- product details ---------- */
+  .card-img,.card-name{cursor:pointer;}
+  .card-name:hover{color:var(--gold);}
+  .pd-modal{max-width:820px;padding:0;max-height:calc(100vh - 40px);overflow-y:auto;position:relative;}
+  .pd-close{position:absolute;top:10px;right:14px;font-size:26px;z-index:2;}
+  .pd-grid{display:grid;grid-template-columns:1fr 1fr;}
+  .pd-img{background:#fff;display:flex;align-items:center;justify-content:center;aspect-ratio:1/1;border-right:1px solid var(--border);}
+  .pd-img img{width:100%;height:100%;object-fit:contain;}
+  .pd-info{padding:28px;display:flex;flex-direction:column;gap:12px;}
+  .pd-info h3{font-size:19px;line-height:1.35;margin:0;}
+  .pd-price{font-family:'Unbounded',sans-serif;font-size:22px;color:var(--gold);}
+  .pd-desc{font-size:14px;line-height:1.6;color:var(--text-muted);white-space:pre-line;border-top:1px solid var(--border);padding-top:14px;}
+  @media(max-width:700px){
+    .pd-grid{grid-template-columns:1fr;}
+    .pd-img{border-right:none;border-bottom:1px solid var(--border);}
+    .pd-info{padding:20px;}
+  }
   .success-box{text-align:center;padding:20px 0;}
   .success-box .mark{font-size:38px;color:var(--gold);margin-bottom:14px;font-family:'Unbounded',sans-serif;}
 
@@ -361,6 +378,11 @@
     <button class="primary-btn" id="checkoutBtn">Продолжи со порачка</button>
   </div>
 </aside>
+
+<!-- product details modal -->
+<div class="modal-wrap" id="pdWrap">
+  <div class="modal pd-modal" id="pdInner"></div>
+</div>
 
 <!-- checkout modal -->
 <div class="modal-wrap" id="modalWrap">
@@ -594,10 +616,10 @@ function renderGrid(keepCount){
   moreBtn.style.display = list.length > SHOWN ? 'block' : 'none';
   grid.innerHTML = list.slice(0, SHOWN).map(p=>`
     <div class="card">
-      <div class="card-img">${p.image_url ? `<img src="${escH(p.image_url)}" alt="${escH(p.name)}" loading="lazy">` : 'AUTO LUXURY'}</div>
+      <div class="card-img" onclick="openProduct('${p.id}')">${p.image_url ? `<img src="${escH(p.image_url)}" alt="${escH(p.name)}" loading="lazy">` : 'AUTO LUXURY'}</div>
       <div class="card-body">
         <div class="card-cat">${escH(p.category)}</div>
-        <div class="card-name">${escH(p.name)}</div>
+        <div class="card-name" onclick="openProduct('${p.id}')">${escH(p.name)}</div>
         <div class="card-row">
           <div class="card-price">${money(p.price)}</div>
           <button class="add-btn" onclick="addToCart('${p.id}')">Додади</button>
@@ -612,6 +634,52 @@ document.getElementById('searchBox').oninput = e=>{
   clearTimeout(searchTimer);
   searchTimer = setTimeout(()=>{ SEARCH = e.target.value.trim(); renderGrid(); }, 200);
 };
+
+/* ================= PRODUCT DETAILS =================
+   Teksti (description) merret vetëm kur hapet produkti, që faqja të ngarkohet shpejt. */
+const pdWrap = document.getElementById('pdWrap');
+const DESC_CACHE = {};
+// Importuesi dhe telefoni i autoking-ut zëvendësohen me tonët (te tekstet e të gjitha produkteve)
+const OUR_IMPORTER = 'Увозник: AutoLuxuryMK, Сарај, +38970855355';
+function fixDesc(t){
+  return String(t||'')
+    .replace(/Увозник\s*:\s*Карикс\s*Груп[\s\S]{0,90}?Скопје,?(\s*\+\s*389\s*78\s*\/?\s*394\s*-?\s*07\d?)?/gi, OUR_IMPORTER)
+    .replace(/Увозник\s*:\s*(Мега\s+Ауто\s+Парц|МАТРИКС)\s*[–-]\s*Скопје/gi, OUR_IMPORTER)
+    .replace(/Увозник\s*:\s*Макорбитал/gi, OUR_IMPORTER)
+    .replace(/Карикс\s*Груп/gi, 'AutoLuxuryMK')
+    .replace(/\+\s*389\s*78\s*\/?\s*394\s*-?\s*07\d?/g, '+38970855355');
+}
+async function openProduct(id){
+  const p = PRODUCTS.find(x=>String(x.id)===String(id));
+  if(!p) return;
+  const box = document.getElementById('pdInner');
+  box.innerHTML = `
+    <button class="icon-btn pd-close" onclick="closeProduct()" aria-label="Затвори">✕</button>
+    <div class="pd-grid">
+      <div class="pd-img">${p.image_url ? `<img src="${escH(p.image_url)}" alt="${escH(p.name)}">` : 'AUTO LUXURY'}</div>
+      <div class="pd-info">
+        <div class="card-cat">${escH(p.category)}</div>
+        <h3>${escH(p.name)}</h3>
+        <div class="pd-price">${money(p.price)}</div>
+        <button class="primary-btn" onclick="closeProduct();addToCart(PRODUCTS.find(x=>String(x.id)==='${p.id}').id)">Додади во кошничка</button>
+        <div class="pd-desc" id="pdDesc">Се вчитува...</div>
+      </div>
+    </div>`;
+  pdWrap.classList.add('show');
+  document.body.style.overflow = 'hidden';
+  let desc = DESC_CACHE[id];
+  if(desc === undefined){
+    try{
+      const r = await sbGet(`products?select=description&id=eq.${encodeURIComponent(id)}`);
+      desc = DESC_CACHE[id] = fixDesc((r[0] && r[0].description) || '');
+    }catch(e){ console.error(e); desc = ''; }
+  }
+  const el = document.getElementById('pdDesc');
+  if(el) el.textContent = desc || 'За повеќе информации јавете се на ' + CONTACT_PHONE + '.';
+}
+function closeProduct(){ pdWrap.classList.remove('show'); document.body.style.overflow = ''; }
+pdWrap.onclick = e=>{ if(e.target===pdWrap) closeProduct(); };
+document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeProduct(); });
 
 /* ================= CART ================= */
 function addToCart(id){
