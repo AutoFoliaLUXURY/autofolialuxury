@@ -511,6 +511,12 @@ const DB = {
   async updateOrderStatus(id,status){
     await sbRest('orders?id=eq.'+id, { method:'PATCH', body:JSON.stringify({status}) });
     const o=this.data.orders.find(x=>x.id===id); if(o) o.status=status;
+  },
+  async deleteOrder(id){
+    // return=representation so we can tell if RLS silently blocked the delete
+    const rows = await sbRest('orders?id=eq.'+id, { method:'DELETE', headers:{ Prefer:'return=representation' } });
+    if(Array.isArray(rows) && rows.length===0) throw new Error('NO_DELETE_PERMISSION');
+    this.data.orders = this.data.orders.filter(x=>String(x.id)!==String(id));
   }
 };
 
@@ -1278,7 +1284,8 @@ function renderOrders(){
         <div style="text-align:right">
           <small class="muted">${d.toLocaleDateString('mk-MK')} ${d.toLocaleTimeString('mk-MK',{hour:'2-digit',minute:'2-digit'})}</small><br>
           <select onchange="setOrderStatus('${o.id}',this.value)" style="margin-top:6px">${opts}</select><br>
-          <button onclick="printOrder('${o.id}')" style="margin-top:8px;padding:7px 14px;border:1px solid var(--line);background:var(--card);border-radius:8px;font-weight:600">🖨 Печати</button>
+          <button onclick="printOrder('${o.id}')" style="margin-top:8px;padding:7px 14px;border:1px solid var(--line);background:var(--card);border-radius:8px;font-weight:600">🖨 Печати</button><br>
+          <button class="btn red" onclick="removeOrder('${o.id}')" style="margin-top:8px">Избриши</button>
         </div>
       </div>
     </div>`;
@@ -1289,6 +1296,18 @@ async function setOrderStatus(id,status){
   busy(true);
   try{ await DB.updateOrderStatus(id,status); toast('Статусот е ажуриран'); }
   catch(e){ toast('Грешка'); console.error(e); }
+  busy(false);
+}
+async function removeOrder(id){
+  const o=(DB.data.orders||[]).find(x=>String(x.id)===String(id));
+  if(!confirm('Да се избрише порачката'+(o?' од '+o.customer_name:'')+'?')) return;
+  busy(true);
+  try{ await DB.deleteOrder(id); renderOrders(); toast('Избришано'); }
+  catch(e){
+    console.error(e);
+    if(String(e.message).includes('NO_DELETE_PERMISSION')) alert('Порачката не е избришана: во Supabase недостасува DELETE policy за табелата orders.');
+    else toast('Грешка');
+  }
   busy(false);
 }
 
