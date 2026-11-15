@@ -136,65 +136,111 @@
     width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;
   }
 
-  /* ---------- hero slider ---------- */
+  /* ---------- hero slider ----------
+     Kalim i butë mes slajdeve: teksti del shkallë-shkallë, fotoja hyn nga djathtas dhe del majtas,
+     zmadhim shumë i ngadaltë gjatë kohës që slajdi është aktiv. Me "reduce motion" vetëm zbehje, pa lëvizje. */
   .slider{
-    position:relative;height:clamp(440px,62vh,600px);overflow:hidden;
-    border-bottom:1px solid var(--border);background:var(--bg);
+    position:relative;height:clamp(460px,64vh,620px);overflow:hidden;
+    border-bottom:1px solid var(--border);background:#F4F4F2;isolation:isolate;
   }
   .slide{
     position:absolute;inset:0;opacity:0;visibility:hidden;
-    transition:opacity .9s ease, visibility 0s linear .9s;
+    transition:opacity .9s cubic-bezier(.4,0,.2,1), visibility 0s linear .9s;
     background:
-      radial-gradient(ellipse at 75% 45%, rgba(126,131,138,.16), transparent 60%),
-      radial-gradient(ellipse at 10% 100%, rgba(200,164,93,.10), transparent 55%),
-      linear-gradient(180deg,#FFFFFF 0%,#F1F2F4 100%);
+      radial-gradient(60% 70% at 78% 50%, rgba(200,164,93,.16), transparent 70%),
+      radial-gradient(40% 50% at 8% 95%, rgba(126,131,138,.12), transparent 70%),
+      linear-gradient(115deg,#FFFFFF 0%,#F6F5F1 55%,#EDEBE5 100%);
   }
-  .slide.active{opacity:1;visibility:visible;transition:opacity .9s ease;}
-  .slide .wrap{height:100%;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;}
-  .slide-text > *{opacity:0;transform:translateY(26px);}
-  .slide.active .slide-text > *{animation:rise .8s cubic-bezier(.2,.7,.2,1) forwards;}
-  .slide.active .slide-text > *:nth-child(2){animation-delay:.12s;}
-  .slide.active .slide-text > *:nth-child(3){animation-delay:.24s;}
-  .slide.active .slide-text > *:nth-child(4){animation-delay:.36s;}
-  @keyframes rise{to{opacity:1;transform:none;}}
+  .slide.active{opacity:1;visibility:visible;transition:opacity .9s cubic-bezier(.4,0,.2,1);}
+  .slide .wrap{height:100%;display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center;}
+  /* lë vend për shigjetat anash kur ekrani s'është shumë i gjerë */
+  @media(max-width:1400px){ .slide .wrap{padding-inline:84px;} }
+
+  /* teksti: secili rresht del me vonesë të vogël */
+  .slide-text > *{opacity:0;transition:opacity .5s ease, translate .5s ease;}
+  .slide.active .slide-text > *{opacity:1;transition:opacity .8s ease, translate .9s cubic-bezier(.16,1,.3,1);}
+  .slide.active .slide-text > :nth-child(1){transition-delay:.25s;}
+  .slide.active .slide-text > :nth-child(2){transition-delay:.35s;}
+  .slide.active .slide-text > :nth-child(3){transition-delay:.5s;}
+  .slide.active .slide-text > :nth-child(4){transition-delay:.62s;}
+  @media (prefers-reduced-motion: no-preference){
+    .slide-text > *{translate:0 28px;}
+    .slide.leaving .slide-text > *{translate:0 -18px;}
+    .slide.active .slide-text > *{translate:0 0;}
+  }
   .kicker{
-    font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;margin-bottom:18px;
-    background:var(--silver-grad);-webkit-background-clip:text;background-clip:text;color:transparent;
+    display:flex;align-items:center;gap:12px;
+    font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;margin-bottom:18px;color:#8a7240;
   }
-  .slide h1{font-size:clamp(32px,4.8vw,60px);line-height:1.04;max-width:13ch;}
-  .slide p{color:var(--text-muted);font-size:16px;max-width:42ch;margin:18px 0 28px;}
+  .kicker::before{content:"";width:36px;height:2px;background:var(--gold);border-radius:2px;}
+  .slide h1{font-size:clamp(34px,5vw,64px);line-height:1.02;max-width:13ch;letter-spacing:-.01em;}
+  .slide p{color:var(--text-muted);font-size:17px;max-width:40ch;margin:18px 0 30px;line-height:1.55;}
   .cta{
     display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:#111;
-    padding:14px 26px;border-radius:999px;font-weight:700;font-size:14px;border:none;
-    transition:transform .2s, box-shadow .2s;
+    padding:15px 28px;border-radius:999px;font-weight:700;font-size:14px;border:none;
+    box-shadow:0 10px 24px rgba(200,164,93,.28);
+    transition:translate .25s ease, box-shadow .25s ease, background-color .2s;
   }
-  .cta:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(200,164,93,.25);}
-  .slide-visual{position:relative;height:78%;display:flex;align-items:center;justify-content:center;}
+  .cta span{transition:translate .25s ease;}
+  .cta:hover{background:#d4b26c;box-shadow:0 14px 34px rgba(200,164,93,.38);}
+  .cta:focus-visible{outline:2px solid #111;outline-offset:3px;}
+  @media (prefers-reduced-motion: no-preference){
+    .cta:hover{translate:0 -2px;}
+    .cta:hover span{translate:4px 0;}
+  }
+
+  /* fotoja: pa kornizë, "noton" mbi një hije të butë */
+  /* multiply: sfondi i bardhë i fotove shkrihet me sfondin e slajdit (vendoset këtu, jo te img,
+     sepse animacioni i zmadhimit krijon shtresë të veçantë dhe img s'do ta shihte sfondin) */
+  .slide-visual{position:relative;height:82%;display:flex;align-items:center;justify-content:center;mix-blend-mode:multiply;}
   .slide-visual::before{
-    content:"";position:absolute;width:78%;aspect-ratio:1;border-radius:50%;
-    background:radial-gradient(circle, rgba(126,131,138,.14), transparent 65%);
-    border:1px solid rgba(126,131,138,.22);
+    content:"";position:absolute;width:74%;aspect-ratio:1;border-radius:50%;
+    background:radial-gradient(circle at 50% 45%, rgba(200,164,93,.10) 0%, rgba(200,164,93,.04) 50%, transparent 70%);
+    border:1px solid rgba(200,164,93,.22);
+  }
+  .slide-visual::after{
+    content:"";position:absolute;bottom:6%;width:52%;height:18px;border-radius:50%;
+    background:radial-gradient(closest-side, rgba(17,17,17,.18), transparent);filter:blur(4px);
   }
   .slide-visual img{
-    position:relative;max-width:78%;max-height:92%;object-fit:contain;border-radius:14px;
-    border:1px solid var(--border);background:#fff;
-    opacity:0;transform:scale(.9) translateX(40px);
-    box-shadow:0 24px 50px rgba(17,17,17,.14);
+    position:relative;z-index:1;max-width:80%;max-height:86%;object-fit:contain;
+    opacity:0;transition:opacity .6s ease, translate .6s ease, scale .6s ease;
   }
-  .slide.active .slide-visual img{animation:float-in 1.1s cubic-bezier(.2,.7,.2,1) .15s forwards;}
-  @keyframes float-in{to{opacity:1;transform:none;}}
+  .slide.active .slide-visual img{opacity:1;transition:opacity 1s ease .15s, translate 1.1s cubic-bezier(.16,1,.3,1) .15s, scale 1.1s cubic-bezier(.16,1,.3,1) .15s;}
+  @media (prefers-reduced-motion: no-preference){
+    .slide-visual img{translate:60px 0;scale:.94;}
+    .slide.leaving .slide-visual img{translate:-50px 0;scale:.97;}
+    .slide.active .slide-visual img{translate:0 0;scale:1;}
+    /* zmadhim shumë i ngadaltë gjatë kohës së slajdit */
+    .slide.active .slide-visual{animation:drift var(--slide-ms,6500ms) linear both;}
+    .slider.paused .slide.active .slide-visual{animation-play-state:paused;}
+  }
+  @keyframes drift{from{scale:1;}to{scale:1.05;}}
+  .slide-visual .ph-logo{position:relative;z-index:1;font-family:'Unbounded',sans-serif;font-size:28px;color:#d6d3cb;}
+
+  /* kontrollet */
   .slider-btn{
-    position:absolute;top:50%;transform:translateY(-50%);z-index:5;
-    width:46px;height:46px;border-radius:50%;border:1px solid var(--border);
-    background:rgba(255,255,255,.85);color:var(--text);font-size:20px;
+    position:absolute;top:50%;translate:0 -50%;z-index:5;
+    width:48px;height:48px;border-radius:50%;border:1px solid rgba(17,17,17,.08);
+    background:rgba(255,255,255,.75);backdrop-filter:blur(8px);color:var(--text);font-size:22px;line-height:1;
+    box-shadow:0 6px 18px rgba(17,17,17,.08);transition:background-color .2s, border-color .2s, color .2s;
   }
-  .slider-btn:hover{border-color:var(--silver);}
+  .slider-btn:hover,.slider-btn:focus-visible{background:#111;color:#fff;border-color:#111;}
+  .slider-btn:focus-visible{outline:2px solid var(--gold);outline-offset:3px;}
   .slider-btn.prev{left:20px;} .slider-btn.next{right:20px;}
-  .dots{position:absolute;bottom:26px;left:0;right:0;display:flex;justify-content:center;gap:10px;z-index:5;}
-  .dot{width:28px;height:3px;border:none;padding:0;background:var(--silver-light);position:relative;overflow:hidden;}
+  .slider-bar{
+    position:absolute;bottom:24px;left:0;right:0;z-index:5;
+    display:flex;align-items:center;justify-content:center;gap:16px;
+  }
+  .slide-count{font-family:'Unbounded',sans-serif;font-size:12px;color:var(--text-muted);min-width:56px;text-align:right;}
+  .slide-count b{color:var(--text);}
+  .dots{display:flex;gap:8px;}
+  .dot{width:42px;height:4px;border:none;padding:0;border-radius:4px;background:rgba(17,17,17,.12);position:relative;overflow:hidden;}
+  .dot:hover{background:rgba(17,17,17,.25);}
+  .dot:focus-visible{outline:2px solid var(--gold);outline-offset:4px;}
   .dot.active::after{
-    content:"";position:absolute;inset:0;background:var(--text);
-    transform-origin:left;animation:progress var(--slide-ms,6000ms) linear forwards;
+    content:"";position:absolute;inset:0;background:var(--gold);border-radius:4px;
+    transform-origin:left;animation:progress var(--slide-ms,6500ms) linear forwards;
   }
   .slider.paused .dot.active::after{animation-play-state:paused;}
   @keyframes progress{from{transform:scaleX(0);}to{transform:scaleX(1);}}
@@ -420,15 +466,20 @@
     .logo span{padding:3px 8px;}
     .cart-btn{padding:8px 12px;}
     .head-search{order:3;flex:1 1 100%;max-width:none;margin:0;}
-    .slider{height:560px;}
-    .slide .wrap{grid-template-columns:1fr;grid-template-rows:auto 1fr;gap:0;padding-top:40px;padding-bottom:70px;align-items:start;}
-    .slide-visual{height:200px;order:-1;}
+    .slider{height:580px;}
+    .slide .wrap{grid-template-columns:1fr;grid-template-rows:auto 1fr;gap:0;padding:28px 20px 80px;align-items:start;}
+    .slide-visual{height:220px;order:-1;}
+    .slide h1{font-size:34px;}
+    .slide p{font-size:15px;margin:12px 0 22px;}
+    .slider-bar{bottom:18px;}
+    .dot{width:30px;}
     .slider-btn{display:none;}
     .group-grid{grid-template-columns:repeat(2,1fr);}
   }
+  /* "reduce motion": kategoritë vetëm zbehen, pa lëvizje */
   @media(prefers-reduced-motion:reduce){
-    *,*::before,*::after{transition:none!important;animation-duration:.01ms!important;animation-delay:0s!important;}
-    .group-tile{opacity:1;transform:none;}
+    .group-tile,.group-tile.in,.group-tile:hover{transform:none;}
+    .group-tile::after{display:none;}
   }
 </style>
 </head>
@@ -471,11 +522,15 @@
   </div>
 </header>
 
-<section class="slider" id="top" aria-roledescription="carousel">
+<section class="slider" id="top" aria-roledescription="carousel" aria-label="Издвоено">
   <div id="slides"></div>
-  <button class="slider-btn prev" id="prevSlide" aria-label="Претходен">&#8249;</button>
-  <button class="slider-btn next" id="nextSlide" aria-label="Следен">&#8250;</button>
-  <div class="dots" id="dots"></div>
+  <button class="slider-btn prev" id="prevSlide" aria-label="Претходен слајд">&#8249;</button>
+  <button class="slider-btn next" id="nextSlide" aria-label="Следен слајд">&#8250;</button>
+  <div class="slider-bar">
+    <span class="slide-count" id="slideCount" aria-hidden="true"></span>
+    <div class="dots" id="dots"></div>
+  </div>
+  <div class="sr-only" id="slideStatus" aria-live="polite"></div>
 </section>
 
 <section class="groups" id="categories">
@@ -628,7 +683,6 @@ async function loadProducts(){
   saveCart();
   buildGroups();
   buildCategories();
-  buildSlider();
   renderGrid();
   // link i drejtpërdrejtë te rezultatet (p.sh. store.html?q=ambient)
   const q0 = new URLSearchParams(location.search).get('q');
@@ -734,28 +788,23 @@ function buildCategories(){
 /* ================= SLIDER =================
    Ndrysho tekstet këtu. "group" = cila kategori hapet me butonin.
    "image" = link i figurës (nëse e lë bosh, merret automatikisht një produkt nga ajo kategori). */
-const SLIDE_MS = 6000;
+const SLIDE_MS = 6500;
 const SLIDES = [
   { kicker:'Ексклузивни модели', title:'Накрајници за ауспух', text:'Карбон, хром и црни завршници за секој стил.', group:'ЕКСТЕРИЕР', cat:'НАКРАЈНИК ЗА АУСПУХ', image:'' },
   { kicker:'Нова генерација',     title:'ЛЕД светла и барови', text:'Посилна светлина, помала потрошувачка.',      group:'ОСВЕТЛУВАЊЕ', cat:'ЛЕД', image:'' },
   { kicker:'Чистење и нега',      title:'Автокозметика',       text:'Сè што ви треба за возило што сјае.',         group:'АВТОКОЗМЕТИКА', cat:'', image:'' },
   { kicker:'Ентериер',            title:'Волани и навлаки',    text:'Премиум допир при секое возење.',             group:'ИНТЕРИЕР', cat:'ВОЛАНИ', image:'' },
 ];
-let slideIdx = 0, slideTimer = null;
+let slideIdx = 0;
+const sliderEl = document.querySelector('.slider');
 
+/* Slider-i ndërtohet menjëherë (pa pritur 8.000 produktet); fotot merren me 4 kërkesa të vogla. */
 function buildSlider(){
   const wrap = document.getElementById('slides');
   const dots = document.getElementById('dots');
-  document.querySelector('.slider').style.setProperty('--slide-ms', SLIDE_MS+'ms');
-  wrap.innerHTML = SLIDES.map((s,i)=>{
-    let img = s.image;
-    if(!img){
-      const pool = PRODUCTS.filter(p=>p.image_url && (s.cat ? p.category===normCat(s.cat) : p.group===s.group));
-      pool.sort((a,b)=>Number(b.price)-Number(a.price));
-      img = pool[0]?.image_url || '';
-    }
-    return `
-    <div class="slide${i===0?' active':''}" aria-hidden="${i!==0}">
+  sliderEl.style.setProperty('--slide-ms', SLIDE_MS + 'ms');
+  wrap.innerHTML = SLIDES.map((s,i)=>`
+    <div class="slide${i===0?' active':''}" role="group" aria-roledescription="слајд" aria-label="${i+1} од ${SLIDES.length}" ${i!==0?'inert':''}>
       <div class="wrap">
         <div class="slide-text">
           <div class="kicker">${escH(s.kicker)}</div>
@@ -763,45 +812,74 @@ function buildSlider(){
           <p>${escH(s.text)}</p>
           <button class="cta" data-i="${i}">Види повеќе <span aria-hidden="true">→</span></button>
         </div>
-        <div class="slide-visual">${img ? `<img src="${escH(img)}" alt=""${i===0 ? ' fetchpriority="high"' : ' fetchpriority="low" loading="lazy"'}>` : ''}</div>
+        <div class="slide-visual" id="slideVis${i}">${s.image ? slideImg(s.image, i) : '<span class="ph-logo" aria-hidden="true">AUTO LUXURY</span>'}</div>
       </div>
-    </div>`;
-  }).join('');
-  dots.innerHTML = SLIDES.map((_,i)=>`<button class="dot${i===0?' active':''}" aria-label="Слајд ${i+1}" data-i="${i}"></button>`).join('');
+    </div>`).join('');
+  dots.innerHTML = SLIDES.map((s,i)=>`<button class="dot${i===0?' active':''}" aria-label="Слајд ${i+1}: ${escH(s.title)}" ${i===0?'aria-current="true"':''} data-i="${i}"></button>`).join('');
   wrap.querySelectorAll('.cta').forEach(b=>b.onclick = ()=>{
     const s = SLIDES[+b.dataset.i];
     selectGroup(s.group, true);
     if(s.cat){ ACTIVE_CAT = normCat(s.cat); buildCategories(); renderGrid(); }
   });
-  dots.querySelectorAll('.dot').forEach(d=>d.onclick = ()=>goSlide(+d.dataset.i));
-  slideIdx = 0;
-  startAuto();
+  dots.querySelectorAll('.dot').forEach(d=>d.onclick = ()=>goSlide(+d.dataset.i, true));
+  // kur mbaron shiriti i artë i progresit, kalon te slajdi tjetër – pa ndalur
+  dots.addEventListener('animationend', e=>{ if(e.animationName === 'progress') goSlide(slideIdx + 1); });
+  updateCount();
+  loadSlideImages();
 }
-function goSlide(i){
+function slideImg(src, i){
+  return `<img src="${escH(src)}" alt=""${i===0 ? ' fetchpriority="high"' : ' fetchpriority="low"'} decoding="async">`;
+}
+async function loadSlideImages(){
+  await Promise.all(SLIDES.map(async (s,i)=>{
+    if(s.image) return;
+    const cats = s.cat ? [s.cat] : (GROUPS.find(g=>g.name===s.group)?.cats || []);
+    const list = cats.map(c=>`"${c.replace(/"/g,'')}"`).join(',');
+    try{
+      const r = await sbGet(`products?select=image_url&active=eq.true&image_url=like.http*&category=in.(${encodeURIComponent(list)})&order=price.desc&limit=1`);
+      if(r[0]?.image_url){
+        s.image = r[0].image_url;
+        const vis = document.getElementById('slideVis' + i);
+        if(vis) vis.innerHTML = slideImg(s.image, i);
+      }
+    }catch(e){ console.error(e); }
+  }));
+}
+function updateCount(){
+  const pad = n => String(n).padStart(2,'0');
+  document.getElementById('slideCount').innerHTML = `<b>${pad(slideIdx+1)}</b> / ${pad(SLIDES.length)}`;
+}
+function goSlide(i, announce){
   const slides = document.querySelectorAll('.slide');
   const dots = document.querySelectorAll('.dot');
   if(!slides.length) return;
+  const prev = slideIdx;
   slideIdx = (i + slides.length) % slides.length;
-  slides.forEach((s,k)=>{ s.classList.toggle('active', k===slideIdx); s.setAttribute('aria-hidden', k!==slideIdx); });
-  dots.forEach((d,k)=>{ d.classList.remove('active'); if(k===slideIdx){ void d.offsetWidth; d.classList.add('active'); } });
-  startAuto();
+  if(prev === slideIdx) return;
+  slides.forEach((s,k)=>{
+    s.classList.toggle('active', k===slideIdx);
+    s.classList.toggle('leaving', k===prev);
+    s.inert = k!==slideIdx;
+  });
+  setTimeout(()=> slides[prev]?.classList.remove('leaving'), 900);
+  dots.forEach((d,k)=>{
+    d.classList.remove('active'); d.removeAttribute('aria-current');
+    if(k===slideIdx){ void d.offsetWidth; d.classList.add('active'); d.setAttribute('aria-current','true'); }
+  });
+  updateCount();
+  // vetëm kur e ndërron vetë përdoruesi, që lexuesi i ekranit të mos flasë çdo 6 sekonda
+  if(announce) document.getElementById('slideStatus').textContent = `Слајд ${slideIdx+1} од ${SLIDES.length}: ${SLIDES[slideIdx].title}`;
 }
-function startAuto(){
-  clearInterval(slideTimer);
-  if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  slideTimer = setInterval(()=>{ if(!document.querySelector('.slider').classList.contains('paused')) goSlide(slideIdx+1); }, SLIDE_MS);
-}
-document.getElementById('prevSlide').onclick = ()=>goSlide(slideIdx-1);
-document.getElementById('nextSlide').onclick = ()=>goSlide(slideIdx+1);
+document.getElementById('prevSlide').onclick = ()=>goSlide(slideIdx-1, true);
+document.getElementById('nextSlide').onclick = ()=>goSlide(slideIdx+1, true);
 (()=>{
-  const sl = document.querySelector('.slider');
-  sl.addEventListener('mouseenter', ()=>sl.classList.add('paused'));
-  sl.addEventListener('mouseleave', ()=>{ sl.classList.remove('paused'); goSlide(slideIdx); });
+  // lëviz pa ndalur; ndalet vetëm kur faqja s'shihet fare (tab tjetër), që të mos harxhojë kot
+  document.addEventListener('visibilitychange', ()=> sliderEl.classList.toggle('paused', document.hidden));
   let x0 = null;
-  sl.addEventListener('touchstart', e=>{ x0 = e.touches[0].clientX; }, {passive:true});
-  sl.addEventListener('touchend', e=>{
+  sliderEl.addEventListener('touchstart', e=>{ x0 = e.touches[0].clientX; }, {passive:true});
+  sliderEl.addEventListener('touchend', e=>{
     if(x0===null) return; const dx = e.changedTouches[0].clientX - x0; x0 = null;
-    if(Math.abs(dx) > 40) goSlide(slideIdx + (dx < 0 ? 1 : -1));
+    if(Math.abs(dx) > 40) goSlide(slideIdx + (dx < 0 ? 1 : -1), true);
   });
 })();
 
@@ -1251,6 +1329,7 @@ document.getElementById('footPhone').textContent = CONTACT_PHONE;
 document.getElementById('year').textContent = new Date().getFullYear();
 
 renderCart();
+buildSlider();
 loadProducts();
 </script>
 </body>
