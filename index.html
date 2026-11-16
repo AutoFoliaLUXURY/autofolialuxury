@@ -20,7 +20,12 @@
 <meta property="og:title" content="Auto Luxury – Авто опрема, ЛЕД светла и додатоци">
 <meta property="og:description" content="Над 7.900 производи за вашето возило. Брза достава низ Македонија. ☎ +389 70 855 355">
 <meta property="og:url" content="https://autoluxury.mk/">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://autoluxury.mk/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Auto Luxury – авто опрема, ЛЕД светла и додатоци">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://autoluxury.mk/assets/og-image.png">
 <!-- të dhënat e biznesit për Google (dyqan pjesësh makinash në Sarај) -->
 <script type="application/ld+json">
 {
@@ -628,6 +633,19 @@
     .pd-info .primary-btn{position:sticky;bottom:12px;z-index:2;box-shadow:0 10px 24px -8px rgba(21,24,28,.35);}
     dialog.modal:not(.pd-modal){width:calc(100% - 24px);padding:22px 18px;}
     .modal h3{font-size:24px;}
+  }
+  /* ekranet me prekje: pa hover, pa "content-visibility" (në iPhone shkakton kërcime gjatë scroll-it),
+     hije më të lehta → scroll më i rrjedhshëm */
+  @media (hover:none){
+    .grid > .card{content-visibility:visible;}
+    .card,.perk,.group-tile,.cat-side,.sim-card{box-shadow:0 1px 3px rgba(21,24,28,.08);}
+    .card,.group-tile,.brand,.cta,.fab-call,.add-btn{transition:none;}
+    .card:hover{border-color:transparent;box-shadow:0 1px 3px rgba(21,24,28,.08);}
+    .card:hover .card-img img{scale:1;}
+    .group-tile:hover{translate:none;box-shadow:0 1px 3px rgba(21,24,28,.08);border-color:transparent;}
+    .group-tile.active{border-color:var(--ink);}
+    .brand:hover{translate:none;background:#fff;}
+    .card:active{border-color:var(--gold);}
   }
   /* pamja e zmadhuar në ekrane me prekje: zmadhohet me dy gishta, jo 200% me një prekje */
   @media (pointer:coarse){
@@ -1516,8 +1534,8 @@ async function openProduct(id){
     <button class="icon-btn pd-close" onclick="closeProduct()" aria-label="Затвори">✕</button>
     <div class="pd-grid">
       ${p.image_url
-        ? `<button type="button" class="pd-img" onclick="openZoom(this.querySelector('img').src, this.querySelector('img').alt)" aria-label="Зголеми ја сликата">
-             <img src="${escH(p.image_url)}" alt="${escH(p.name)}" fetchpriority="high">
+        ? `<button type="button" class="pd-img" onclick="openZoom(this.querySelector('img').dataset.full, this.querySelector('img').alt)" aria-label="Зголеми ја сликата">
+             ${imgTag(p.image_url, p.name, '(max-width:760px) 100vw, 600px', ' fetchpriority="high"').replace('src="'+escH(thumb(p.image_url,300))+'"', 'src="'+escH(thumb(p.image_url,600))+'"')}
              <span class="pd-zoom-hint" aria-hidden="true">🔍 Зголеми</span>
            </button>`
         : `<div class="pd-img">AUTO LUXURY</div>`}
