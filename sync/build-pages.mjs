@@ -93,7 +93,7 @@ const head = ({ title, desc, url, image, type = 'website', extra = '' }) => `<!D
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(desc)}">
 <link rel="canonical" href="${esc(url)}">
-<meta name="theme-color" content="#111111">
+<meta name="theme-color" content="#15181C">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23C8A45D'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='28' font-weight='800' text-anchor='middle' fill='%23111'%3EAL%3C/text%3E%3C/svg%3E">
 <meta property="og:type" content="${type}">
 <meta property="og:site_name" content="Auto Luxury">
@@ -102,30 +102,42 @@ const head = ({ title, desc, url, image, type = 'website', extra = '' }) => `<!D
 <meta property="og:description" content="${esc(desc)}">
 <meta property="og:url" content="${esc(url)}">
 ${image ? `<meta property="og:image" content="${esc(image)}">\n<meta name="twitter:card" content="summary_large_image">` : '<meta name="twitter:card" content="summary">'}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:ital,wght@0,700;0,800;1,800&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/pages.css">
 ${extra}
 </head>
 <body>
+<div class="tb"><div class="wrap tb-row">
+  <span><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Сарај, Скопје</span>
+  <a href="tel:${PHONE}"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>${PHONE_TXT}</a>
+  <span class="tb-hide"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M1 5h14v11H1z"/><path d="M15 9h4l3 3v4h-7"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg>Достава низ цела Македонија</span>
+</div></div>
 <header class="top">
   <div class="wrap bar">
-    <a class="logo" href="../store.html">AUTO<span>LUXURY</span></a>
+    <a class="logo" href="../store.html" aria-label="Auto Luxury – почетна"><span class="lx-auto">Auto</span><span class="lx-lux">Luxury</span></a>
     <search class="srch">
       <form action="../store.html" method="get">
         <label for="q" class="sr-only">Пребарај производи</label>
-        <input id="q" name="q" type="search" placeholder="Пребарај… (пр. F10, ambient)" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" enterkeyhint="search">
-        <button type="submit" aria-label="Пребарај">🔍</button>
+        <input id="q" name="q" type="search" placeholder="Пребарај производ, модел или шифра…" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" enterkeyhint="search">
+        <button type="submit" aria-label="Пребарај"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></button>
       </form>
     </search>
-    <a class="call" href="tel:${PHONE}">☎ ${PHONE_TXT}</a>
+    <a class="call" href="tel:${PHONE}"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><span>Јави се</span></a>
+    <a class="call" href="../store.html" aria-label="Кошничка"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.7 12.4a2 2 0 0 0 2 1.6h8.6a2 2 0 0 0 2-1.6L22 7H6"/></svg><span>Кошничка</span></a>
   </div>
   <nav class="nav" aria-label="Главна навигација"><div class="wrap">
-    <a href="../store.html">Почетна</a><a href="../c/index.html">Сите категории</a><a href="../store.html#contact">Контакт</a>
+    <a class="allc" href="../c/index.html">Сите категории</a><a href="../store.html">Почетна</a><a href="../store.html#products">Производи</a><a href="../store.html#brands">Брендови</a><a href="../store.html#contact">Контакт</a>
   </div></nav>
 </header>`;
-const foot = `<footer class="foot"><div class="wrap">
-  <p><b>Auto Luxury</b> – авто опрема и додатоци, Сарај, Скопје. Телефон: <a href="tel:${PHONE}">${PHONE_TXT}</a></p>
-  <p><a href="../c/index.html">Сите категории</a> · <a href="../store.html">Онлајн продавница</a></p>
+const foot = `<footer class="foot"><div class="wrap foot-in">
+  <div><a class="logo" href="../store.html"><span class="lx-auto">Auto</span><span class="lx-lux">Luxury</span></a>
+  <p>Авто опрема и додатоци, Сарај, Скопје. Брза достава низ цела Македонија.</p></div>
+  <div><p><b>Контакт</b><br><a href="tel:${PHONE}">${PHONE_TXT}</a></p>
+  <p><a href="../c/index.html">Сите категории</a><br><a href="../store.html">Онлајн продавница</a></p></div>
 </div></footer>
+<a class="fab" href="tel:${PHONE}"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Јави се</a>
 </body>
 </html>
 `;
@@ -174,8 +186,8 @@ function productPage(p, related) {
       <h1>${esc(p.dname)}</h1>
       <p class="price">${money(p.price)}</p>
       <p class="actions">
-        <a class="btn" href="../store.html?p=${esc(productKey(p))}">Нарачај онлајн</a>
-        <a class="btn2" href="tel:${PHONE}">☎ Јави се: ${PHONE_TXT}</a>
+        <a class="btn" href="../store.html?p=${esc(productKey(p))}"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.7 12.4a2 2 0 0 0 2 1.6h8.6a2 2 0 0 0 2-1.6L22 7H6"/></svg>Нарачај онлајн</a>
+        <a class="btn2" href="tel:${PHONE}"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Јави се: ${PHONE_TXT}</a>
       </p>
       <ul class="facts">
         <li>✓ Достава низ цела Македонија</li>
@@ -236,41 +248,69 @@ function categoriesIndex(byCat) {
 ` + foot;
 }
 
-const CSS = `:root{--gold:#C8A45D;--text:#141414;--muted:#5d6168;--border:#e4e4e1;--bg:#f6f6f4;--surface:#fff}
-*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--text);background:var(--bg);line-height:1.5}
-a{color:inherit}img{max-width:100%;height:auto}.wrap{max-width:1240px;margin:0 auto;padding:0 20px}
+const CSS = `:root{--ink:#15181C;--ink-2:#1F242A;--gold:#D2AE62;--gold-2:#E3C485;--gold-deep:#8C6A2B;--gold-soft:rgba(210,174,98,.16);--text:#191C20;--muted:#5E6570;--border:#DCE0E5;--bg:#ECEEF1;--surface:#fff;--surface-2:#F4F5F7;--r:12px;--shadow:0 1px 2px rgba(21,24,28,.06),0 8px 24px rgba(21,24,28,.06);--shadow-lift:0 2px 4px rgba(21,24,28,.06),0 18px 40px rgba(21,24,28,.12);--display:'Fira Sans Extra Condensed','Arial Narrow',sans-serif;--carbon:repeating-linear-gradient(45deg,rgba(255,255,255,.028) 0 3px,transparent 3px 6px),repeating-linear-gradient(-45deg,rgba(0,0,0,.28) 0 3px,transparent 3px 6px)}
+*{box-sizing:border-box}body{margin:0;font-family:Manrope,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:15px;color:var(--text);background:var(--bg);line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit}img{max-width:100%;height:auto}.wrap{max-width:1240px;margin:0 auto;padding:0 24px}
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
-.top{background:#fff;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:5}
-.bar{display:flex;align-items:center;gap:18px;min-height:68px;flex-wrap:wrap;padding-top:10px;padding-bottom:10px}
-.logo{font-weight:800;font-size:20px;text-decoration:none;display:inline-flex;gap:6px;align-items:center}
-.logo span{background:var(--gold);color:#111;padding:3px 9px;border-radius:8px}
-.srch{flex:1 1 280px;max-width:520px}.srch form{display:flex;border:2px solid var(--gold);border-radius:999px;overflow:hidden;background:#fff}
-.srch input{flex:1;min-width:0;border:0;padding:10px 14px;font:inherit;font-size:14px;outline:none}
-.srch button{border:0;background:var(--gold);padding:0 18px;cursor:pointer;font-size:15px}
-.call{margin-left:auto;font-weight:700;color:#8a7240;text-decoration:none;white-space:nowrap}
-.nav{background:#111}.nav .wrap{display:flex;gap:22px;height:42px;align-items:center;overflow-x:auto}
-.nav a{color:#fff;text-decoration:none;font-size:13px;font-weight:700;text-transform:uppercase;white-space:nowrap}.nav a:hover{color:var(--gold)}
-.crumbs ol{list-style:none;display:flex;flex-wrap:wrap;gap:6px;padding:0;margin:18px 0;font-size:13px;color:var(--muted)}
-.crumbs li+li::before{content:"›";margin-right:6px}.crumbs a{text-decoration:none}.crumbs a:hover{color:#8a7240}
-h1{font-size:clamp(24px,3vw,34px);line-height:1.2;margin:0 0 10px}h2{font-size:20px;margin:28px 0 12px}
-.lead{color:var(--muted);margin:0 0 22px;max-width:75ch}
-.prod{display:grid;grid-template-columns:1fr 1fr;gap:32px;background:#fff;border:1px solid var(--border);border-radius:12px;padding:24px}
-.pimg{display:flex;align-items:center;justify-content:center;background:#fff;aspect-ratio:1/1}.pimg img{width:100%;height:100%;object-fit:contain}
-.ph{color:#d6d3cb;font-weight:800}.pcat{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);text-decoration:none}
-.price{font-size:28px;font-weight:800;color:#8a7240;margin:6px 0 16px}
-.actions{display:flex;gap:10px;flex-wrap:wrap}.btn,.btn2{display:inline-block;padding:13px 22px;border-radius:999px;font-weight:700;text-decoration:none;font-size:14px}
-.btn{background:var(--gold);color:#111}.btn2{border:1px solid var(--border);background:#fff}.btn:hover{filter:brightness(.95)}.btn2:hover{border-color:var(--gold)}
-.facts{list-style:none;padding:0;margin:16px 0;color:var(--muted);font-size:14px}
-.desc{white-space:pre-line;color:#33363b;font-size:15px}
-.grid{list-style:none;padding:0;margin:0 0 30px;display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:14px}
-.pc{display:flex;flex-direction:column;gap:8px;height:100%;background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden;text-decoration:none}
-.pc:hover{border-color:var(--gold)}.pc img,.pc .ph{width:100%;aspect-ratio:1/1;object-fit:contain;display:flex;align-items:center;justify-content:center}
-.pc .n{padding:0 10px;font-size:13px;font-weight:600}.pc b{padding:0 10px 10px;margin-top:auto;color:#8a7240}
-.cats ul{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:8px}
-.cats a{display:flex;justify-content:space-between;background:#fff;border:1px solid var(--border);border-radius:8px;padding:10px 14px;text-decoration:none;font-weight:600;font-size:14px}
-.cats a:hover{border-color:var(--gold)}.cats small{color:var(--muted)}
-.foot{border-top:1px solid var(--border);margin-top:40px;padding:24px 0;color:var(--muted);font-size:14px;background:#fff}
-@media(max-width:760px){.prod{grid-template-columns:1fr;padding:16px}.call{margin-left:0}.grid{grid-template-columns:repeat(2,1fr)}}
+.ico{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto}
+:focus-visible{outline:2px solid var(--gold-deep);outline-offset:2px}
+.tb{background:var(--ink);color:#A3AAB3;font-size:13px}.tb-row{display:flex;align-items:center;gap:26px;height:38px}
+.tb-row>*{display:inline-flex;align-items:center;gap:7px;white-space:nowrap;text-decoration:none}.tb .ico{width:15px;height:15px;color:var(--gold)}.tb a:hover{color:#fff}
+.top{background:#fff;position:sticky;top:0;z-index:5;box-shadow:0 1px 0 var(--border)}
+.bar{display:flex;align-items:center;gap:22px;min-height:80px;flex-wrap:wrap;padding-top:10px;padding-bottom:10px}
+.logo{position:relative;display:inline-flex;align-items:baseline;gap:9px;padding:4px 0 9px;font-family:var(--display);font-style:italic;font-weight:800;text-transform:uppercase;line-height:.9;color:var(--text);text-decoration:none;flex:0 0 auto}
+.lx-auto,.lx-lux{font-size:36px}.lx-auto{letter-spacing:.015em}
+.lx-lux{letter-spacing:.05em;padding-right:.12em;background:linear-gradient(105deg,#6E4F1C 0%,#B88C3E 14%,#F8E7B0 28%,#D2AE62 40%,#8A672A 52%,#E8C97E 66%,#FFF4CF 74%,#B4883A 86%,#7A5A22 100%);background-size:240% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 1px 0 rgba(90,64,20,.25))}
+.logo::after{content:"";position:absolute;left:2px;right:0;bottom:0;height:2px;border-radius:2px;background:linear-gradient(90deg,currentColor 0 33%,transparent 33% 36%,#B88C3E 36%,#F8E7B0 62%,rgba(210,174,98,0) 100%)}
+@media (prefers-reduced-motion:no-preference){.lx-lux{animation:lx-shine 2.4s cubic-bezier(.4,0,.2,1) .4s both}.logo:hover .lx-lux{animation:lx-shine 1.4s cubic-bezier(.4,0,.2,1) both}}
+@keyframes lx-shine{from{background-position:100% 0}to{background-position:0 0}}
+.srch{flex:1 1 300px;max-width:580px}.srch form{display:flex;height:48px;border:1.5px solid var(--border);border-radius:var(--r);overflow:hidden;background:#fff;transition:border-color .2s,box-shadow .2s}
+.srch form:focus-within{border-color:var(--gold);box-shadow:0 0 0 4px var(--gold-soft)}
+.srch input{flex:1;min-width:0;border:0;padding:0 16px;font:inherit;font-size:14px;outline:none;background:transparent}
+.srch button{border:0;background:var(--gold);padding:0 20px;cursor:pointer;display:flex;align-items:center;color:var(--ink)}.srch button:hover{background:var(--gold-2)}
+.srch button svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2.4}
+.call{display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:14px;text-decoration:none;white-space:nowrap;padding:10px 12px;border-radius:var(--r)}.call:hover{background:var(--surface-2)}
+.call .ico{width:21px;height:21px}.srch+.call{margin-left:auto}
+.nav{background:var(--ink-2)}.nav .wrap{display:flex;gap:4px;height:50px;align-items:center;overflow-x:auto;scrollbar-width:none}
+.nav a{color:#F3F4F6;text-decoration:none;font-size:14px;font-weight:600;white-space:nowrap;padding:8px 12px;border-radius:8px}.nav a:hover{background:rgba(255,255,255,.07)}
+.nav a.allc{background:var(--gold);color:var(--ink);font-family:var(--display);font-size:17px;font-weight:800;text-transform:uppercase;letter-spacing:.03em;border-radius:0;height:100%;display:flex;align-items:center;padding:0 20px;margin-right:16px}.nav a.allc:hover{background:var(--gold-2)}
+.crumbs ol{list-style:none;display:flex;flex-wrap:wrap;gap:6px;padding:0;margin:22px 0;font-size:13px;color:var(--muted)}
+.crumbs li+li::before{content:"›";margin-right:6px}.crumbs a{text-decoration:none;font-weight:600}.crumbs a:hover{color:var(--gold-deep)}
+h1,h2{font-family:var(--display);font-weight:800;line-height:1.08;letter-spacing:.005em}
+h1{font-size:clamp(28px,3.4vw,42px);margin:0 0 12px}h2{font-size:24px;margin:30px 0 14px;text-transform:uppercase}
+.lead{color:var(--muted);margin:0 0 24px;max-width:75ch}.lead a{color:var(--gold-deep);font-weight:700}
+.prod{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0;background:#fff;border-radius:20px;overflow:hidden;box-shadow:var(--shadow)}
+.pimg{display:flex;align-items:center;justify-content:center;background:#fff;aspect-ratio:1/1;padding:28px;border-right:1px solid var(--surface-2)}.pimg img{width:100%;height:100%;object-fit:contain}
+.pinfo{padding:36px 34px}.pinfo h2{font-size:20px}
+.ph{color:var(--border);font-family:var(--display);font-style:italic;font-weight:800;font-size:22px}
+.pcat{font-size:12px;font-weight:700;letter-spacing:.04em;color:var(--gold-deep);text-decoration:none}.pcat:hover{text-decoration:underline}
+.price{font-family:var(--display);font-size:40px;font-weight:800;line-height:1;margin:8px 0 22px}
+.actions{display:flex;gap:10px;flex-wrap:wrap}
+.btn,.btn2{display:inline-flex;align-items:center;gap:9px;padding:14px 22px;border-radius:var(--r);font-weight:800;text-decoration:none;font-size:15px;transition:background-color .2s,border-color .2s}
+.btn{background:var(--gold);color:var(--ink);box-shadow:0 12px 30px -10px rgba(210,174,98,.6)}.btn:hover{background:var(--gold-2)}
+.btn2{border:1.5px solid var(--border);background:#fff}.btn2:hover{border-color:var(--gold)}
+.facts{list-style:none;padding:16px 0 0;margin:22px 0 0;color:var(--muted);font-size:14px;border-top:1px solid var(--surface-2);display:flex;flex-direction:column;gap:6px}
+.desc{white-space:pre-line;color:#3A3F46;font-size:15px}
+.grid{list-style:none;padding:0;margin:0 0 30px;display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:14px}
+.pc{display:flex;flex-direction:column;gap:8px;height:100%;background:#fff;border:1.5px solid transparent;border-radius:var(--r);overflow:hidden;text-decoration:none;box-shadow:var(--shadow);transition:border-color .2s,box-shadow .2s}
+.pc:hover{border-color:var(--gold);box-shadow:var(--shadow-lift)}
+.pc img,.pc .ph{width:100%;aspect-ratio:1/1;object-fit:contain;display:flex;align-items:center;justify-content:center;padding:12px}
+.pc .n{padding:0 14px;font-size:13px;font-weight:700;line-height:1.4}
+.pc b{padding:10px 14px 14px;margin-top:auto;font-family:var(--display);font-size:21px;font-weight:800;border-top:1px solid var(--surface-2)}
+.cats ul{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px}
+.cats a{display:flex;justify-content:space-between;align-items:center;background:#fff;border:1.5px solid transparent;border-radius:10px;padding:12px 16px;text-decoration:none;font-weight:700;font-size:14px;box-shadow:var(--shadow)}
+.cats a:hover{border-color:var(--gold)}.cats small{color:var(--gold-deep);font-weight:800}
+.foot{margin-top:56px;padding:44px 0 90px;color:#A3AAB3;font-size:14px;background-color:var(--ink);background-image:var(--carbon)}
+.foot-in{display:grid;grid-template-columns:1.4fr 1fr;gap:32px}.foot .logo{color:#fff;margin-bottom:14px}.foot p{margin:0 0 12px;line-height:1.7}
+.foot b{color:#fff}.foot a:not(.logo){color:var(--gold);font-weight:700;text-decoration:none}.foot a:not(.logo):hover{color:var(--gold-2)}
+.fab{position:fixed;right:22px;bottom:22px;z-index:9;display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:var(--ink);padding:14px 22px;border-radius:999px;font-weight:800;font-size:15px;text-decoration:none;box-shadow:0 14px 34px -8px rgba(21,24,28,.45),0 0 0 4px rgba(210,174,98,.25)}
+.fab:hover{background:var(--gold-2)}.fab .ico{width:20px;height:20px}
+@media(max-width:860px){.call span{display:none}}
+@media(max-width:760px){.wrap{padding:0 16px}.tb{display:none}.bar{gap:8px;min-height:0}.lx-auto,.lx-lux{font-size:28px}.logo{gap:7px}
+.srch{order:3;flex:1 1 100%;max-width:none}.srch form{height:46px}
+.prod{grid-template-columns:1fr}.pimg{border-right:0;border-bottom:1px solid var(--surface-2);padding:18px}.pinfo{padding:22px}.price{font-size:34px}
+.actions .btn,.actions .btn2{flex:1 1 100%;justify-content:center}
+.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.foot-in{grid-template-columns:1fr}.fab{right:14px;bottom:14px;padding:13px 18px}}
 `;
 
 /* ---------- 6. ndërto gjithçka ---------- */
