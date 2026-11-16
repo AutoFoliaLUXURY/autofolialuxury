@@ -151,6 +151,23 @@ input:focus,select:focus{outline:none;border-color:var(--dark)}
 .pill{display:inline-block;padding:3px 10px;border-radius:999px;font-size:12px;font-weight:700}
 .pill.green{background:var(--greenbg);color:var(--green)}
 .pill.gray{background:#f3f4f6;color:var(--muted)}
+/* slajderi */
+.slrow{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px;margin-bottom:10px;display:flex;align-items:center;gap:14px}
+.slrow.off{opacity:.55}
+.slthumb{width:96px;height:96px;border-radius:12px;background:#15181C;display:grid;place-items:center;flex:0 0 auto;overflow:hidden}
+.slthumb img{width:84px;height:84px;object-fit:contain;background:#fff;border-radius:9px}
+.slthumb span{color:#D2AE62;font-size:11px;font-weight:700;text-align:center;padding:6px}
+.slrow .info{flex:1;min-width:0}
+.slrow .info b{display:block;font-size:16px}
+.slrow .info small{display:block;color:var(--muted);margin-top:3px}
+.slbtns{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.slmove{display:flex;flex-direction:column;gap:4px}
+.slmove button{width:34px;height:30px;border:1px solid var(--line);background:#fff;border-radius:8px;font-size:14px}
+.slmove button:disabled{opacity:.3;cursor:default}
+.slpreview{margin:6px 0 4px;display:flex;align-items:center;gap:10px}
+.slpreview img{width:90px;height:90px;object-fit:contain;border-radius:12px;background:#fff;border:3px solid #D2AE62}
+textarea.fldta{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:10px;font:inherit;font-size:15px;resize:vertical}
+@media(max-width:820px){.slrow{flex-wrap:wrap}.slbtns{width:100%}.slbtns .btn{flex:1}}
 .pill.blue{background:#eff6ff;color:#1d4ed8}
 
 .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--dark);color:#fff;padding:12px 22px;border-radius:999px;font-weight:600;opacity:0;transition:.3s;z-index:200;pointer-events:none}
@@ -210,6 +227,7 @@ input:focus,select:focus{outline:none;border-color:var(--dark)}
       <button data-view="expenses">Трошоци</button>
       <button data-view="services">Услуги</button>
       <button data-view="products">Продукти</button>
+      <button data-view="slides">Слајдер</button>
       <button data-view="orders">Порачки</button>
       <button data-view="settings">Поставки</button>
     </nav>
@@ -311,6 +329,27 @@ input:focus,select:focus{outline:none;border-color:var(--dark)}
   </div>
 </div>
 
+<div class="overlay" id="slideOverlay">
+  <div class="modal">
+    <h3 id="slideTitle">Слајд</h3>
+    <label class="fld"><small>Мала златна етикета над насловот (опц.)</small><input type="text" id="s_kicker" placeholder="пр. Акција, Ново, Нова генерација"></label>
+    <label class="fld"><small>Наслов (голем текст)</small><input type="text" id="s_title" placeholder="пр. ЛЕД светла и барови"></label>
+    <label class="fld"><small>Краток текст под насловот (опц.)</small><textarea class="fldta" id="s_text" rows="2" placeholder="пр. Посилна светлина, помала потрошувачка."></textarea></label>
+    <div class="row2">
+      <label class="fld"><small>Копчето отвора категорија</small><select id="s_group"></select></label>
+      <label class="fld"><small>Поткатегорија (опц.)</small><input type="text" id="s_cat" list="s_catlist" placeholder="пр. ЛЕД"><datalist id="s_catlist"></datalist></label>
+    </div>
+    <label class="fld"><small>Слика (најдобро квадратна, на бела позадина). Ако нема слика, се зема најскапиот производ од категоријата.</small>
+      <input type="file" id="s_imagefile" accept="image/*" onchange="previewSlideImage()">
+    </label>
+    <div class="slpreview" id="s_imgpreview"></div>
+    <div class="actions">
+      <button class="btn ghost" onclick="closeSlide()">Откажи</button>
+      <button class="btn" id="s_save" onclick="saveSlide()">Зачувај</button>
+    </div>
+  </div>
+</div>
+
 <div class="toast" id="toast"></div>
 <div class="footer">Auto Folia LUXURY · онлајн · синхронизирано</div>
 
@@ -361,7 +400,7 @@ const DEFAULT_SETTINGS={ name:'Auto Folia LUXURY',address:'Saraj/Skopje',
   startHour:10,endHour:20,slotMin:120,days:[1,2,3,4,5] };
 
 const DB = {
-  data:{ services:[], jobs:[], settings:{}, products:[], orders:[], expenses:[] },
+  data:{ services:[], jobs:[], settings:{}, products:[], orders:[], expenses:[], slides:[] },
   expensesMissing:false,
 
   // map a DB row -> app job shape used by the UI
@@ -408,6 +447,12 @@ const DB = {
       const ords = await sbRest('orders?select=*&order=created_at.desc');
       this.data.orders = ords||[];
     }catch(e){ console.warn('orders load failed', e); this.data.orders = []; }
+
+    // slajderi i dyqanit (optional — needs the `slides` table, supabase/slides.sql)
+    try{
+      this.data.slides = await sbRest('slides?select=*&order=position.asc,id.asc') || [];
+      this.slidesMissing = false;
+    }catch(e){ console.warn('slides load failed', e); this.data.slides = []; this.slidesMissing = true; }
 
     // daily expenses (optional — needs the `expenses` table in Supabase)
     try{
@@ -509,6 +554,32 @@ const DB = {
     return SB_URL+'/storage/v1/object/public/products/'+path;
   },
 
+  // ---- slides (slajderi i dyqanit) ----
+  async addSlide(s){
+    const [r] = await sbRest('slides', { method:'POST', headers:{'Prefer':'return=representation'}, body:JSON.stringify([s]) });
+    this.data.slides.push(r); return r.id;
+  },
+  async updateSlide(id,patch){
+    await sbRest('slides?id=eq.'+id, { method:'PATCH', body:JSON.stringify(patch) });
+    const s=this.data.slides.find(x=>x.id===id); if(s) Object.assign(s,patch);
+  },
+  async deleteSlide(id){
+    await sbRest('slides?id=eq.'+id, { method:'DELETE' });
+    this.data.slides=this.data.slides.filter(x=>x.id!==id);
+  },
+  async uploadSlideImage(file){
+    const ext=(file.name.split('.').pop()||'jpg').toLowerCase().replace(/[^a-z0-9]/g,'')||'jpg';
+    const path='slides/s'+Date.now().toString(36)+Math.random().toString(36).slice(2,6)+'.'+ext;
+    const res=await fetch(SB_URL+'/storage/v1/object/products/'+path, {
+      method:'POST',
+      headers:{ apikey:SB_KEY, 'Authorization':'Bearer '+(SESSION?SESSION.access_token:SB_KEY),
+                'Content-Type': file.type||'application/octet-stream' },
+      body:file
+    });
+    if(!res.ok){ throw new Error(await res.text()); }
+    return SB_URL+'/storage/v1/object/public/products/'+path;
+  },
+
   // ---- orders ----
   async updateOrderStatus(id,status){
     await sbRest('orders?id=eq.'+id, { method:'PATCH', body:JSON.stringify({status}) });
@@ -541,6 +612,7 @@ function render(){
   else if(view==='services') renderServices();
   else if(view==='settings') renderSettings();
   else if(view==='products') renderProducts();
+  else if(view==='slides') renderSlides();
   else if(view==='orders') renderOrders();
 }
 
@@ -1261,6 +1333,107 @@ async function toggleProdActive(id){
 async function removeProd(id){ if(!confirm('Да се отстрани продуктот?')) return;
   busy(true);
   try{ await DB.deleteProduct(id); renderProducts(); toast('Отстрането'); }
+  catch(e){ toast('Грешка'); console.error(e); }
+  busy(false);
+}
+
+/* ============ SLAJDERI I DYQANIT ============
+   Slajdet e mëdha lart në store.html. Ndryshimet shihen në dyqan sapo të rifreskohet faqja. */
+const SLIDE_GROUPS=['АВТО ОПРЕМА','АВТОКОЗМЕТИКА','ЕКСТЕРИЕР','ИНТЕРИЕР','ОСВЕТЛУВАЊЕ','ЕЛЕКТРИКА','АВТО ДОДАТОЦИ'];
+const escA=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function renderSlides(){
+  let html=`<h1>Слајдер</h1>
+  <p class="muted" style="margin-top:-10px">Големите слајдови најгоре во онлајн дуќанот. Промените се гледаат штом се освежи дуќанот.</p>`;
+  if(DB.slidesMissing){
+    html+=`<div class="card"><b>Табелата за слајдови уште не е создадена.</b>
+      <p class="muted">Во Supabase отвори <b>SQL Editor</b>, залепи го текстот од датотеката <code>supabase/slides.sql</code> и притисни <b>Run</b>. Потоа освежи ја оваа страница.</p></div>`;
+    $('#app').innerHTML=html; return;
+  }
+  html+=`<div class="card"><button class="btn" onclick="openSlide()">+ Нов слајд</button></div>`;
+  const list=DB.data.slides;
+  if(!list.length) html+=`<div class="empty">Нема слајдови. Дуќанот ги прикажува стандардните 4 слајда.</div>`;
+  list.forEach((s,i)=>{
+    html+=`<div class="slrow${s.active?'':' off'}">
+      <div class="slmove">
+        <button onclick="moveSlide(${s.id},-1)" ${i===0?'disabled':''} aria-label="Нагоре">▲</button>
+        <button onclick="moveSlide(${s.id},1)" ${i===list.length-1?'disabled':''} aria-label="Надолу">▼</button>
+      </div>
+      <div class="slthumb">${s.image_url?`<img src="${escA(s.image_url)}" alt="">`:'<span>автоматска слика</span>'}</div>
+      <div class="info"><b>${i+1}. ${escA(s.title)}</b>
+        <small>${s.kicker?escA(s.kicker)+' – ':''}${escA(s.text||'')}</small>
+        <small>Отвора: ${escA(s.link_group||'сите производи')}${s.link_cat?' → '+escA(s.link_cat):''} &nbsp; ${s.active?'<span class="pill green">Се прикажува</span>':'<span class="pill gray">Скриен</span>'}</small></div>
+      <div class="slbtns">
+        <button class="btn ghost sm" onclick="openSlide(${s.id})">Измени</button>
+        <button class="btn ghost sm" onclick="toggleSlide(${s.id})">${s.active?'Скриј':'Прикажи'}</button>
+        <button class="btn red sm" onclick="removeSlide(${s.id})">Отстрани</button>
+      </div>
+    </div>`;
+  });
+  $('#app').innerHTML=html;
+}
+let editingSlideId=null, pendingSlideImage=null, slideImageCleared=false;
+function openSlide(id){
+  editingSlideId=id||null; pendingSlideImage=null; slideImageCleared=false;
+  $('#s_imagefile').value='';
+  $('#s_group').innerHTML='<option value="">Сите производи</option>'+SLIDE_GROUPS.map(g=>`<option>${g}</option>`).join('');
+  $('#s_catlist').innerHTML=[...new Set(DB.data.products.map(p=>p.category).filter(Boolean))].sort().map(c=>`<option value="${escA(c)}">`).join('');
+  const s=(id && DB.data.slides.find(x=>x.id===id)) || {};
+  $('#slideTitle').textContent=id?'Измени слајд':'Нов слајд';
+  $('#s_kicker').value=s.kicker||''; $('#s_title').value=s.title||''; $('#s_text').value=s.text||'';
+  $('#s_group').value=s.link_group||''; $('#s_cat').value=s.link_cat||'';
+  showSlidePreview(s.image_url||'');
+  $('#slideOverlay').classList.add('show');
+}
+function showSlidePreview(src){
+  $('#s_imgpreview').innerHTML = src
+    ? `<img src="${escA(src)}" alt=""><button class="btn ghost sm" onclick="clearSlideImage()">Отстрани слика</button>`
+    : '<span class="muted">Нема слика – ќе се земе автоматски од производите.</span>';
+}
+function clearSlideImage(){ pendingSlideImage=null; slideImageCleared=true; $('#s_imagefile').value=''; showSlidePreview(''); }
+function closeSlide(){ $('#slideOverlay').classList.remove('show'); }
+function previewSlideImage(){
+  const f=$('#s_imagefile').files[0]; if(!f) return;
+  if(f.size>8*1024*1024){ toast('Сликата е преголема (макс. 8 MB)'); $('#s_imagefile').value=''; return; }
+  pendingSlideImage=f; slideImageCleared=false;
+  const reader=new FileReader();
+  reader.onload=e=>showSlidePreview(e.target.result);
+  reader.readAsDataURL(f);
+}
+async function saveSlide(){
+  const title=$('#s_title').value.trim();
+  if(!title){ toast('Внеси наслов'); return; }
+  const row={ kicker:$('#s_kicker').value.trim()||null, title, text:$('#s_text').value.trim()||null,
+    link_group:$('#s_group').value||null, link_cat:$('#s_cat').value.trim()||null };
+  busy(true); $('#s_save').textContent='Се зачувува...';
+  try{
+    const old=editingSlideId?DB.data.slides.find(x=>x.id===editingSlideId):null;
+    row.image_url = slideImageCleared ? null : (old?old.image_url:null);
+    if(pendingSlideImage) row.image_url = await DB.uploadSlideImage(pendingSlideImage);
+    if(editingSlideId) await DB.updateSlide(editingSlideId,row);
+    else { row.position = DB.data.slides.reduce((m,x)=>Math.max(m,x.position||0),-1)+1; row.active=true; await DB.addSlide(row); }
+    closeSlide(); renderSlides(); toast('Зачувано');
+  }catch(e){ toast('Грешка при зачувување'); console.error(e); }
+  $('#s_save').textContent='Зачувај'; busy(false);
+}
+async function moveSlide(id,dir){
+  const list=DB.data.slides, i=list.findIndex(x=>x.id===id), j=i+dir;
+  if(i<0||j<0||j>=list.length) return;
+  [list[i],list[j]]=[list[j],list[i]];
+  busy(true);
+  try{ await Promise.all(list.map((s,k)=> s.position===k ? null : DB.updateSlide(s.id,{position:k}))); renderSlides(); }
+  catch(e){ toast('Грешка'); console.error(e); }
+  busy(false);
+}
+async function toggleSlide(id){
+  const s=DB.data.slides.find(x=>x.id===id);
+  busy(true);
+  try{ await DB.updateSlide(id,{active:!s.active}); renderSlides(); }
+  catch(e){ toast('Грешка'); console.error(e); }
+  busy(false);
+}
+async function removeSlide(id){ if(!confirm('Да се отстрани слајдот?')) return;
+  busy(true);
+  try{ await DB.deleteSlide(id); renderSlides(); toast('Отстрането'); }
   catch(e){ toast('Грешка'); console.error(e); }
   busy(false);
 }
