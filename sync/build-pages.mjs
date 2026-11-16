@@ -7,20 +7,20 @@
 //
 // Variablat e ambientit:
 //   SUPABASE_URL   (parazgjedhur: projekti i dyqanit)
-//   SUPABASE_KEY   çelësi për lexim (në GitHub: SUPABASE_SERVICE_KEY); nëse mungon, merret çelësi publik nga store.html
-//   SITE_URL       adresa e sajtit, me "/" në fund (parazgjedhur: https://autofolialuxury.github.io/autofolialuxury/)
+//   SUPABASE_KEY   çelësi për lexim (në GitHub: SUPABASE_SERVICE_KEY); nëse mungon, merret çelësi publik nga index.html (dyqani)
+//   SITE_URL       adresa e sajtit, me "/" në fund (parazgjedhur: https://autoluxury.mk/)
 //   OUT_DIR        ku shkruhen faqet (parazgjedhur: dosja aktuale = rrënja e repos)
 
 import fs from 'node:fs';
 import path from 'node:path';
 
 const SB_URL = process.env.SUPABASE_URL || 'https://fzgnhfbsibskkuiwcrls.supabase.co';
-const SITE = (process.env.SITE_URL || 'https://autofolialuxury.github.io/autofolialuxury/').replace(/\/?$/, '/');
+const SITE = (process.env.SITE_URL || 'https://autoluxury.mk/').replace(/\/?$/, '/');
 const OUT = path.resolve(process.env.OUT_DIR || '.');
 const PHONE = '+38970855355', PHONE_TXT = '+389 70 855 355';
 let KEY = process.env.SUPABASE_KEY;
 if (!KEY) {
-  const m = fs.readFileSync(path.join(OUT, 'store.html'), 'utf8').match(/const SB_KEY = '([^']+)'/);
+  const m = fs.readFileSync(path.join(OUT, 'index.html'), 'utf8').match(/const SB_KEY = '([^']+)'/);
   KEY = m && m[1];
 }
 if (!KEY) throw new Error('Mungon çelësi i Supabase (SUPABASE_KEY).');
@@ -116,26 +116,26 @@ ${extra}
 </div></div>
 <header class="top">
   <div class="wrap bar">
-    <a class="logo" href="../store.html" aria-label="Auto Luxury – почетна"><span class="lx-auto">Auto</span><span class="lx-lux">Luxury</span></a>
+    <a class="logo" href="../" aria-label="Auto Luxury – почетна"><span class="lx-auto">Auto</span><span class="lx-lux">Luxury</span></a>
     <search class="srch">
-      <form action="../store.html" method="get">
+      <form action="../" method="get">
         <label for="q" class="sr-only">Пребарај производи</label>
         <input id="q" name="q" type="search" placeholder="Пребарај производ, модел или шифра…" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" enterkeyhint="search">
         <button type="submit" aria-label="Пребарај"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></button>
       </form>
     </search>
     <a class="call" href="tel:${PHONE}"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><span>Јави се</span></a>
-    <a class="call" href="../store.html" aria-label="Кошничка"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.7 12.4a2 2 0 0 0 2 1.6h8.6a2 2 0 0 0 2-1.6L22 7H6"/></svg><span>Кошничка</span></a>
+    <a class="call" href="../" aria-label="Кошничка"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.7 12.4a2 2 0 0 0 2 1.6h8.6a2 2 0 0 0 2-1.6L22 7H6"/></svg><span>Кошничка</span></a>
   </div>
   <nav class="nav" aria-label="Главна навигација"><div class="wrap">
-    <a class="allc" href="../c/index.html">Сите категории</a><a href="../store.html">Почетна</a><a href="../store.html#products">Производи</a><a href="../store.html#brands">Брендови</a><a href="../store.html#contact">Контакт</a>
+    <a class="allc" href="../c/index.html">Сите категории</a><a href="../">Почетна</a><a href="../#products">Производи</a><a href="../#brands">Брендови</a><a href="../#contact">Контакт</a>
   </div></nav>
 </header>`;
 const foot = `<footer class="foot"><div class="wrap foot-in">
-  <div><a class="logo" href="../store.html"><span class="lx-auto">Auto</span><span class="lx-lux">Luxury</span></a>
+  <div><a class="logo" href="../"><span class="lx-auto">Auto</span><span class="lx-lux">Luxury</span></a>
   <p>Авто опрема и додатоци, Сарај, Скопје. Брза достава низ цела Македонија.</p></div>
   <div><p><b>Контакт</b><br><a href="tel:${PHONE}">${PHONE_TXT}</a></p>
-  <p><a href="../c/index.html">Сите категории</a><br><a href="../store.html">Онлајн продавница</a></p></div>
+  <p><a href="../c/index.html">Сите категории</a><br><a href="../">Онлајн продавница</a></p></div>
 </div></footer>
 <a class="fab" href="tel:${PHONE}"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Јави се</a>
 </body>
@@ -147,7 +147,9 @@ const breadcrumbLd = items => ({
   '@context': 'https://schema.org', '@type': 'BreadcrumbList',
   itemListElement: items.map((it, i) => ({ '@type': 'ListItem', position: i + 1, name: it.name, item: it.abs })),
 });
-const card = (p, prefix) => `<li><a class="pc" href="${prefix}${esc(p.path)}">${p.image_url ? `<img src="${esc(p.image_url)}" alt="${esc(p.dname)}" loading="lazy" decoding="async" width="300" height="300">` : '<span class="ph">AUTO LUXURY</span>'}<span class="n">${esc(p.dname)}</span><b>${money(p.price)}</b></a></li>`;
+// kopja 300x300 e fotos nga Autoking (~15 KB në vend të ~150 KB); nëse mungon, onerror merr origjinalin
+const thumb = u => { const m = /^(https:\/\/autoking\.com\.mk\/wp-content\/uploads\/.+?)(-\d+x\d+)?(\.(?:webp|jpe?g|png))$/i.exec(u || ''); return m && !m[2] ? m[1] + '-300x300' + m[3] : u; };
+const card = (p, prefix) => `<li><a class="pc" href="${prefix}${esc(p.path)}">${p.image_url ? `<img src="${esc(thumb(p.image_url))}" data-full="${esc(p.image_url)}" onerror="if(this.src!==this.dataset.full)this.src=this.dataset.full" alt="${esc(p.dname)}" loading="lazy" decoding="async" width="300" height="300">` : '<span class="ph">AUTO LUXURY</span>'}<span class="n">${esc(p.dname)}</span><b>${money(p.price)}</b></a></li>`;
 
 /* ---------- 3. faqja e produktit ---------- */
 function productPage(p, related) {
@@ -157,7 +159,7 @@ function productPage(p, related) {
     ? cut(p.desc.replace(/\s+/g, ' '), 155)
     : `Купете ${p.dname} по цена од ${money(p.price)} во Auto Luxury, Сарај. Брза достава низ Македонија.`;
   const crumbs = [
-    { name: 'Почетна', href: '../store.html', abs: SITE + 'store.html' },
+    { name: 'Почетна', href: '../', abs: SITE },
     { name: p.category || 'Производи', href: p.catPath ? '../' + p.catPath : '../c/index.html', abs: catUrl },
     { name: p.dname, abs: url },
   ];
@@ -186,7 +188,7 @@ function productPage(p, related) {
       <h1>${esc(p.dname)}</h1>
       <p class="price">${money(p.price)}</p>
       <p class="actions">
-        <a class="btn" href="../store.html?p=${esc(productKey(p))}"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.7 12.4a2 2 0 0 0 2 1.6h8.6a2 2 0 0 0 2-1.6L22 7H6"/></svg>Нарачај онлајн</a>
+        <a class="btn" href="../?p=${esc(productKey(p))}"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.7 12.4a2 2 0 0 0 2 1.6h8.6a2 2 0 0 0 2-1.6L22 7H6"/></svg>Нарачај онлајн</a>
         <a class="btn2" href="tel:${PHONE}"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Јави се: ${PHONE_TXT}</a>
       </p>
       <ul class="facts">
@@ -206,7 +208,7 @@ function productPage(p, related) {
 function categoryPage(cat, items) {
   const url = SITE + items[0].catPath;
   const crumbs = [
-    { name: 'Почетна', href: '../store.html', abs: SITE + 'store.html' },
+    { name: 'Почетна', href: '../', abs: SITE },
     { name: 'Категории', href: 'index.html', abs: SITE + 'c/index.html' },
     { name: cat, abs: url },
   ];
@@ -239,7 +241,7 @@ function categoriesIndex(byCat) {
   return head({ title: 'Сите категории – авто опрема | Auto Luxury', url,
     desc: `Сите категории на Auto Luxury: ${total} производи – ЛЕД, волани, навлаки, спојлери, автокозметика и додатоци. Брза достава низ Македонија.` }) + `
 <main class="wrap">
-  ${breadcrumbs([{ name: 'Почетна', href: '../store.html' }, { name: 'Категории' }])}
+  ${breadcrumbs([{ name: 'Почетна', href: '../' }, { name: 'Категории' }])}
   <h1>Сите категории</h1>
   <p class="lead">${total} производи за вашето возило, поделени по категории.</p>
   ${sections.filter(s => s.cats.length).map(s => `<section class="cats"><h2>${esc(s.name)}</h2><ul>${s.cats.map(c =>
@@ -366,7 +368,7 @@ async function main() {
   write('c/index.html', categoriesIndex(byCat));
 
   // sitemap
-  const urls = [SITE + 'store.html', SITE + 'c/index.html',
+  const urls = [SITE, SITE + 'c/index.html',
     ...[...byCat.values()].map(items => SITE + items[0].catPath),
     ...products.map(p => SITE + p.path)];
   write('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(u => `  <url><loc>${esc(u)}</loc></url>`).join('\n')}\n</urlset>\n`);
