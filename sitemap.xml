@@ -3,6 +3,7 @@
   <url><loc>https://autoluxury.mk/</loc></url>
   <url><loc>https://autoluxury.mk/c/index.html</loc></url>
   <url><loc>https://autoluxury.mk/c/volani.html</loc></url>
+  <url><loc>https://autoluxury.mk/c/motip.html</loc></url>
   <url><loc>https://autoluxury.mk/c/privezok.html</loc></url>
   <url><loc>https://autoluxury.mk/c/navlaki-za-sedishti.html</loc></url>
   <url><loc>https://autoluxury.mk/c/led.html</loc></url>
@@ -49,7 +50,6 @@
   <url><loc>https://autoluxury.mk/c/avto-dodatoci.html</loc></url>
   <url><loc>https://autoluxury.mk/c/drugo.html</loc></url>
   <url><loc>https://autoluxury.mk/c/kluchevi.html</loc></url>
-  <url><loc>https://autoluxury.mk/c/motip.html</loc></url>
   <url><loc>https://autoluxury.mk/c/ceradi.html</loc></url>
   <url><loc>https://autoluxury.mk/c/halogen.html</loc></url>
   <url><loc>https://autoluxury.mk/c/ratkapni.html</loc></url>
@@ -63,14 +63,20 @@
   <url><loc>https://autoluxury.mk/c/brio.html</loc></url>
   <url><loc>https://autoluxury.mk/p/volan-bmw-f-series-m-black-flat-5d2c852639.html</loc></url>
   <url><loc>https://autoluxury.mk/p/volan-bmw-f-10-m-black-leather-9b214880c6.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/motip-primer-white-500-ml-04056-626876.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/motip-heat-resistant-paint-black-400-ml-04031-626873.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/motip-bumper-paint-grey-400-ml-04074-626869.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/motip-bumper-paint-dark-grey-400-ml-04075-626867.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/motip-bumper-paint-black-400-ml-04073-626865.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/motip-bumper-paint-anthracite-400-ml-04076-626863.html</loc></url>
   <url><loc>https://autoluxury.mk/p/keychain-with-pouch-alcantara-black-626829.html</loc></url>
   <url><loc>https://autoluxury.mk/p/navlaki-za-sedishta-best-red-626821.html</loc></url>
   <url><loc>https://autoluxury.mk/p/navlaki-za-sedishta-best-blue-626818.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/navlaki-za-sedishta-best-black-626816.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/seat-covers-best-black-626816.html</loc></url>
   <url><loc>https://autoluxury.mk/p/led-proektor-so-logo-za-vrata-626799.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/navlaki-za-sedishta-power-silver-tartan-626788.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/navlaki-za-sedishta-power-red-tartan-626786.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/navlaki-za-sedishta-power-blue-tartan-626783.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/seat-covers-power-silver-tartan-626788.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/seat-covers-power-red-tartan-626786.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/seat-covers-power-blue-tartan-626783.html</loc></url>
   <url><loc>https://autoluxury.mk/p/difuzer-za-mercedes-19-gle53-so-nakrajnici-black-626670.html</loc></url>
   <url><loc>https://autoluxury.mk/p/difuzer-za-mercedes-19-gle53-coupe-so-nakrajnici-for-amg-line-black-626668.html</loc></url>
   <url><loc>https://autoluxury.mk/p/evolution-agm-battery-60-ah-es6000-626661.html</loc></url>
@@ -85,14 +91,14 @@
   <url><loc>https://autoluxury.mk/p/k2-bela-neon-blue-fast-furious-active-foam-1-l-626578.html</loc></url>
   <url><loc>https://autoluxury.mk/p/kapache-za-bandash-mercedes-144mm-626567.html</loc></url>
   <url><loc>https://autoluxury.mk/p/kapache-za-bandash-kia-chrom-57mm-626566.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/osvezhuvach-vent-89-aromatic-dore-626542.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/air-freshener-vent-89-aromatic-dore-626542.html</loc></url>
   <url><loc>https://autoluxury.mk/p/body-kit-mercedes-w464-18-24-to-w65-g63-626537.html</loc></url>
   <url><loc>https://autoluxury.mk/p/body-kit-bmw-g30-2017-m-tech-full-set-626535.html</loc></url>
   <url><loc>https://autoluxury.mk/p/stikeri-set-za-farbanje-na-shepi-m-white-626520.html</loc></url>
   <url><loc>https://autoluxury.mk/p/stikeri-set-za-farbanje-na-shepi-m-black-626518.html</loc></url>
   <url><loc>https://autoluxury.mk/p/privezok-disk-626488.html</loc></url>
   <url><loc>https://autoluxury.mk/p/parfem-areon-wild-free-626465.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/parfem-areon-jungle-king-626463.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/air-freshener-areon-jungle-king-626463.html</loc></url>
   <url><loc>https://autoluxury.mk/p/parfem-areon-fresco-summer-dream-626461.html</loc></url>
   <url><loc>https://autoluxury.mk/p/parfem-areon-fresco-spring-bouqet-626459.html</loc></url>
   <url><loc>https://autoluxury.mk/p/parfem-areon-fresco-lilac-626457.html</loc></url>
@@ -343,26 +349,26 @@
   <url><loc>https://autoluxury.mk/p/prekidach-za-prozorci-mercedes-w205-4d-2059056811-beige-625274.html</loc></url>
   <url><loc>https://autoluxury.mk/p/prekidach-za-prozor-mercedes-w213-625272.html</loc></url>
   <url><loc>https://autoluxury.mk/p/prekidach-za-prozor-mercedes-w205-625270.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/osvezhuvach-vent-89-aromatic-safine-625268.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/osvezhuvach-vent-89-aromatic-fantasy-625266.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/osvezhuvach-vent-89-aromatic-blue-nightingale-625264.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/osvezhuvach-spray-89-aromatic-safine-625262.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/osvezhuvach-spray-89-aromatic-fantasy-625260.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/osvezhuvach-spray-89-aromatic-dore-625258.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/osvezhuvach-spray-89-aromatic-blue-nightingale-625256.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/osvezhuvach-hang-89-aromatic-safine-625254.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/osvezhuvach-hang-89-aromatic-fantasy-625252.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/osvezhuvach-hang-89-aromatic-dore-625250.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/osvezhuvach-hang-89-aromatic-blue-nightingale-625248.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/osvezhuvach-gift-set-89-aromatic-infinity-flow-625246.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/osvezhuvach-gift-set-89-aromatic-dore-625244.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/osvezhuvach-gift-set-89-aromatic-by-design-625242.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/osvezhuvach-89-aromatic-safine-625240.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/osvezhuvach-89-aromatic-infinity-flow-625238.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/osvezhuvach-89-aromatic-fantasy-625236.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/osvezhuvach-89-aromatic-dore-625234.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/osvezhuvach-89-aromatic-blue-nightingale-625232.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/osvezhuvach-89-aromatic-black-grapes-625230.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/air-freshener-vent-89-aromatic-safine-625268.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/air-freshener-vent-89-aromatic-fantasy-625266.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/air-freshener-vent-89-aromatic-blue-nightingale-625264.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/air-freshener-spray-89-aromatic-safine-625262.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/air-freshener-spray-89-aromatic-fantasy-625260.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/air-freshener-spray-89-aromatic-dore-625258.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/air-freshener-spray-89-aromatic-blue-nightingale-625256.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/air-freshener-hang-89-aromatic-safine-625254.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/air-freshener-hang-89-aromatic-fantasy-625252.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/air-freshener-hang-89-aromatic-dore-625250.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/air-freshener-hang-89-aromatic-blue-nightingale-625248.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/air-freshener-gift-set-89-aromatic-infinity-flow-625246.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/air-freshener-gift-set-89-aromatic-dore-625244.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/air-freshener-gift-set-89-aromatic-by-design-625242.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/air-freshener-89-aromatic-safine-625240.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/air-freshener-89-aromatic-infinity-flow-625238.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/air-freshener-89-aromatic-fantasy-625236.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/air-freshener-89-aromatic-dore-625234.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/air-freshener-89-aromatic-blue-nightingale-625232.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/air-freshener-89-aromatic-black-grapes-625230.html</loc></url>
   <url><loc>https://autoluxury.mk/p/distronik-za-golf-mk8-passat-b9-5hg-853-601-dpj-625228.html</loc></url>
   <url><loc>https://autoluxury.mk/p/daska-za-bagazhnik-t-rock-17-22-625226.html</loc></url>
   <url><loc>https://autoluxury.mk/p/daska-za-bagazhnik-tiguan-07-15-625224.html</loc></url>
@@ -491,11 +497,11 @@
   <url><loc>https://autoluxury.mk/p/stiker-premium-bluemotion-technology-624803.html</loc></url>
   <url><loc>https://autoluxury.mk/p/stranichni-ukrasi-premium-superb-black-chrome-624798.html</loc></url>
   <url><loc>https://autoluxury.mk/p/stranichni-ukrasi-premium-seat-black-chrome-624796.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/stranichni-ukrasi-premium-rline-black-chrome-624794.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/side-trim-premium-rline-black-chrome-624794.html</loc></url>
   <url><loc>https://autoluxury.mk/p/stranichni-ukrasi-premium-passat-black-chrome-624792.html</loc></url>
   <url><loc>https://autoluxury.mk/p/znak-rline-za-na-maska-chrome-624790.html</loc></url>
   <url><loc>https://autoluxury.mk/p/znak-rline-za-na-maska-black-624788.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/stranichni-ukrasi-rline-chrome-black-624787.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/side-trim-rline-chrome-black-624787.html</loc></url>
   <url><loc>https://autoluxury.mk/p/stiker-premium-superb-chrome-624785.html</loc></url>
   <url><loc>https://autoluxury.mk/p/stiker-premium-superb-black-624783.html</loc></url>
   <url><loc>https://autoluxury.mk/p/stiker-premium-octavia-chrome-624781.html</loc></url>
@@ -545,7 +551,7 @@
   <url><loc>https://autoluxury.mk/p/stiker-premium-x3-chrome-624661.html</loc></url>
   <url><loc>https://autoluxury.mk/p/stiker-premium-x3-black-624659.html</loc></url>
   <url><loc>https://autoluxury.mk/p/stiker-premium-fr-624657.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/oznaka-za-fiat-95mm-red-624652.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/badge-for-fiat-95mm-red-624652.html</loc></url>
   <url><loc>https://autoluxury.mk/p/oznaka-za-fiat-95mm-black-624650.html</loc></url>
   <url><loc>https://autoluxury.mk/p/oznaka-za-fiat-120mm-black-624647.html</loc></url>
   <url><loc>https://autoluxury.mk/p/oznaka-za-fiat-100mm-red-624645.html</loc></url>
@@ -647,14 +653,14 @@
   <url><loc>https://autoluxury.mk/p/zvuchnici-jbl-gto602-16cm-set-624396.html</loc></url>
   <url><loc>https://autoluxury.mk/p/zvuchnici-jbl-gto502-13cm-set-624394.html</loc></url>
   <url><loc>https://autoluxury.mk/p/phone-holder-sjj-17602-624391.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/drzhach-za-mobilen-sjj-17602-624389.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/alatka-za-folija-kadeli-k483-624387.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/phone-holder-sjj-17602-624389.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/tool-for-film-kadeli-k483-624387.html</loc></url>
   <url><loc>https://autoluxury.mk/p/alatka-za-folija-kadeli-k467-624383.html</loc></url>
   <url><loc>https://autoluxury.mk/p/alatka-za-folija-kadeli-k415a-624381.html</loc></url>
   <url><loc>https://autoluxury.mk/p/alatka-za-folija-kadeli-k553-624379.html</loc></url>
   <url><loc>https://autoluxury.mk/p/alatka-za-folija-kadeli-k553-624377.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/alatka-za-folija-kadeli-k494-624375.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/alatka-za-folija-kadeli-k437-624373.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/tool-for-film-kadeli-k494-624375.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/tool-for-film-kadeli-k437-624373.html</loc></url>
   <url><loc>https://autoluxury.mk/p/alatka-za-folija-kadeli-k416-624371.html</loc></url>
   <url><loc>https://autoluxury.mk/p/alatka-za-folija-kadeli-k11-4-624370.html</loc></url>
   <url><loc>https://autoluxury.mk/p/led-bar-w0930s-p7-30w-624367.html</loc></url>
@@ -662,8 +668,8 @@
   <url><loc>https://autoluxury.mk/p/led-bar-w0720s-p9-20w-624363.html</loc></url>
   <url><loc>https://autoluxury.mk/p/led-bar-w0715s-p7-15w-624361.html</loc></url>
   <url><loc>https://autoluxury.mk/p/led-bar-w0515s-s5-30w-624359.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/alatka-za-folija-kadeli-k26-624357.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/alatka-za-folija-kadeli-k48-624355.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/tool-for-film-kadeli-k26-624357.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/tool-for-film-kadeli-k48-624355.html</loc></url>
   <url><loc>https://autoluxury.mk/p/led-bar-w0430s-ol-30w-624353.html</loc></url>
   <url><loc>https://autoluxury.mk/p/led-bar-w0430d-ol-30w-624351.html</loc></url>
   <url><loc>https://autoluxury.mk/p/led-bar-w0320s-ol-20w-624349.html</loc></url>
@@ -674,13 +680,13 @@
   <url><loc>https://autoluxury.mk/p/led-bar-br0140c-40w-624339.html</loc></url>
   <url><loc>https://autoluxury.mk/p/led-bar-br01120c-120w-624337.html</loc></url>
   <url><loc>https://autoluxury.mk/p/baterija-osram-cr2450-3v-1-pcs-624335.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/baterija-osram-cr2032-3v-1-pcs-624333.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/battery-osram-cr2032-3v-1-pcs-624333.html</loc></url>
   <url><loc>https://autoluxury.mk/p/baterija-osram-cr2025-3v-1-pcs-624331.html</loc></url>
   <url><loc>https://autoluxury.mk/p/baterija-osram-cr1632-3v-1-pcs-624328.html</loc></url>
   <url><loc>https://autoluxury.mk/p/baterija-osram-cr1620-3v-1-pcs-624326.html</loc></url>
   <url><loc>https://autoluxury.mk/p/baterija-osram-cr1616-3v-1-pcs-624324.html</loc></url>
   <url><loc>https://autoluxury.mk/p/sungjer-za-chistenje-x-detail-pro-624322.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/sungjer-za-gumi-x2-x-detail-pro-624320.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/tyre-dressing-sponge-x2-x-detail-pro-624320.html</loc></url>
   <url><loc>https://autoluxury.mk/p/kopche-za-na-sredishnata-konzola-mercedes-w205-carbone-624318.html</loc></url>
   <url><loc>https://autoluxury.mk/p/dekorativni-lajsni-za-lakovi-na-trkala-4kom-624316.html</loc></url>
   <url><loc>https://autoluxury.mk/p/dekorativen-karbonski-set-za-centralna-konzola-w213-624314.html</loc></url>
@@ -796,25 +802,25 @@
   <url><loc>https://autoluxury.mk/p/zaden-brishach-x-wiper-14-350mm-623584.html</loc></url>
   <url><loc>https://autoluxury.mk/p/zaden-brishach-x-wiper-13-325mm-623583.html</loc></url>
   <url><loc>https://autoluxury.mk/p/zaden-brishach-x-wiper-12-300mm-623582.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/zaden-brishach-x-wiper-11-275mm-623581.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/zaden-brishach-x-wiper-10-250mm-623580.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/brishach-x-wiper-28-700mm-623579.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/brishach-x-wiper-26-650mm-623578.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/rear-wiper-x-wiper-11-275mm-623581.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/rear-wiper-x-wiper-10-250mm-623580.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/wiper-x-wiper-28-700mm-623579.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/wiper-x-wiper-26-650mm-623578.html</loc></url>
   <url><loc>https://autoluxury.mk/p/wiper-x-wiper-24-600mm-623577.html</loc></url>
   <url><loc>https://autoluxury.mk/p/brishach-x-wiper-22-550mm-623576.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/brishach-x-wiper-21-525mm-623575.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/brishach-x-wiper-20-500mm-623574.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/wiper-x-wiper-21-525mm-623575.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/wiper-x-wiper-20-500mm-623574.html</loc></url>
   <url><loc>https://autoluxury.mk/p/brishach-x-wiper-19-475mm-623573.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/brishach-x-wiper-18-450mm-623572.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/brishach-x-wiper-16-400mm-623571.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/wiper-x-wiper-18-450mm-623572.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/wiper-x-wiper-16-400mm-623571.html</loc></url>
   <url><loc>https://autoluxury.mk/p/brishach-x-wiper-14-350mm-623570.html</loc></url>
   <url><loc>https://autoluxury.mk/p/stranichni-spojleri-za-prozorci-golf-mk7-7-5-zst-412-623569.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/stranichni-spojleri-za-prozorci-golf-mk6-08-12-zst-413-623568.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/stranichni-spojleri-za-prozorci-golf-mk5-03-08-zst-565-623567.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/side-spoilers-for-window-golf-mk6-08-12-zst-413-623568.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/side-spoilers-for-window-golf-mk5-03-08-zst-565-623567.html</loc></url>
   <url><loc>https://autoluxury.mk/p/stranichni-spojleri-golf-mk7-zst-100-623566.html</loc></url>
   <url><loc>https://autoluxury.mk/p/spojler-za-mercedes-w214-sedan-2024-zst-658-623565.html</loc></url>
   <url><loc>https://autoluxury.mk/p/spojler-za-mercedes-w214-brabus-2024-zst-676-623564.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/spojler-za-mercedes-w212-roof-09-15-zst-1375-623563.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/spoiler-for-mercedes-w212-roof-09-15-zst-1375-623563.html</loc></url>
   <url><loc>https://autoluxury.mk/p/spojler-za-mercedes-w212-4-doors-09-15-623562.html</loc></url>
   <url><loc>https://autoluxury.mk/p/spojler-za-mercedes-w206-roof-2022-zst-725-623561.html</loc></url>
   <url><loc>https://autoluxury.mk/p/spojler-za-mercedes-w206-brabus-2022-zst-074-623560.html</loc></url>
@@ -858,7 +864,7 @@
   <url><loc>https://autoluxury.mk/p/spojler-za-golf-mk8-maxton-zst-239-623522.html</loc></url>
   <url><loc>https://autoluxury.mk/p/spojler-za-golf-mk8-gtd-r-zst-458-623521.html</loc></url>
   <url><loc>https://autoluxury.mk/p/spojler-za-golf-mk8-clubsport-zst-079-623520.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/spojler-za-golf-mk7-7-5-standart-oettinger-zst-710-623519.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/spoiler-for-golf-mk7-7-5-standart-oettinger-zst-710-623519.html</loc></url>
   <url><loc>https://autoluxury.mk/p/spojler-za-golf-mk7-7-5-gti-r-oettinger-zst-081-623518.html</loc></url>
   <url><loc>https://autoluxury.mk/p/spojler-za-golf-mk6-gti-r-08-12-oettinger-zst-03-623517.html</loc></url>
   <url><loc>https://autoluxury.mk/p/spojler-za-golf-mk6-08-12-oettinger-zst-705-623516.html</loc></url>
@@ -1140,7 +1146,7 @@
   <url><loc>https://autoluxury.mk/p/parfem-areon-spray-vanilla-black-623112.html</loc></url>
   <url><loc>https://autoluxury.mk/p/parfem-areon-spray-osmanthus-623110.html</loc></url>
   <url><loc>https://autoluxury.mk/p/parfem-areon-spray-neroli-623108.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/parfem-areon-room-spray-silver-linen-623106.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/air-freshener-areon-room-spray-silver-linen-623106.html</loc></url>
   <url><loc>https://autoluxury.mk/p/parfem-areon-room-spray-patchouli-623104.html</loc></url>
   <url><loc>https://autoluxury.mk/p/parfem-areon-room-spray-neroli-623102.html</loc></url>
   <url><loc>https://autoluxury.mk/p/parfem-areon-room-spray-cookie-623100.html</loc></url>
@@ -1226,7 +1232,7 @@
   <url><loc>https://autoluxury.mk/p/telescopic-magnetic-tool-wc-15301-3-1-622915.html</loc></url>
   <url><loc>https://autoluxury.mk/p/aux-bluetooth-q8-wc-16136-2-5-622913.html</loc></url>
   <url><loc>https://autoluxury.mk/p/aux-bluetooth-q3-wc-16136-2-622911.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/volan-bmw-f-series-m-black-flat-622908.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/steering-wheel-bmw-f-series-m-black-flat-622908.html</loc></url>
   <url><loc>https://autoluxury.mk/p/volan-bmw-f-series-m-black-622906.html</loc></url>
   <url><loc>https://autoluxury.mk/p/volan-bmw-f-10-m-tech-622904.html</loc></url>
   <url><loc>https://autoluxury.mk/p/volan-bmw-f-10-m-black-flat-622902.html</loc></url>
@@ -1348,7 +1354,7 @@
   <url><loc>https://autoluxury.mk/p/parfem-areon-gel-622478.html</loc></url>
   <url><loc>https://autoluxury.mk/p/parfem-areon-gel-lilac-622476.html</loc></url>
   <url><loc>https://autoluxury.mk/p/parfem-areon-gel-strawberry-622474.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/parfem-areon-gel-apple-cinnamon-622472.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/air-freshener-areon-gel-apple-cinnamon-622472.html</loc></url>
   <url><loc>https://autoluxury.mk/p/led-ambient-w253-glc-4d-tweeter-64-colors-622459.html</loc></url>
   <url><loc>https://autoluxury.mk/p/led-ambient-gle-gls-w167-20-23-air-vent-full-622457.html</loc></url>
   <url><loc>https://autoluxury.mk/p/led-ambient-glb-4d-tweeter-64-colors-622455.html</loc></url>
@@ -1477,7 +1483,7 @@
   <url><loc>https://autoluxury.mk/p/chistach-pena-i-odrzhuvach-na-bandazh-600ml-motip-622137.html</loc></url>
   <url><loc>https://autoluxury.mk/p/chistach-pena-za-avto-klimi-500ml-motip-622135.html</loc></url>
   <url><loc>https://autoluxury.mk/p/chistach-na-motorot-700ml-autoland-622133.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/chistach-na-kochnici-500ml-motip-000563-622131.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/cleaner-on-brakes-500ml-motip-000563-622131.html</loc></url>
   <url><loc>https://autoluxury.mk/p/chistach-na-interior-750ml-autoland-622129.html</loc></url>
   <url><loc>https://autoluxury.mk/p/chistach-na-elektro-i-kontakti-500ml-motip-090505-622127.html</loc></url>
   <url><loc>https://autoluxury.mk/p/chistach-na-elektro-i-kontakti-200ml-motip-290505-622125.html</loc></url>
@@ -1516,7 +1522,7 @@
   <url><loc>https://autoluxury.mk/p/chetka-za-chistenje-crna-622059.html</loc></url>
   <url><loc>https://autoluxury.mk/p/chetka-za-chistenje-felni-622057.html</loc></url>
   <url><loc>https://autoluxury.mk/p/chetka-za-chistenje-soft-xl-622055.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/chetka-za-chistenje-soft-622053.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/brush-for-cleaning-soft-622053.html</loc></url>
   <url><loc>https://autoluxury.mk/p/chetka-za-chistenje-na-lanec-622051.html</loc></url>
   <url><loc>https://autoluxury.mk/p/chetka-za-chistenje-klima-622049.html</loc></url>
   <url><loc>https://autoluxury.mk/p/chetka-za-chistenje-klima-622047.html</loc></url>
@@ -1526,7 +1532,7 @@
   <url><loc>https://autoluxury.mk/p/chetka-za-mienje-teleskop-l-622039.html</loc></url>
   <url><loc>https://autoluxury.mk/p/chetka-za-kozha-622037.html</loc></url>
   <url><loc>https://autoluxury.mk/p/chetka-detaling-crveni-1-5-622035.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/chetka-detaling-pro-622033.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/brush-detailing-pro-622033.html</loc></url>
   <url><loc>https://autoluxury.mk/p/chetka-detaling-premium-s-black-622032.html</loc></url>
   <url><loc>https://autoluxury.mk/p/chetka-detaling-premium-s-black-622030.html</loc></url>
   <url><loc>https://autoluxury.mk/p/chetka-detaling-premium-s-622028.html</loc></url>
@@ -1540,7 +1546,7 @@
   <url><loc>https://autoluxury.mk/p/chepovi-za-lepenje-guma-tubeles-20cm-xz-23-126-622012.html</loc></url>
   <url><loc>https://autoluxury.mk/p/chelichni-chetki-1-3-premium-622010.html</loc></url>
   <url><loc>https://autoluxury.mk/p/chelichni-chetki-1-3-622008.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/chasovnik-za-kola-622006.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/car-clock-622006.html</loc></url>
   <url><loc>https://autoluxury.mk/p/crevo-za-gorivo-8mm-1m-622005.html</loc></url>
   <url><loc>https://autoluxury.mk/p/crevo-za-gorivo-6mm-1m-622003.html</loc></url>
   <url><loc>https://autoluxury.mk/p/crevo-za-gorivo-12mm-1m-622001.html</loc></url>
@@ -1571,7 +1577,7 @@
   <url><loc>https://autoluxury.mk/p/hromirani-pedali-golf-mk7-8-at-wc-20-12-18-621952.html</loc></url>
   <url><loc>https://autoluxury.mk/p/hromirani-pedali-golf-mk5-6-mt-wc-04451-621950.html</loc></url>
   <url><loc>https://autoluxury.mk/p/hromirana-ramka-za-tablica-plastichna-621948.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/hromirana-ramka-za-tablica-metalna-621946.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/chrome-number-plate-frame-metal-621946.html</loc></url>
   <url><loc>https://autoluxury.mk/p/hrom-i-aluminium-pasta-150-ml-autoland-621944.html</loc></url>
   <url><loc>https://autoluxury.mk/p/hrom-za-kluch-porsche-2017-621942.html</loc></url>
   <url><loc>https://autoluxury.mk/p/hrom-za-kluch-porsche-2016-621940.html</loc></url>
@@ -1654,7 +1660,7 @@
   <url><loc>https://autoluxury.mk/p/fluoroscentna-lepenka-1-10-zholti-621802.html</loc></url>
   <url><loc>https://autoluxury.mk/p/fluoroscentna-lepenka-1-10-beli-621800.html</loc></url>
   <url><loc>https://autoluxury.mk/p/flesher-policski-hw21-07-07-621798.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/flesher-policski-hw21-07-06-hw21-07-06-621796.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/flasher-police-hw21-07-06-hw21-07-06-621796.html</loc></url>
   <url><loc>https://autoluxury.mk/p/flesher-policski-hw21-07-03-hw21-07-23-621794.html</loc></url>
   <url><loc>https://autoluxury.mk/p/flesher-policiski-a006-a006-621792.html</loc></url>
   <url><loc>https://autoluxury.mk/p/flesher-za-shtop-100b-621790.html</loc></url>
@@ -1668,10 +1674,10 @@
   <url><loc>https://autoluxury.mk/p/filter-za-benzin-621774.html</loc></url>
   <url><loc>https://autoluxury.mk/p/fasonka-za-sijalici-golf-7-cml-vw03-10-001q-621772.html</loc></url>
   <url><loc>https://autoluxury.mk/p/fasonka-za-sijalici-golf-5-cml-vw03-06-001h-621770.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/fasonka-za-sijalica-h7-w11452-621768.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/bulb-adapter-for-bulb-x7-w11452-621768.html</loc></url>
   <url><loc>https://autoluxury.mk/p/fasonka-za-sijalica-h7-ceramic-xh-25-6-621766.html</loc></url>
   <url><loc>https://autoluxury.mk/p/fasonka-za-sijalica-h4-xh-25-5-621764.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/fasonka-za-osigurach-mini-wc-14551-2-621762.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/fuse-holder-mini-wc-14551-2-621762.html</loc></url>
   <url><loc>https://autoluxury.mk/p/fasonka-za-osigurach-wc-14551-621760.html</loc></url>
   <url><loc>https://autoluxury.mk/p/fasonka-za-h4-keramika-621758.html</loc></url>
   <url><loc>https://autoluxury.mk/p/fasonka-za-9006-zhensko-621756.html</loc></url>
@@ -1736,7 +1742,7 @@
   <url><loc>https://autoluxury.mk/p/farovi-set-golf-mk5-chrome-621642.html</loc></url>
   <url><loc>https://autoluxury.mk/p/farovi-ford-mustang-15-17-621640.html</loc></url>
   <url><loc>https://autoluxury.mk/p/farovi-f30-13-15-halogen-vo-led-621638.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/farovi-audi-a6-c7-low-to-matrix-621636.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/headlights-audi-a6-c7-low-to-matrix-621636.html</loc></url>
   <url><loc>https://autoluxury.mk/p/farovi-audi-a4-b9-621634.html</loc></url>
   <url><loc>https://autoluxury.mk/p/fakro-dzhek-za-vw-mashki-621632.html</loc></url>
   <url><loc>https://autoluxury.mk/p/fakro-dzhek-za-vw-621630.html</loc></url>
@@ -1830,7 +1836,7 @@
   <url><loc>https://autoluxury.mk/p/turbo-sound-s-wc-06164-s-621481.html</loc></url>
   <url><loc>https://autoluxury.mk/p/turbo-sound-l-wc-06165-l-621479.html</loc></url>
   <url><loc>https://autoluxury.mk/p/turbo-egr-chistach-500ml-motip-090516-621477.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/trokut-c-96-hz-814d-1-621475.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/triangle-c-96-hz-814d-1-621475.html</loc></url>
   <url><loc>https://autoluxury.mk/p/triagolnichen-katadiopter-2kom-w16300-4-1-621473.html</loc></url>
   <url><loc>https://autoluxury.mk/p/triagolnichen-katadiopter-621471.html</loc></url>
   <url><loc>https://autoluxury.mk/p/tret-shtop-univerzalen-na-trepenje-w16620-621470.html</loc></url>
@@ -2037,7 +2043,7 @@
   <url><loc>https://autoluxury.mk/p/tashna-za-klkuch-kia-leather-621086.html</loc></url>
   <url><loc>https://autoluxury.mk/p/tashna-za-klkuch-hyundai-leather-621084.html</loc></url>
   <url><loc>https://autoluxury.mk/p/tashna-za-klkuch-citroen-leather-621082.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/tashna-za-klkuch-carbon-kl826-621080.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/bag-for-key-carbon-kl826-621080.html</loc></url>
   <url><loc>https://autoluxury.mk/p/tashna-za-klkuch-leather-621078.html</loc></url>
   <url><loc>https://autoluxury.mk/p/tashna-za-klkuch-audi-carbon-kl826-621076.html</loc></url>
   <url><loc>https://autoluxury.mk/p/tater-metalen-so-led-22mm-wc-14416-621074.html</loc></url>
@@ -2077,7 +2083,7 @@
   <url><loc>https://autoluxury.mk/p/sungjer-za-polir-za-na-mashina-15cm-621008.html</loc></url>
   <url><loc>https://autoluxury.mk/p/sungjer-za-polir-za-na-mashina-621006.html</loc></url>
   <url><loc>https://autoluxury.mk/p/sungjer-za-mienje-za-kola-621004.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/sungjer-za-mienje-vozila-2-1-621003.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/sponge-for-washing-vehicles-2-1-621003.html</loc></url>
   <url><loc>https://autoluxury.mk/p/sungjer-za-mienje-vozila-1-2-621001.html</loc></url>
   <url><loc>https://autoluxury.mk/p/sungjer-za-mienje-vozila-620999.html</loc></url>
   <url><loc>https://autoluxury.mk/p/sungjer-za-mienje-vozila-620997.html</loc></url>
@@ -2086,8 +2092,8 @@
   <url><loc>https://autoluxury.mk/p/sulfit-multiled-39mm-620991.html</loc></url>
   <url><loc>https://autoluxury.mk/p/sulfit-multiled-36mm-620989.html</loc></url>
   <url><loc>https://autoluxury.mk/p/festoon-led-canbus-30d-39mm-wc-0048-2-620987.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/sulfit-led-canbus-27d-36mm-wc-0048-1-620986.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/sulfit-led-41mm-canbus-w15949-3-620985.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/festoon-led-canbus-27d-36mm-wc-0048-1-620986.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/festoon-led-41mm-canbus-w15949-3-620985.html</loc></url>
   <url><loc>https://autoluxury.mk/p/sulfit-led-39mm-canbus-w15949-2-620983.html</loc></url>
   <url><loc>https://autoluxury.mk/p/sulfit-led-36mm-canbus-w15949-1-620981.html</loc></url>
   <url><loc>https://autoluxury.mk/p/sulfit-led-31mm-canbus-w15949-620979.html</loc></url>
@@ -2102,7 +2108,7 @@
   <url><loc>https://autoluxury.mk/p/stranichni-ukrasi-r-crveno-620962.html</loc></url>
   <url><loc>https://autoluxury.mk/p/stranichni-ukrasi-rs-5-chrome-620961.html</loc></url>
   <url><loc>https://autoluxury.mk/p/stranichni-ukrasi-rs-5-black-620959.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/stranichni-ukrasi-r-line-chrome-620957.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/side-trim-r-line-chrome-620957.html</loc></url>
   <url><loc>https://autoluxury.mk/p/stranichni-ukrasi-r-line-black-620955.html</loc></url>
   <url><loc>https://autoluxury.mk/p/stranichni-ukrasi-r-line-620953.html</loc></url>
   <url><loc>https://autoluxury.mk/p/stranichni-ukrasi-r-black-620952.html</loc></url>
@@ -2692,13 +2698,13 @@
   <url><loc>https://autoluxury.mk/p/sprej-za-chisternje-innjektor-450ml-620039.html</loc></url>
   <url><loc>https://autoluxury.mk/p/sprej-za-chistenje-karburator-500ml-motip-090510-620037.html</loc></url>
   <url><loc>https://autoluxury.mk/p/sprej-za-chistenje-karburator-450ml-autoland-620035.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/sprej-za-farbanje-shepi-crven-400ml-motip-04098-620034.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/sprej-za-farbanje-shepi-srebren-400ml-motip-620032.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/sprej-za-farbanje-shepi-plav-400ml-motip-04099-620030.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/sprej-za-farbanje-shepi-zholt-400ml-motip-04097-620028.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/sprej-za-farbanje-plastika-crn-mat-400ml-motip-620026.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/spray-for-painting-brake-calipers-red-400ml-motip-04098-620034.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/spray-for-painting-brake-calipers-silver-400ml-motip-620032.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/spray-for-painting-brake-calipers-blue-400ml-motip-04099-620030.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/spray-for-painting-brake-calipers-yellow-400ml-motip-04097-620028.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/spray-for-painting-plastic-black-matt-400ml-motip-620026.html</loc></url>
   <url><loc>https://autoluxury.mk/p/sprej-za-farbanje-motor-aluminium-400ml-motip-620024.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/sprej-za-farbanje-bandazh-silver-500ml-motip-04007-620022.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/spray-for-painting-wheel-silver-500ml-motip-04007-620022.html</loc></url>
   <url><loc>https://autoluxury.mk/p/sprej-za-sjaj-na-branik-750ml-autoland-620020.html</loc></url>
   <url><loc>https://autoluxury.mk/p/sprej-za-otstranuvanje-na-ulje-500ml-motip-090400-620019.html</loc></url>
   <url><loc>https://autoluxury.mk/p/sprej-za-zatemnuvanje-stop-svetla-crn-150ml-motip-00160-620017.html</loc></url>
@@ -2706,7 +2712,7 @@
   <url><loc>https://autoluxury.mk/p/sprej-za-gumi-wt-n-black-620013.html</loc></url>
   <url><loc>https://autoluxury.mk/p/sprej-za-gumi-750ml-autoland-620011.html</loc></url>
   <url><loc>https://autoluxury.mk/p/sprej-boja-metalik-crna-400ml-motip-620009.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/sprej-boja-metalik-crna-400ml-motip-620007.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/spray-paint-metallic-black-400ml-motip-620007.html</loc></url>
   <url><loc>https://autoluxury.mk/p/sprej-boja-metalik-crvena-400ml-motip-04045-620005.html</loc></url>
   <url><loc>https://autoluxury.mk/p/sprej-boja-metalik-crvena-400ml-motip-3394034-620003.html</loc></url>
   <url><loc>https://autoluxury.mk/p/sprej-boja-metalik-sivo-400ml-motip-04046-620001.html</loc></url>
@@ -2754,14 +2760,14 @@
   <url><loc>https://autoluxury.mk/p/slavina-za-kompresor-shtipka-619920.html</loc></url>
   <url><loc>https://autoluxury.mk/p/skalper-so-rezervni-nozhinja-autok-74-619918.html</loc></url>
   <url><loc>https://autoluxury.mk/p/skalper-premium-a-300-autok-73-619916.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/skalper-za-otstranuvanje-lepenki-619914.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/utility-knife-for-removal-decals-619914.html</loc></url>
   <url><loc>https://autoluxury.mk/p/sirena-profesionalna-multi-extra-619912.html</loc></url>
   <url><loc>https://autoluxury.mk/p/sirena-profesionalna-multi-619910.html</loc></url>
   <url><loc>https://autoluxury.mk/p/sirena-za-tovarni-vozila-619908.html</loc></url>
   <url><loc>https://autoluxury.mk/p/sirena-za-kola-vw-audi-2kom-wc-16213-audi-619907.html</loc></url>
   <url><loc>https://autoluxury.mk/p/sirena-za-kola-vw-2kom-wc-16213-vw-619905.html</loc></url>
   <url><loc>https://autoluxury.mk/p/sirena-za-kola-seger-2kom-619903.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/sirena-za-kola-peugeot-2kom-wc-16213-peg-619901.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/horn-for-car-peugeot-2pcs-wc-16213-peg-619901.html</loc></url>
   <url><loc>https://autoluxury.mk/p/sirena-za-kola-ford2-2kom-wc-16213-ford-2-619899.html</loc></url>
   <url><loc>https://autoluxury.mk/p/sirena-za-kola-ford1-2kom-wc-16213-ford-1-619897.html</loc></url>
   <url><loc>https://autoluxury.mk/p/sirena-za-kola-carall-fk-l75-1-2-619895.html</loc></url>
@@ -2783,14 +2789,14 @@
   <url><loc>https://autoluxury.mk/p/sirena-bosch-2kom-a333-619871.html</loc></url>
   <url><loc>https://autoluxury.mk/p/sirena-3t-619869.html</loc></url>
   <url><loc>https://autoluxury.mk/p/silikon-sprej-zashtita-za-kederi-600ml-motip-000709-619868.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/silikon-sprej-zashtita-za-kederi-500ml-motip-090107-619866.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/silicone-spray-protection-for-weatherstrips-500ml-motip-090107-619866.html</loc></url>
   <url><loc>https://autoluxury.mk/p/silikonski-stik-za-zashtita-na-kederi-65ml-motip-619864.html</loc></url>
   <url><loc>https://autoluxury.mk/p/silikon-za-ostranuvanje-na-voda-ekstra-619862.html</loc></url>
   <url><loc>https://autoluxury.mk/p/silikon-za-ostranuvanje-na-voda-619860.html</loc></url>
   <url><loc>https://autoluxury.mk/p/silikon-za-diktun-crn-619858.html</loc></url>
   <url><loc>https://autoluxury.mk/p/silikon-za-diktun-siv-619856.html</loc></url>
   <url><loc>https://autoluxury.mk/p/silikon-diktun-ghafari-619855.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/silikon-diktun-diesel-619853.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/silicone-gasket-diesel-619853.html</loc></url>
   <url><loc>https://autoluxury.mk/p/sijalici-led-g2-pro-vw-s-165-619851.html</loc></url>
   <url><loc>https://autoluxury.mk/p/sijalici-hng-plazma-h7-2kom-a-93-619849.html</loc></url>
   <url><loc>https://autoluxury.mk/p/sijalica-t20-21w-2kom-619847.html</loc></url>
@@ -2798,7 +2804,7 @@
   <url><loc>https://autoluxury.mk/p/sijalica-t20-21w-1-2-619843.html</loc></url>
   <url><loc>https://autoluxury.mk/p/sijalica-t20-21-5w-2kom-619841.html</loc></url>
   <url><loc>https://autoluxury.mk/p/sijalica-t20-21-5w-1-2-619839.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/sijalica-t15-w16w-2kom-619837.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/bulb-t15-w16w-2pcs-619837.html</loc></url>
   <url><loc>https://autoluxury.mk/p/sijalica-t10-w5w-blue-2kom-619835.html</loc></url>
   <url><loc>https://autoluxury.mk/p/sijalica-t10-w5w-2kom-619833.html</loc></url>
   <url><loc>https://autoluxury.mk/p/sijalica-sulfit-41mm-12v-619831.html</loc></url>
@@ -2810,10 +2816,10 @@
   <url><loc>https://autoluxury.mk/p/sijalica-t5-led-pvc-belo-619820.html</loc></url>
   <url><loc>https://autoluxury.mk/p/sijalica-t5-pvc-619818.html</loc></url>
   <url><loc>https://autoluxury.mk/p/sijalica-t5-pvc-619817.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/sijalica-py21w-amber-2kom-619816.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/bulb-py21w-amber-2pcs-619816.html</loc></url>
   <url><loc>https://autoluxury.mk/p/sijalica-py21w-amber-619814.html</loc></url>
   <url><loc>https://autoluxury.mk/p/sijalica-py21-5w-amber-2kom-619813.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/sijalica-p21w-2kom-619811.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/bulb-p21w-2pcs-619811.html</loc></url>
   <url><loc>https://autoluxury.mk/p/sijalica-p21w-12v-1-2-619809.html</loc></url>
   <url><loc>https://autoluxury.mk/p/sijalica-p21-5w-2kom-619808.html</loc></url>
   <url><loc>https://autoluxury.mk/p/sijalica-osram-hb4-9006-619806.html</loc></url>
@@ -2862,7 +2868,7 @@
   <url><loc>https://autoluxury.mk/p/set-stegi-za-creevo-80kom-w15318-1-619729.html</loc></url>
   <url><loc>https://autoluxury.mk/p/set-stegi-za-creevo-70kom-w15318-619727.html</loc></url>
   <url><loc>https://autoluxury.mk/p/set-stegi-assortiment-619725.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/set-skalperi-so-rezervni-nozhinja-autok-65-619724.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/set-utility-knives-with-spare-blades-autok-65-619724.html</loc></url>
   <url><loc>https://autoluxury.mk/p/set-pruzhini-200kom-619722.html</loc></url>
   <url><loc>https://autoluxury.mk/p/set-pishtol-za-kompresor-619720.html</loc></url>
   <url><loc>https://autoluxury.mk/p/set-municija-za-mazdalica-wc-13120-3-619718.html</loc></url>
@@ -2879,7 +2885,7 @@
   <url><loc>https://autoluxury.mk/p/set-zhabici-izolator-678kom-619696.html</loc></url>
   <url><loc>https://autoluxury.mk/p/set-zhabici-480kom-619694.html</loc></url>
   <url><loc>https://autoluxury.mk/p/set-zhabici-250kom-619692.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/set-zhabici-24kom-wc-10587-619690.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/set-clips-24pcs-wc-10587-619690.html</loc></url>
   <url><loc>https://autoluxury.mk/p/set-zhabici-12pcs-619688.html</loc></url>
   <url><loc>https://autoluxury.mk/p/set-zhabici-619687.html</loc></url>
   <url><loc>https://autoluxury.mk/p/set-alat-za-zavaruvanje-plastika-w15714-1-619686.html</loc></url>
@@ -2949,7 +2955,7 @@
   <url><loc>https://autoluxury.mk/p/rachka-za-menuvach-univerzalen-leather-619564.html</loc></url>
   <url><loc>https://autoluxury.mk/p/rachka-za-menuvach-univerzalen-leather-619562.html</loc></url>
   <url><loc>https://autoluxury.mk/p/rachka-za-menuvach-univerzalen-dot-w16053-619560.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/rachka-za-menuvach-univerzalen-chrome-w13757-1-619558.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/gear-knob-universal-chrome-w13757-1-619558.html</loc></url>
   <url><loc>https://autoluxury.mk/p/rachka-za-menuvach-univerzalen-carbone-w01463-1-619556.html</loc></url>
   <url><loc>https://autoluxury.mk/p/rachka-za-menuvach-univerzal-momo-619554.html</loc></url>
   <url><loc>https://autoluxury.mk/p/rachka-za-menuvach-so-kozha-za-peugeot-5b-w14395-619553.html</loc></url>
@@ -3101,7 +3107,7 @@
   <url><loc>https://autoluxury.mk/p/rachka-za-menuvach-za-golf-7-dsg-so-kozha-wc-16337-3-619310.html</loc></url>
   <url><loc>https://autoluxury.mk/p/rachka-za-menuvach-za-golf-7-dsg-plavo-619309.html</loc></url>
   <url><loc>https://autoluxury.mk/p/rachka-za-menuvach-za-golf-7-6b-w15030-1-619308.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/rachka-za-menuvach-za-golf-7-5b-w15030-619306.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/gear-knob-for-golf-7-5-speed-w15030-619306.html</loc></url>
   <url><loc>https://autoluxury.mk/p/rachka-za-menuvach-za-golf5-6-dsg-so-kozha-crven-konec-w13634-1-1-619304.html</loc></url>
   <url><loc>https://autoluxury.mk/p/rachka-za-menuvach-za-golf5-6-dsg-so-kozha-w17359-619303.html</loc></url>
   <url><loc>https://autoluxury.mk/p/rachka-za-menuvach-za-golf5-6-dsg-so-kozha-w13634-1-619301.html</loc></url>
@@ -3217,11 +3223,11 @@
   <url><loc>https://autoluxury.mk/p/rachka-za-volvo-5s-leather-w16454-619111.html</loc></url>
   <url><loc>https://autoluxury.mk/p/rachka-za-renault-so-kozha-5b-w15292-619109.html</loc></url>
   <url><loc>https://autoluxury.mk/p/rachka-za-renault-6s-short-leather-w15464-1-619107.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/rachka-za-renault-5b-long-w12767-619105.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/gear-knob-for-renault-5-speed-long-w12767-619105.html</loc></url>
   <url><loc>https://autoluxury.mk/p/rachka-za-renault-5b-619103.html</loc></url>
   <url><loc>https://autoluxury.mk/p/rachka-za-peugeot-6b-w12340-6p-619102.html</loc></url>
   <url><loc>https://autoluxury.mk/p/rachka-za-peugeot-5b-new-wc-12658-619100.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/rachka-za-peugeot-5b-metal-w12418-619098.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/gear-knob-for-peugeot-5-speed-metal-w12418-619098.html</loc></url>
   <url><loc>https://autoluxury.mk/p/rachka-za-fiat-6s-leather-619096.html</loc></url>
   <url><loc>https://autoluxury.mk/p/rachka-za-fiat-6s-leather-wc-12764-6p-r-in-back-619094.html</loc></url>
   <url><loc>https://autoluxury.mk/p/rachka-za-fiat-5s-leather-w12764-2-619092.html</loc></url>
@@ -3249,7 +3255,7 @@
   <url><loc>https://autoluxury.mk/p/ratkapni-versako-dakar-nb-silver-black-15-008323-619049.html</loc></url>
   <url><loc>https://autoluxury.mk/p/ratkapni-versako-dakar-nb-silver-black-14-008316-619047.html</loc></url>
   <url><loc>https://autoluxury.mk/p/ratkapni-jestic-17-top-ring-black-jt-torb-17-619045.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/ratkapni-jestic-17-top-ring-jt-tor-17-619043.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/wheel-covers-jestic-17-top-ring-jt-tor-17-619043.html</loc></url>
   <url><loc>https://autoluxury.mk/p/ratkapni-jestic-16-top-ring-black-jt-torb-16-619041.html</loc></url>
   <url><loc>https://autoluxury.mk/p/ratkapni-jestic-16-top-ring-jt-tor-16-619039.html</loc></url>
   <url><loc>https://autoluxury.mk/p/ratkapni-jestic-16-terra-ring-mix-619037.html</loc></url>
@@ -3294,7 +3300,7 @@
   <url><loc>https://autoluxury.mk/p/ratkapni-jestic-15-terra-ring-black-618959.html</loc></url>
   <url><loc>https://autoluxury.mk/p/ratkapni-jestic-15-terra-ring-jt-ter-15-618957.html</loc></url>
   <url><loc>https://autoluxury.mk/p/ratkapni-jestic-15-storm-x-black-jt-stxb-15-618955.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/ratkapni-jestic-15-storm-x-jt-stx-15-618953.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/wheel-covers-jestic-15-storm-x-jt-stx-15-618953.html</loc></url>
   <url><loc>https://autoluxury.mk/p/ratkapni-jestic-15-storm-jt-st-15-618951.html</loc></url>
   <url><loc>https://autoluxury.mk/p/ratkapni-jestic-15-roco-ring-mix-jt-rorm-15-618949.html</loc></url>
   <url><loc>https://autoluxury.mk/p/ratkapni-jestic-15-roco-ring-black-jt-rorb-15-618947.html</loc></url>
@@ -3318,7 +3324,7 @@
   <url><loc>https://autoluxury.mk/p/ratkapni-jestic-15-fame-ring-jt-far-15-618911.html</loc></url>
   <url><loc>https://autoluxury.mk/p/ratkapni-jestic-15-dino-ring-black-jt-dirb-15-618909.html</loc></url>
   <url><loc>https://autoluxury.mk/p/ratkapni-jestic-15-dino-ring-jt-dir-15-618907.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/ratkapni-jestic-15-delta-ring-black-jt-derb-15-618905.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/wheel-covers-jestic-15-delta-ring-black-jt-derb-15-618905.html</loc></url>
   <url><loc>https://autoluxury.mk/p/ratkapni-jestic-15-delta-ring-jt-der-15-618903.html</loc></url>
   <url><loc>https://autoluxury.mk/p/ratkapni-jestic-15-delta-jt-de-15-618901.html</loc></url>
   <url><loc>https://autoluxury.mk/p/wheel-covers-jestic-15-cosmos-ring-jt-cor-15-618899.html</loc></url>
@@ -3332,8 +3338,8 @@
   <url><loc>https://autoluxury.mk/p/ratkapni-jestic-14-terra-ring-black-jt-terb-14-618883.html</loc></url>
   <url><loc>https://autoluxury.mk/p/ratkapni-jestic-14-terra-ring-jt-ter-14-618881.html</loc></url>
   <url><loc>https://autoluxury.mk/p/ratkapni-jestic-14-storm-x-black-jt-stxb-14-618879.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/ratkapni-jestic-14-storm-x-jt-stx-14-618877.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/ratkapni-jestic-14-storm-jt-st-14-618875.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/wheel-covers-jestic-14-storm-x-jt-stx-14-618877.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/wheel-covers-jestic-14-storm-jt-st-14-618875.html</loc></url>
   <url><loc>https://autoluxury.mk/p/ratkapni-jestic-14-roco-ring-mix-jt-rorm-14-618873.html</loc></url>
   <url><loc>https://autoluxury.mk/p/ratkapni-jestic-14-roco-ring-black-jt-rorb-14-618871.html</loc></url>
   <url><loc>https://autoluxury.mk/p/ratkapni-jestic-14-roco-ring-jt-ror-14-618869.html</loc></url>
@@ -3347,7 +3353,7 @@
   <url><loc>https://autoluxury.mk/p/ratkapni-jestic-14-glory-ring-mix-jt-glrm-14-618853.html</loc></url>
   <url><loc>https://autoluxury.mk/p/ratkapni-jestic-14-glory-ring-black-jt-glrb-14-618851.html</loc></url>
   <url><loc>https://autoluxury.mk/p/ratkapni-jestic-14-glory-ring-jt-glr-14-618849.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/ratkapni-jestic-14-fun-jt-fu-14-618847.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/wheel-covers-jestic-14-fun-jt-fu-14-618847.html</loc></url>
   <url><loc>https://autoluxury.mk/p/ratkapni-jestic-14-fox-ring-mix-jt-form-14-618845.html</loc></url>
   <url><loc>https://autoluxury.mk/p/ratkapni-jestic-14-fox-ring-black-jt-forb-14-618843.html</loc></url>
   <url><loc>https://autoluxury.mk/p/ratkapni-jestic-14-fox-ring-jt-for-14-618841.html</loc></url>
@@ -3361,7 +3367,7 @@
   <url><loc>https://autoluxury.mk/p/ratkapni-jestic-14-delta-jt-de-14-618825.html</loc></url>
   <url><loc>https://autoluxury.mk/p/ratkapni-jestic-14-cosmos-ring-jt-cor-14-618823.html</loc></url>
   <url><loc>https://autoluxury.mk/p/ratkapni-jestic-14-cosmos-jt-co-14-618821.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/ratkapni-jestic-14-bis-ring-mix-jt-birm-14-618819.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/wheel-covers-jestic-14-bis-ring-mix-jt-birm-14-618819.html</loc></url>
   <url><loc>https://autoluxury.mk/p/ratkapni-jestic-14-bis-ring-jt-bir-14-618817.html</loc></url>
   <url><loc>https://autoluxury.mk/p/ratkapni-jestic-14-aura-ring-jt-aur-14-618815.html</loc></url>
   <url><loc>https://autoluxury.mk/p/ratkapni-jestic-13-top-ring-black-jt-torb-13-618813.html</loc></url>
@@ -3415,13 +3421,13 @@
   <url><loc>https://autoluxury.mk/p/ratkapna-r13-618722.html</loc></url>
   <url><loc>https://autoluxury.mk/p/ramka-za-mp5-metalna-618721.html</loc></url>
   <url><loc>https://autoluxury.mk/p/ramka-za-tablica-so-kamera-618719.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/ramka-za-tablica-frameless-metalni-618717.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/number-plate-frame-frameless-metal-618717.html</loc></url>
   <url><loc>https://autoluxury.mk/p/ramka-za-tablica-frameless-rotnem-618715.html</loc></url>
   <url><loc>https://autoluxury.mk/p/number-plate-frame-frameless-grip-fast-618713.html</loc></url>
   <url><loc>https://autoluxury.mk/p/ramka-za-tablica-frameless-618711.html</loc></url>
   <url><loc>https://autoluxury.mk/p/ramka-za-tablica-frameless-618709.html</loc></url>
   <url><loc>https://autoluxury.mk/p/ramka-za-tablica-carbon-618707.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/ramka-za-tablica-618705.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/number-plate-frame-618705.html</loc></url>
   <url><loc>https://autoluxury.mk/p/ramka-za-rachka-za-golf-7-mt-618703.html</loc></url>
   <url><loc>https://autoluxury.mk/p/ramka-za-rachka-za-golf-mk7-automatic-618701.html</loc></url>
   <url><loc>https://autoluxury.mk/p/ramka-za-mp5-2din-618699.html</loc></url>
@@ -3437,7 +3443,7 @@
   <url><loc>https://autoluxury.mk/p/ramka-2din-opel-vectra-astra-zafira-ye-op-009-618679.html</loc></url>
   <url><loc>https://autoluxury.mk/p/ramka-2din-ford-focus-618677.html</loc></url>
   <url><loc>https://autoluxury.mk/p/ramka-2din-e-pe-001-peugeot-308-2008-618676.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/razdelnik-za-zapalka-1-2-618674.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/splitter-for-cigarette-lighter-1-2-618674.html</loc></url>
   <url><loc>https://autoluxury.mk/p/radio-bt-usb-618672.html</loc></url>
   <url><loc>https://autoluxury.mk/p/radapciger-za-odstranuvanje-brishachi-618670.html</loc></url>
   <url><loc>https://autoluxury.mk/p/radapciger-za-gurtni-i-dizni-618668.html</loc></url>
@@ -3453,7 +3459,7 @@
   <url><loc>https://autoluxury.mk/p/prskalki-za-mienje-na-vetrobrasnko-staklo-2kom-w17467-3-618649.html</loc></url>
   <url><loc>https://autoluxury.mk/p/prskalka-za-pena-2l-grey-ck-45-618647.html</loc></url>
   <url><loc>https://autoluxury.mk/p/prskalka-za-pena-2l-brown-ck-43-618645.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/prskalka-za-pena-2l-ck-44-618643.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/sprayer-for-foam-2l-ck-44-618643.html</loc></url>
   <url><loc>https://autoluxury.mk/p/prskalka-za-mienje-na-vetrobrasnko-staklo-2kom-w17467-0-618641.html</loc></url>
   <url><loc>https://autoluxury.mk/p/prodolzhetok-za-bezbed-remen-23cm-w15220-4-618639.html</loc></url>
   <url><loc>https://autoluxury.mk/p/pricvrstuvach-set-110kom-618637.html</loc></url>
@@ -3495,37 +3501,37 @@
   <url><loc>https://autoluxury.mk/p/privezok-tab-audi-618573.html</loc></url>
   <url><loc>https://autoluxury.mk/p/privezok-tab-amg-618571.html</loc></url>
   <url><loc>https://autoluxury.mk/p/privezok-tab-618569.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/privezok-silver-vw-618567.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/privezok-silver-toyota-618565.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/privezok-silver-suzuki-618563.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/privezok-silver-s-line-618561.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/privezok-silver-skoda-618559.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/privezok-silver-seat-618557.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/privezok-silver-renault-zholto-618555.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/privezok-silver-renault-618553.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/privezok-silver-peugeot-618551.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/privezok-silver-opel-zholto-618549.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/privezok-silver-opel-618547.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/privezok-silver-nissan-618545.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/privezok-silver-mercedes-618543.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/privezok-silver-mazda-618541.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/privezok-silver-m-618539.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/privezok-silver-land-rover-618537.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/privezok-silver-kia-618535.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/privezok-silver-hyundai-618533.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/privezok-silver-honda-618531.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/privezok-silver-ford-618529.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/privezok-silver-fiat-618527.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/keychain-silver-vw-618567.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/keychain-silver-toyota-618565.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/keychain-silver-suzuki-618563.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/keychain-silver-s-line-618561.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/keychain-silver-skoda-618559.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/keychain-silver-seat-618557.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/keychain-silver-renault-yellow-618555.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/keychain-silver-renault-618553.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/keychain-silver-peugeot-618551.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/keychain-silver-opel-yellow-618549.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/keychain-silver-opel-618547.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/keychain-silver-nissan-618545.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/keychain-silver-mercedes-618543.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/keychain-silver-mazda-618541.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/keychain-silver-m-618539.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/keychain-silver-land-rover-618537.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/keychain-silver-kia-618535.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/keychain-silver-hyundai-618533.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/keychain-silver-honda-618531.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/keychain-silver-ford-618529.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/keychain-silver-fiat-618527.html</loc></url>
   <url><loc>https://autoluxury.mk/p/privezok-silver-bmw-618525.html</loc></url>
   <url><loc>https://autoluxury.mk/p/privezok-silver-audi-618523.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/privezok-silver-amg-618521.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/keychain-silver-amg-618521.html</loc></url>
   <url><loc>https://autoluxury.mk/p/privezok-silver-618520.html</loc></url>
   <url><loc>https://autoluxury.mk/p/privezok-premium-a7-a6-a5-a4-a5-q5-q7-618518.html</loc></url>
   <url><loc>https://autoluxury.mk/p/privezok-motor-618516.html</loc></url>
   <url><loc>https://autoluxury.mk/p/privezok-metal-m-618515.html</loc></url>
   <url><loc>https://autoluxury.mk/p/privezok-metal-vw-plavo-618513.html</loc></url>
   <url><loc>https://autoluxury.mk/p/privezok-metal-vw-618511.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/privezok-metal-toyota-618509.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/keychain-metal-toyota-618509.html</loc></url>
   <url><loc>https://autoluxury.mk/p/privezok-metal-suzuki-618507.html</loc></url>
   <url><loc>https://autoluxury.mk/p/privezok-metal-skoda-new-618505.html</loc></url>
   <url><loc>https://autoluxury.mk/p/privezok-metal-skoda-618503.html</loc></url>
@@ -3550,7 +3556,7 @@
   <url><loc>https://autoluxury.mk/p/privezok-metal-fiat-618465.html</loc></url>
   <url><loc>https://autoluxury.mk/p/privezok-metal-citroen-crveno-618464.html</loc></url>
   <url><loc>https://autoluxury.mk/p/privezok-metal-citroen-618462.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/privezok-metal-audi-618461.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/keychain-metal-audi-618461.html</loc></url>
   <url><loc>https://autoluxury.mk/p/privezok-metal-amg-618459.html</loc></url>
   <url><loc>https://autoluxury.mk/p/privezok-metal-618457.html</loc></url>
   <url><loc>https://autoluxury.mk/p/privezok-m6-618455.html</loc></url>
@@ -3640,7 +3646,7 @@
   <url><loc>https://autoluxury.mk/p/privezok-porsche-leather-2in1-blue-618317.html</loc></url>
   <url><loc>https://autoluxury.mk/p/privezok-porsche-leather-2in1-black-618315.html</loc></url>
   <url><loc>https://autoluxury.mk/p/privezok-porsche-leather-2in1-618313.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/privezok-platinum-618311.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/keychain-platinum-618311.html</loc></url>
   <url><loc>https://autoluxury.mk/p/privezok-m-karbon-premium-618309.html</loc></url>
   <url><loc>https://autoluxury.mk/p/privezok-m-turbocharger-618308.html</loc></url>
   <url><loc>https://autoluxury.mk/p/privezok-m-rope-618306.html</loc></url>
@@ -3721,7 +3727,7 @@
   <url><loc>https://autoluxury.mk/p/privezok-audi-premium-2-618101.html</loc></url>
   <url><loc>https://autoluxury.mk/p/privezok-audi-premium-1-618100.html</loc></url>
   <url><loc>https://autoluxury.mk/p/privezok-audi-leather-premium-618099.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/privezok-audi-karbon-premium-618097.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/keychain-audi-karbon-premium-618097.html</loc></url>
   <url><loc>https://autoluxury.mk/p/privezok-audi-inox-618095.html</loc></url>
   <url><loc>https://autoluxury.mk/p/privezok-audi-bag-618093.html</loc></url>
   <url><loc>https://autoluxury.mk/p/privezok-audi-alcantara-case-orange-618092.html</loc></url>
@@ -4013,8 +4019,8 @@
   <url><loc>https://autoluxury.mk/p/preden-branik-golf-6-gti-gtd-vw-5k0807217kd-617556.html</loc></url>
   <url><loc>https://autoluxury.mk/p/preden-branik-golf-5-gti-617554.html</loc></url>
   <url><loc>https://autoluxury.mk/p/preden-branik-bmw-f10-m-tech-617552.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/prajmer-pred-farbanje-crn-500ml-motip-04052-617551.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/prajmer-pred-farbanje-siv-500ml-motip-617549.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/primer-before-painting-black-500ml-motip-04052-617551.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/primer-before-painting-grey-500ml-motip-617549.html</loc></url>
   <url><loc>https://autoluxury.mk/p/pragovi-za-a5-617547.html</loc></url>
   <url><loc>https://autoluxury.mk/p/pragovi-za-golf-8-617545.html</loc></url>
   <url><loc>https://autoluxury.mk/p/pragovi-za-golf-7-r-line-617544.html</loc></url>
@@ -4028,7 +4034,7 @@
   <url><loc>https://autoluxury.mk/p/pragovi-za-bmw-f30-mp-617532.html</loc></url>
   <url><loc>https://autoluxury.mk/p/pragovi-za-audi-a7-2019-2021-617530.html</loc></url>
   <url><loc>https://autoluxury.mk/p/pravosmukalka-na-baterija-type-c-617528.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/pravosmukalka-na-baterija-zx-101-617526.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/vacuum-cleaner-on-battery-zx-101-617526.html</loc></url>
   <url><loc>https://autoluxury.mk/p/pravosmukalka-na-baterija-a9-617524.html</loc></url>
   <url><loc>https://autoluxury.mk/p/pravosmukalka-na-baterija-007-617522.html</loc></url>
   <url><loc>https://autoluxury.mk/p/pravosmukalka-na-baterija-617520.html</loc></url>
@@ -4058,7 +4064,7 @@
   <url><loc>https://autoluxury.mk/p/polnach-12v-38w-usb-tajp-c-169292-617480.html</loc></url>
   <url><loc>https://autoluxury.mk/p/polnach-12v-38w-usb-type-c-169291-617478.html</loc></url>
   <url><loc>https://autoluxury.mk/p/polnach-12v-2xusb-mcc2-617476.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/polnach-12v-15w-2husb-169302-617475.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/charger-12v-15w-2xusb-169302-617475.html</loc></url>
   <url><loc>https://autoluxury.mk/p/polnach-12v-15w-2xusb-169301-617473.html</loc></url>
   <url><loc>https://autoluxury.mk/p/charger-12v-100w-usb-type-c-165775-617471.html</loc></url>
   <url><loc>https://autoluxury.mk/p/polnach-12v-48v-4husb-169295-617469.html</loc></url>
@@ -4082,12 +4088,12 @@
   <url><loc>https://autoluxury.mk/p/podmachkuvach-i-chistach-na-lanci-600ml-motip-617434.html</loc></url>
   <url><loc>https://autoluxury.mk/p/podloga-za-vrata-shoferska-golf-4-617432.html</loc></url>
   <url><loc>https://autoluxury.mk/p/pnevmatski-pishtol-so-manometar-profesional-wc-17772-617431.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/pnevmatski-pishtol-so-manometar-617429.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/plastichni-stegi-za-sneg-wc-10579-617427.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/pneumatic-gun-with-pressure-gauge-617429.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/plastic-clamps-for-snow-wc-10579-617427.html</loc></url>
   <url><loc>https://autoluxury.mk/p/plastichni-stegi-7-6-300mm-20kom-w14674-15-617425.html</loc></url>
   <url><loc>https://autoluxury.mk/p/plastichni-stegi-4-400-617423.html</loc></url>
   <url><loc>https://autoluxury.mk/p/plastichni-stegi-4-350-617422.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/plastichni-stegi-4-300-617421.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/plastic-clamps-4-300-617421.html</loc></url>
   <url><loc>https://autoluxury.mk/p/plastichni-stegi-4-250-617420.html</loc></url>
   <url><loc>https://autoluxury.mk/p/plastichen-restavrator-400ml-autoland-617419.html</loc></url>
   <url><loc>https://autoluxury.mk/p/plastichen-restavrator-400ml-autoland-617417.html</loc></url>
@@ -4252,7 +4258,7 @@
   <url><loc>https://autoluxury.mk/p/patosnica-kingmats-ford-focus-2004-2011-617142.html</loc></url>
   <url><loc>https://autoluxury.mk/p/patosnica-kingmats-ford-fiesta-2008-2019-617140.html</loc></url>
   <url><loc>https://autoluxury.mk/p/patosnica-kingmats-citroen-c4-2010-2018-617138.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/patosnica-kingmats-caddy-2003-2019-617136.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/floor-mat-kingmats-caddy-2003-2019-617136.html</loc></url>
   <url><loc>https://autoluxury.mk/p/patosnica-kingmats-bmw-x6-e71-08-14-617134.html</loc></url>
   <url><loc>https://autoluxury.mk/p/patosnica-kingmats-bmw-x5-f15-13-18-617132.html</loc></url>
   <url><loc>https://autoluxury.mk/p/patosnica-kingmats-bmw-x5-e70-07-13-617130.html</loc></url>
@@ -4265,7 +4271,7 @@
   <url><loc>https://autoluxury.mk/p/patosnica-kingmats-bmw-5-e60-2003-2010-617117.html</loc></url>
   <url><loc>https://autoluxury.mk/p/patosnica-kingmats-bmw-4-617115.html</loc></url>
   <url><loc>https://autoluxury.mk/p/patosnica-kingmats-bmw-3-f30-2011-2019-617113.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/patosnica-kingmats-bmw-3-e90-2004-2013-617111.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/floor-mat-kingmats-bmw-3-e90-2004-2013-617111.html</loc></url>
   <url><loc>https://autoluxury.mk/p/patosnica-kingmats-bmw-3-e46-1998-2006-617109.html</loc></url>
   <url><loc>https://autoluxury.mk/p/patosnica-kingmats-audi-q7-2005-2015-617107.html</loc></url>
   <url><loc>https://autoluxury.mk/p/patosnica-kingmats-audi-q5-2008-2017-617105.html</loc></url>
@@ -4276,7 +4282,7 @@
   <url><loc>https://autoluxury.mk/p/patosnica-kingmats-audi-a4-2017-2023-617095.html</loc></url>
   <url><loc>https://autoluxury.mk/p/patosnica-kingmats-audi-a4-2008-2016-617093.html</loc></url>
   <url><loc>https://autoluxury.mk/p/patosnica-kingmats-audi-a3-2012-2018-617091.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/patosnica-kingmat-range-rover-617089.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/floor-mat-kingmat-range-rover-617089.html</loc></url>
   <url><loc>https://autoluxury.mk/p/pasta-za-grebnatini-25g-617087.html</loc></url>
   <url><loc>https://autoluxury.mk/p/parfem-sport-617086.html</loc></url>
   <url><loc>https://autoluxury.mk/p/parfem-premium-elektrichen-617085.html</loc></url>
@@ -4355,7 +4361,7 @@
   <url><loc>https://autoluxury.mk/p/parfem-areon-za-klima-black-crystal-616948.html</loc></url>
   <url><loc>https://autoluxury.mk/p/parfem-areon-za-klima-apple-616946.html</loc></url>
   <url><loc>https://autoluxury.mk/p/parfem-areon-za-klima-anti-tobacco-616944.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/parfem-areon-x-version-vanilla-black-616942.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/air-freshener-areon-x-version-vanilla-black-616942.html</loc></url>
   <url><loc>https://autoluxury.mk/p/parfem-areon-x-version-vanilla-616941.html</loc></url>
   <url><loc>https://autoluxury.mk/p/parfem-areon-x-version-tutti-fruti-616939.html</loc></url>
   <url><loc>https://autoluxury.mk/p/parfem-areon-x-version-sumer-dream-616937.html</loc></url>
@@ -4367,7 +4373,7 @@
   <url><loc>https://autoluxury.mk/p/parfem-areon-x-version-bubble-616925.html</loc></url>
   <url><loc>https://autoluxury.mk/p/parfem-areon-x-version-black-crystal-616923.html</loc></url>
   <url><loc>https://autoluxury.mk/p/parfem-areon-x-vanilla-choco-616921.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/parfem-areon-x-vanilla-616919.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/air-freshener-areon-x-vanilla-616919.html</loc></url>
   <url><loc>https://autoluxury.mk/p/parfem-areon-x-tutti-frutti-616917.html</loc></url>
   <url><loc>https://autoluxury.mk/p/parfem-areon-x-summer-dream-616915.html</loc></url>
   <url><loc>https://autoluxury.mk/p/parfem-areon-x-strawbery-616913.html</loc></url>
@@ -4378,16 +4384,16 @@
   <url><loc>https://autoluxury.mk/p/parfem-areon-xperience-coconut-616903.html</loc></url>
   <url><loc>https://autoluxury.mk/p/parfem-areon-xperience-bubble-gum-616901.html</loc></url>
   <url><loc>https://autoluxury.mk/p/parfem-areon-xperience-black-crystal-616899.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/parfem-areon-x-party-616897.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/air-freshener-areon-x-party-616897.html</loc></url>
   <url><loc>https://autoluxury.mk/p/parfem-areon-x-paradise-616895.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/parfem-areon-x-no-smoking-616893.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/air-freshener-areon-x-no-smoking-616893.html</loc></url>
   <url><loc>https://autoluxury.mk/p/parfem-areon-x-new-car-616891.html</loc></url>
   <url><loc>https://autoluxury.mk/p/parfem-areon-x-mountain-fresh-616889.html</loc></url>
   <url><loc>https://autoluxury.mk/p/air-freshener-areon-x-miami-beach-616887.html</loc></url>
   <url><loc>https://autoluxury.mk/p/parfem-areon-x-melon-616885.html</loc></url>
   <url><loc>https://autoluxury.mk/p/parfem-areon-x-lilac-616883.html</loc></url>
   <url><loc>https://autoluxury.mk/p/parfem-areon-x-leather-616881.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/parfem-areon-x-kiss-vanilla-mystery-616879.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/air-freshener-areon-x-kiss-vanilla-mystery-616879.html</loc></url>
   <url><loc>https://autoluxury.mk/p/parfem-areon-x-elegance-616877.html</loc></url>
   <url><loc>https://autoluxury.mk/p/parfem-areon-x-coconut-616875.html</loc></url>
   <url><loc>https://autoluxury.mk/p/parfem-areon-x-bubble-gum-616873.html</loc></url>
@@ -4462,14 +4468,14 @@
   <url><loc>https://autoluxury.mk/p/parfem-areon-home-black-crystal-150ml-616745.html</loc></url>
   <url><loc>https://autoluxury.mk/p/parfem-areon-home-150-ml-616743.html</loc></url>
   <url><loc>https://autoluxury.mk/p/parfem-areon-gel-wish-616741.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/parfem-areon-gel-vanilla-616739.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/air-freshener-areon-gel-vanilla-616739.html</loc></url>
   <url><loc>https://autoluxury.mk/p/air-freshener-areon-gel-tutti-frutti-616737.html</loc></url>
   <url><loc>https://autoluxury.mk/p/parfem-areon-gel-sport-lux-silver-616735.html</loc></url>
   <url><loc>https://autoluxury.mk/p/parfem-areon-gel-sport-lux-platinum-616733.html</loc></url>
   <url><loc>https://autoluxury.mk/p/parfem-areon-gel-sport-lux-blister-silver-616731.html</loc></url>
   <url><loc>https://autoluxury.mk/p/parfem-areon-gel-sport-lux-blister-platinum-616730.html</loc></url>
   <url><loc>https://autoluxury.mk/p/parfem-areon-gel-sport-lux-blister-gold-616729.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/parfem-areon-gel-peach-616728.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/air-freshener-areon-gel-peach-616728.html</loc></url>
   <url><loc>https://autoluxury.mk/p/air-freshener-areon-gel-passion-616726.html</loc></url>
   <url><loc>https://autoluxury.mk/p/parfem-areon-gel-lemon-616724.html</loc></url>
   <url><loc>https://autoluxury.mk/p/parfem-areon-gel-desire-616722.html</loc></url>
@@ -4502,10 +4508,10 @@
   <url><loc>https://autoluxury.mk/p/parfem-areon-concentrated-bubble-gum-3oml-616673.html</loc></url>
   <url><loc>https://autoluxury.mk/p/parfem-areon-concentrated-black-crystal-3oml-616671.html</loc></url>
   <url><loc>https://autoluxury.mk/p/parfem-areon-50ml-vanilla-black-mcp08-616669.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/parfem-areon-car-perfume-50ml-silver-616667.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/air-freshener-areon-car-perfume-50ml-silver-616667.html</loc></url>
   <url><loc>https://autoluxury.mk/p/parfem-areon-car-perfume-50ml-red-616665.html</loc></url>
   <url><loc>https://autoluxury.mk/p/parfem-areon-car-perfume-50ml-platinum-616663.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/parfem-areon-car-perfume-50ml-gold-616661.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/air-freshener-areon-car-perfume-50ml-gold-616661.html</loc></url>
   <url><loc>https://autoluxury.mk/p/parfem-areon-50ml-black-616659.html</loc></url>
   <url><loc>https://autoluxury.mk/p/parfem-areon-car-parfume-50ml-blue-616657.html</loc></url>
   <url><loc>https://autoluxury.mk/p/parfem-areon-card-vanilla-616655.html</loc></url>
@@ -4589,7 +4595,7 @@
   <url><loc>https://autoluxury.mk/p/osigurach-mini-1-10-rchang-616518.html</loc></url>
   <url><loc>https://autoluxury.mk/p/osigurachi-so-fazomer-12v-616516.html</loc></url>
   <url><loc>https://autoluxury.mk/p/osigurachi-plastichni-kom-616514.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/osigurachi-plastichni-620kom-616512.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/fuses-plastic-620pcs-616512.html</loc></url>
   <url><loc>https://autoluxury.mk/p/osigurachi-mini-10kom-low-616510.html</loc></url>
   <url><loc>https://autoluxury.mk/p/osigurachi-mini-10kom-616509.html</loc></url>
   <url><loc>https://autoluxury.mk/p/osigurachi-za-tapacir-so-alat-245kom-616508.html</loc></url>
@@ -4667,7 +4673,7 @@
   <url><loc>https://autoluxury.mk/p/organizer-mrezha-19-5-8cm-616371.html</loc></url>
   <url><loc>https://autoluxury.mk/p/organizer-mrezha-14-5-8cm-616369.html</loc></url>
   <url><loc>https://autoluxury.mk/p/organizer-za-pozadi-sedishte-616367.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/organizer-za-naochari-616365.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/organiser-for-glasses-616365.html</loc></url>
   <url><loc>https://autoluxury.mk/p/organizer-za-megjusedishta-616363.html</loc></url>
   <url><loc>https://autoluxury.mk/p/organizer-za-kartici-i-naochari-616361.html</loc></url>
   <url><loc>https://autoluxury.mk/p/organizer-616359.html</loc></url>
@@ -4736,13 +4742,13 @@
   <url><loc>https://autoluxury.mk/p/nepovraten-ventil-8mm-c-119-1-616248.html</loc></url>
   <url><loc>https://autoluxury.mk/p/nepovraten-ventil-10mm-c-119-2-616246.html</loc></url>
   <url><loc>https://autoluxury.mk/p/nevidliven-brishach-300ml-autoland-616244.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/n-volan-na-shienje-crn-rapav-616242.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/steering-wheel-cover-stitch-on-black-textured-616242.html</loc></url>
   <url><loc>https://autoluxury.mk/p/n-volan-na-shienje-crn-bel-konec-04-616241.html</loc></url>
   <url><loc>https://autoluxury.mk/p/n-volan-na-shienje-crven-crn-konec-616240.html</loc></url>
   <url><loc>https://autoluxury.mk/p/n-volan-na-shienje-crven-plav-konec-616239.html</loc></url>
   <url><loc>https://autoluxury.mk/p/n-volan-na-shienje-siv-konec-616238.html</loc></url>
   <url><loc>https://autoluxury.mk/p/n-volan-na-shienje-plavo-02-616237.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/n-volan-na-shienje-krem-02-616236.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/steering-wheel-cover-stitch-on-cream-02-616236.html</loc></url>
   <url><loc>https://autoluxury.mk/p/n-volan-na-shienje-krem-01-616235.html</loc></url>
   <url><loc>https://autoluxury.mk/p/n-volan-na-shienje-kozha-crven-konec-06-616234.html</loc></url>
   <url><loc>https://autoluxury.mk/p/n-volan-na-shienje-kozha-dot-crn-konec-616233.html</loc></url>
@@ -4764,7 +4770,7 @@
   <url><loc>https://autoluxury.mk/p/nametka-za-sedishte-st-24072-1d-crno-siva-st-24072-1d-616209.html</loc></url>
   <url><loc>https://autoluxury.mk/p/nametka-za-sedishte-st-24053-wood-1d-crna-st-24053-616207.html</loc></url>
   <url><loc>https://autoluxury.mk/p/nametka-za-sedishte-st-24053-1d-crna-st-24053-1d-616205.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/nametka-za-sedishte-st-24052-3d-siva-st-24052-3d-616203.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/seat-cover-st-24052-3d-grey-st-24052-3d-616203.html</loc></url>
   <url><loc>https://autoluxury.mk/p/nametka-za-sedishte-st-24052-2d-sina-st-24052-2d-616201.html</loc></url>
   <url><loc>https://autoluxury.mk/p/nametka-za-sedishte-st-24052-1d-crna-st-24052-1d-616199.html</loc></url>
   <url><loc>https://autoluxury.mk/p/nametka-za-sedishte-st-23023-1d-crno-siva-st-23023-1d-616197.html</loc></url>
@@ -4831,7 +4837,7 @@
   <url><loc>https://autoluxury.mk/p/nakrajnik-m-krom-desno-60mm-x-89mm-616114.html</loc></url>
   <url><loc>https://autoluxury.mk/p/nakrajnik-m-krom-616112.html</loc></url>
   <url><loc>https://autoluxury.mk/p/nakrajnik-m-silver-glossy-63x93x190mm-right-rxe02-010-b-616111.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/nakrajnik-m-silver-glossy-63x93x190mm-left-rxe02-010-b-616109.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/exhaust-tip-m-silver-glossy-63x93x190mm-left-rxe02-010-b-616109.html</loc></url>
   <url><loc>https://autoluxury.mk/p/nakrajnik-m-froged-63h93h170mm-mat-616107.html</loc></url>
   <url><loc>https://autoluxury.mk/p/nakrajnik-m-froged-63h93h170mm-chrome-glossy-616105.html</loc></url>
   <url><loc>https://autoluxury.mk/p/nakrajnik-m-forged-crn-63mm-x-93mm-616103.html</loc></url>
@@ -4960,7 +4966,7 @@
   <url><loc>https://autoluxury.mk/p/nakrajnik-63h89h190mm-burnt-chrome-right-rxe04-006-615893.html</loc></url>
   <url><loc>https://autoluxury.mk/p/nakrajnik-63h89h190mm-burnt-chrome-left-rxe04-006-615891.html</loc></url>
   <url><loc>https://autoluxury.mk/p/nakrajnik-63h89h190mm-black-glossy-right-rxe04-005-615889.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/nakrajnik-63h89h190mm-black-glossy-left-rxe04-005-615887.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/exhaust-tip-63x89x190mm-black-glossy-left-rxe04-005-615887.html</loc></url>
   <url><loc>https://autoluxury.mk/p/nakrajnik-63h89h190mm-black-flat-rxe04-001-615885.html</loc></url>
   <url><loc>https://autoluxury.mk/p/nakrajnik-63h89h170mm-remus-rxe03-020-615883.html</loc></url>
   <url><loc>https://autoluxury.mk/p/nakrajnik-63h89h165mm-black-silver-rxe03-029-615881.html</loc></url>
@@ -4969,11 +4975,11 @@
   <url><loc>https://autoluxury.mk/p/nad-oznaka-crna-mercedes-18-8cm-615875.html</loc></url>
   <url><loc>https://autoluxury.mk/p/nadznak-za-mercedes-crna-615873.html</loc></url>
   <url><loc>https://autoluxury.mk/p/nadvoreshen-prsten-300kom-615872.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/navlaki-za-sedishta-power-gti-615871.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/seat-covers-power-gti-615871.html</loc></url>
   <url><loc>https://autoluxury.mk/p/navlaki-za-sedishta-luxury-premium-615870.html</loc></url>
   <url><loc>https://autoluxury.mk/p/navlaki-za-sedishta-luxury-615869.html</loc></url>
   <url><loc>https://autoluxury.mk/p/navlaki-za-sedishta-gts-615868.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/navlaki-za-sedishta-best-grey-615867.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/seat-covers-best-grey-615867.html</loc></url>
   <url><loc>https://autoluxury.mk/p/navlaki-za-sedishta-615866.html</loc></url>
   <url><loc>https://autoluxury.mk/p/navlaka-za-rachka-za-menuvach-615865.html</loc></url>
   <url><loc>https://autoluxury.mk/p/navlaka-za-kluch-suede-premium-615864.html</loc></url>
@@ -5011,16 +5017,16 @@
   <url><loc>https://autoluxury.mk/p/navlaka-za-kluch-carbon-bm7-615824.html</loc></url>
   <url><loc>https://autoluxury.mk/p/navlaka-za-kluch-carbon-bm18-615822.html</loc></url>
   <url><loc>https://autoluxury.mk/p/navlaka-za-kluch-carbon-bm17-615820.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/navlaka-za-kluch-carbon-black-bm1-615818.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/key-cover-carbon-black-bm1-615818.html</loc></url>
   <url><loc>https://autoluxury.mk/p/navlaka-za-kluch-carbon-ad16-615816.html</loc></url>
   <url><loc>https://autoluxury.mk/p/navlaka-za-kluch-carbon-ad15-615814.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/navlaka-za-kluch-carbon-ad14-615812.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/key-cover-carbon-ad14-615812.html</loc></url>
   <url><loc>https://autoluxury.mk/p/navlaka-za-kluch-carbon-ad13-615810.html</loc></url>
   <url><loc>https://autoluxury.mk/p/navlaka-za-kluch-bmw-615808.html</loc></url>
   <url><loc>https://autoluxury.mk/p/navlaka-za-kluch-bm-leather-615807.html</loc></url>
   <url><loc>https://autoluxury.mk/p/navlaka-za-kluch-blue-mat-bm5-615806.html</loc></url>
   <url><loc>https://autoluxury.mk/p/navlaka-za-kluch-blue-mat-bm10-615804.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/navlaka-za-kluch-615802.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/key-cover-615802.html</loc></url>
   <url><loc>https://autoluxury.mk/p/navlaka-za-volan-shielje-so-r-r-615801.html</loc></url>
   <url><loc>https://autoluxury.mk/p/navlaka-za-volan-silikonska-wc-10610-1-615800.html</loc></url>
   <url><loc>https://autoluxury.mk/p/navlaka-za-volan-na-shienje-crn-konec-615798.html</loc></url>
@@ -5070,7 +5076,7 @@
   <url><loc>https://autoluxury.mk/p/navlaka-za-volan-grand-crvena-plava-615738.html</loc></url>
   <url><loc>https://autoluxury.mk/p/navlaka-za-volan-grand-crvena-615737.html</loc></url>
   <url><loc>https://autoluxury.mk/p/navlaka-za-volan-grand-plava-615736.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/navlaka-za-volan-executive-line-j2101-615735.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/steering-wheel-cover-executive-line-j2101-615735.html</loc></url>
   <url><loc>https://autoluxury.mk/p/navlaka-za-volan-elegant-crvena-615733.html</loc></url>
   <url><loc>https://autoluxury.mk/p/navlaka-za-volan-elegant-siva-615732.html</loc></url>
   <url><loc>https://autoluxury.mk/p/navlaka-za-volan-elegant-krem-615731.html</loc></url>
@@ -5082,7 +5088,7 @@
   <url><loc>https://autoluxury.mk/p/navlaka-za-volan-carbone-black-w15672-7-615721.html</loc></url>
   <url><loc>https://autoluxury.mk/p/navlaka-za-volan-alcantara-crn-konec-615719.html</loc></url>
   <url><loc>https://autoluxury.mk/p/navlaka-za-volan-alcantara-crven-konec-ry0503a-615717.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/navlaka-za-volan-alcantara-sin-konec-ry0503a-615715.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/steering-wheel-cover-alcantara-blue-thread-ry0503a-615715.html</loc></url>
   <url><loc>https://autoluxury.mk/p/navlaka-za-volan-alcantara-zholt-konec-ry0503a-615713.html</loc></url>
   <url><loc>https://autoluxury.mk/p/navlaka-za-volan-alcantara-yellow-ring-615711.html</loc></url>
   <url><loc>https://autoluxury.mk/p/navlaka-za-volan-alcantara-red-ring-ry0503-615709.html</loc></url>
@@ -5152,7 +5158,7 @@
   <url><loc>https://autoluxury.mk/p/mikrofiber-krpa-rakavica-2vo1-615603.html</loc></url>
   <url><loc>https://autoluxury.mk/p/mikrofiber-krpa-ekstra-60h60cm-615601.html</loc></url>
   <url><loc>https://autoluxury.mk/p/microfibre-cloth-extra-60x40cm-ty-1-615599.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/mikrofiber-krpa-60-40cm-500gsm-hk-23-50-615597.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/microfibre-cloth-60-40cm-500gsm-hk-23-50-615597.html</loc></url>
   <url><loc>https://autoluxury.mk/p/mikrofiber-krpa-40-40cm-615595.html</loc></url>
   <url><loc>https://autoluxury.mk/p/mikrofiber-krpa-40-30cm-600gsm-ty-3-615594.html</loc></url>
   <url><loc>https://autoluxury.mk/p/mikrofiber-krpa-40-30cm-500gsm-hk-23-49-615592.html</loc></url>
@@ -5162,11 +5168,11 @@
   <url><loc>https://autoluxury.mk/p/mikrofiber-krpa-30-30cm-1-4-615585.html</loc></url>
   <url><loc>https://autoluxury.mk/p/mikrofiber-super-30-30cm-615584.html</loc></url>
   <url><loc>https://autoluxury.mk/p/metlica-za-zaden-brishach-touran-615583.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/metlica-za-zaden-brishach-golf-6-615581.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/metlica-za-zaden-brishach-golf-5-615579.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/brush-for-rear-wiper-golf-6-615581.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/brush-for-rear-wiper-golf-5-615579.html</loc></url>
   <url><loc>https://autoluxury.mk/p/metlica-za-zaden-brishach-bmw-x3-f25-615577.html</loc></url>
   <url><loc>https://autoluxury.mk/p/metlica-za-zaden-brishach-audi-old-615575.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/metlica-za-zaden-brishach-audi-new-615573.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/brush-for-rear-wiper-audi-new-615573.html</loc></url>
   <url><loc>https://autoluxury.mk/p/metalni-stegi-set-100kom-615571.html</loc></url>
   <url><loc>https://autoluxury.mk/p/metalni-stegi-za-crevi-set-100kom-615570.html</loc></url>
   <url><loc>https://autoluxury.mk/p/metalni-brishach-sap-24-600mm-2kom-615569.html</loc></url>
@@ -5226,24 +5232,24 @@
   <url><loc>https://autoluxury.mk/p/lepenki-aluminski-6cm-1-4-615480.html</loc></url>
   <url><loc>https://autoluxury.mk/p/lepenki-aluminski-6-5cm-1-4-615479.html</loc></url>
   <url><loc>https://autoluxury.mk/p/lepenki-aluminski-12cm-1-4-615478.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/lepenki-alumin-5-6cm-1-4-615477.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/decals-aluminium-5-6cm-1-4-615477.html</loc></url>
   <url><loc>https://autoluxury.mk/p/lepenki-vw-xl-615476.html</loc></url>
   <url><loc>https://autoluxury.mk/p/lepenki-vw-l-615475.html</loc></url>
   <url><loc>https://autoluxury.mk/p/lepenki-1-4-ratkapna-xl-615474.html</loc></url>
   <url><loc>https://autoluxury.mk/p/lepenki-1-4-ratkapna-615473.html</loc></url>
   <url><loc>https://autoluxury.mk/p/lepenka-ogranichuvanje-90-km-h-160mm-emark-wc-171266-615472.html</loc></url>
   <url><loc>https://autoluxury.mk/p/decal-limit-90-km-h-138mm-wc-171262-615470.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/lepenka-ogranichuvanje-80-km-h-160mm-emark-wc-171265-615468.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/decal-limit-80-km-h-160mm-emark-wc-171265-615468.html</loc></url>
   <url><loc>https://autoluxury.mk/p/decal-limit-80-km-h-138mm-wc-171261-615466.html</loc></url>
   <url><loc>https://autoluxury.mk/p/lepenka-ogranichuvanje-70-km-h-160mm-emark-wc-171264-615464.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/lepenka-ogranichuvanje-70-km-h-138mm-wc-17126-615462.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/lepenka-ogranichuvanje-100-km-h-160mm-emark-wc-171267-615460.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/lepenka-ogranichuvanje-100-km-h-138mm-wc-171263-615458.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/decal-limit-70-km-h-138mm-wc-17126-615462.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/decal-limit-100-km-h-160mm-emark-wc-171267-615460.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/decal-limit-100-km-h-138mm-wc-171263-615458.html</loc></url>
   <url><loc>https://autoluxury.mk/p/lepak-za-shofershajbna-kit-615456.html</loc></url>
   <url><loc>https://autoluxury.mk/p/lepak-za-guma-250ml-615454.html</loc></url>
   <url><loc>https://autoluxury.mk/p/lepak-za-vnatreshen-retrovizor-615452.html</loc></url>
   <url><loc>https://autoluxury.mk/p/lepak-vo-sprej-500ml-motip-090304-615451.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/lepak-akfix-705-mal-50gr-200ml-615449.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/adhesive-akfix-705-small-50g-200ml-615449.html</loc></url>
   <url><loc>https://autoluxury.mk/p/shtopovi-za-mercedes-w205-upgrade-615446.html</loc></url>
   <url><loc>https://autoluxury.mk/p/led-shtopovi-za-mercedes-cla-2013-18-615445.html</loc></url>
   <url><loc>https://autoluxury.mk/p/led-shmigavcki-za-motor-1-2-w02595-4-615444.html</loc></url>
@@ -5252,7 +5258,7 @@
   <url><loc>https://autoluxury.mk/p/led-shmigavci-za-na-krila-bmw-chrom-white-615438.html</loc></url>
   <url><loc>https://autoluxury.mk/p/led-shmigavci-za-na-krila-bmw-chrom-black-615436.html</loc></url>
   <url><loc>https://autoluxury.mk/p/led-shmigavci-za-na-krila-bmw-black-white-615434.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/led-shmigavci-za-na-krila-bmw-black-2kom-615432.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/led-fender-turn-signals-bmw-black-2pcs-615432.html</loc></url>
   <url><loc>https://autoluxury.mk/p/led-shmigavci-za-na-krila-bmw-black-615430.html</loc></url>
   <url><loc>https://autoluxury.mk/p/led-shmigavci-za-na-krila-audi-black-2kom-615428.html</loc></url>
   <url><loc>https://autoluxury.mk/p/led-shmigavci-za-motor-zxd-49-615426.html</loc></url>
@@ -5339,30 +5345,30 @@
   <url><loc>https://autoluxury.mk/p/led-proektori-lupi-3inch-2kom-615275.html</loc></url>
   <url><loc>https://autoluxury.mk/p/led-proektori-lupi-3inch-2kom-615273.html</loc></url>
   <url><loc>https://autoluxury.mk/p/led-proektori-lupi-3-inch-2kom-615271.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/led-proektori-lupi-2-5inch-45w-2kom-wc-142522-615269.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/led-projectors-projector-lenses-2-5inch-45w-2pcs-wc-142522-615269.html</loc></url>
   <url><loc>https://autoluxury.mk/p/led-proektori-lupi-2-5-inch-2kom-615267.html</loc></url>
   <url><loc>https://autoluxury.mk/p/led-okruglo-80mm-615265.html</loc></url>
   <url><loc>https://autoluxury.mk/p/led-okruglo-120mm-615263.html</loc></url>
   <url><loc>https://autoluxury.mk/p/led-okruglo-100mm-615261.html</loc></url>
   <url><loc>https://autoluxury.mk/p/led-logo-za-vrati-mercedes-a-b-c-class-gy-bz2-615259.html</loc></url>
   <url><loc>https://autoluxury.mk/p/led-logo-za-vrati-audi-615257.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/led-lenti-za-interier-app-wc-09485-4-615255.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/led-strips-for-interior-app-wc-09485-4-615255.html</loc></url>
   <url><loc>https://autoluxury.mk/p/led-lenti-za-interier-wc-09485-3-615253.html</loc></url>
   <url><loc>https://autoluxury.mk/p/led-lenta-za-interior-rgb-615251.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/led-lenta-60cm-2kom-615249.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/led-lenta-45cm-2kom-615248.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/led-lenta-30cm-615246.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/led-tape-60cm-2pcs-615249.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/led-tape-45cm-2pcs-615248.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/led-tape-30cm-615246.html</loc></url>
   <url><loc>https://autoluxury.mk/p/led-interier-kristal-615244.html</loc></url>
   <url><loc>https://autoluxury.mk/p/led-interier-3rd-generation-615243.html</loc></url>
   <url><loc>https://autoluxury.mk/p/led-interier-1st-generation-615242.html</loc></url>
   <url><loc>https://autoluxury.mk/p/led-za-tablica-za-mercedes-w203-w211-w219-set-615241.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/led-za-tablica-za-mercedes-w203-4d-set-615239.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/led-number-plate-light-for-mercedes-w203-4d-set-615239.html</loc></url>
   <url><loc>https://autoluxury.mk/p/led-za-tablica-za-mercedes-w204-w212-615237.html</loc></url>
   <url><loc>https://autoluxury.mk/p/led-za-tablica-za-porsche-touareg-tiguan-set-615235.html</loc></url>
   <url><loc>https://autoluxury.mk/p/led-za-tablica-za-peugeot-citroen-set-615234.html</loc></url>
   <url><loc>https://autoluxury.mk/p/led-za-tablica-za-peugeot-citroen-set-615232.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/led-za-tablica-za-golf-7-set-615231.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/led-za-tablica-za-golf-5-plus-set-615229.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/led-number-plate-light-for-golf-7-set-615231.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/led-number-plate-light-for-golf-5-plus-set-615229.html</loc></url>
   <url><loc>https://autoluxury.mk/p/led-za-tablica-za-golf-5-6-7-set-615227.html</loc></url>
   <url><loc>https://autoluxury.mk/p/led-za-tablica-za-bmw-e-series-615225.html</loc></url>
   <url><loc>https://autoluxury.mk/p/led-za-tablica-za-bmw-f20-615223.html</loc></url>
@@ -5403,7 +5409,7 @@
   <url><loc>https://autoluxury.mk/p/led-dinamik-za-audi-a5-a4-2017-615174.html</loc></url>
   <url><loc>https://autoluxury.mk/p/led-dinamik-za-a3-2014-615173.html</loc></url>
   <url><loc>https://autoluxury.mk/p/led-dekoder-t10-615172.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/led-var-s-236-240w-105cm-zakriven-s-236-615171.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/led-lime-s-236-240w-105cm-curved-s-236-615171.html</loc></url>
   <url><loc>https://autoluxury.mk/p/led-bar-laser-9inch-615169.html</loc></url>
   <url><loc>https://autoluxury.mk/p/led-bar-laser-7inch-615167.html</loc></url>
   <url><loc>https://autoluxury.mk/p/led-bar-kocka-3-spot-premium-w17414-2-615165.html</loc></url>
@@ -5561,7 +5567,7 @@
   <url><loc>https://autoluxury.mk/p/led-adapter-za-opel-614884.html</loc></url>
   <url><loc>https://autoluxury.mk/p/led-adapter-za-golf-mk7-614883.html</loc></url>
   <url><loc>https://autoluxury.mk/p/led-adapter-za-golf-6-614881.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/led-adapter-za-golf-5-c-173-tk-119a-614879.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/led-adapter-for-golf-5-c-173-tk-119a-614879.html</loc></url>
   <url><loc>https://autoluxury.mk/p/led-adapter-za-bmw-e46-614877.html</loc></url>
   <url><loc>https://autoluxury.mk/p/led-adapter-passat-614875.html</loc></url>
   <url><loc>https://autoluxury.mk/p/led-starlight-za-interior-xl-614873.html</loc></url>
@@ -5600,10 +5606,10 @@
   <url><loc>https://autoluxury.mk/p/lanci-za-sneg-130-9mm-614817.html</loc></url>
   <url><loc>https://autoluxury.mk/p/chains-for-snow-120-9mm-614815.html</loc></url>
   <url><loc>https://autoluxury.mk/p/chains-for-snow-110-9mm-614813.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/lanci-za-sneg-100-9mm-614811.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/lanci-za-sneg-12mm-614809.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/chains-for-snow-100-9mm-614811.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/chains-for-snow-12mm-614809.html</loc></url>
   <url><loc>https://autoluxury.mk/p/laden-odvijach-500ml-motip-090501-614807.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/kutija-za-prva-pomosh-a5-wc-15866-2-614805.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/first-aid-kit-a5-wc-15866-2-614805.html</loc></url>
   <url><loc>https://autoluxury.mk/p/kutija-za-prva-pomosh-wc-15866-614803.html</loc></url>
   <url><loc>https://autoluxury.mk/p/ksenon-sijalici-limastar-d5s-2kom-614801.html</loc></url>
   <url><loc>https://autoluxury.mk/p/ksenon-sijalici-limastar-d3s-50-2kom-614799.html</loc></url>
@@ -5657,7 +5663,7 @@
   <url><loc>https://autoluxury.mk/p/korektor-za-boja-plavo-614719.html</loc></url>
   <url><loc>https://autoluxury.mk/p/korektor-za-boja-belo-614718.html</loc></url>
   <url><loc>https://autoluxury.mk/p/korektor-za-boja-12ml-wc-10145-5-1-614717.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/korektor-za-boja-a-403-614715.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/touch-up-paint-for-paint-a-403-614715.html</loc></url>
   <url><loc>https://autoluxury.mk/p/korekotr-za-grebanici-crn-metalik-12ml-motip-614713.html</loc></url>
   <url><loc>https://autoluxury.mk/p/korekotr-za-grebanici-crn-metalik-12ml-motip-614712.html</loc></url>
   <url><loc>https://autoluxury.mk/p/kopche-za-na-sredishnata-konzola-mercedes-w205-chrome-614711.html</loc></url>
@@ -5707,8 +5713,8 @@
   <url><loc>https://autoluxury.mk/p/kozha-za-menuvach-za-bmw-e39-614633.html</loc></url>
   <url><loc>https://autoluxury.mk/p/kozha-za-menuvach-za-bmw-e36-614631.html</loc></url>
   <url><loc>https://autoluxury.mk/p/kozha-za-menuvach-za-astra-h-w16339-614629.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/koveri-za-shtrafovi-vw-cml-vw009-black-614627.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/kover-za-shtrafovi-crni-19mm-614625.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/cover-for-bolts-vw-cml-vw009-black-614627.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/cover-for-bolts-black-19mm-614625.html</loc></url>
   <url><loc>https://autoluxury.mk/p/kover-za-shtrafovi-crni-17mm-614623.html</loc></url>
   <url><loc>https://autoluxury.mk/p/kover-za-shtrafovi-crni-614621.html</loc></url>
   <url><loc>https://autoluxury.mk/p/kover-za-shtrafovi-hrom-21mm-614620.html</loc></url>
@@ -5733,7 +5739,7 @@
   <url><loc>https://autoluxury.mk/p/kover-za-kluch-amg-affalterbach-614587.html</loc></url>
   <url><loc>https://autoluxury.mk/p/kover-za-kluch-amg-614586.html</loc></url>
   <url><loc>https://autoluxury.mk/p/kover-za-kluch-amg-614585.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/kover-za-ventili-hrom-wc-01851-2-614584.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/cover-for-valves-chrome-wc-01851-2-614584.html</loc></url>
   <url><loc>https://autoluxury.mk/p/kover-za-ventili-so-privezok-logo-614582.html</loc></url>
   <url><loc>https://autoluxury.mk/p/kover-za-ventili-logo-614581.html</loc></url>
   <url><loc>https://autoluxury.mk/p/kover-za-ventili-pvc-1000kom-614580.html</loc></url>
@@ -5749,7 +5755,7 @@
   <url><loc>https://autoluxury.mk/p/kluch-za-filter-metalen-63-102mm-614561.html</loc></url>
   <url><loc>https://autoluxury.mk/p/kluch-za-filter-metalen-614559.html</loc></url>
   <url><loc>https://autoluxury.mk/p/kluch-za-trkala-univezalen-614557.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/kluch-za-trkala-teleskop-hz-237-1c-614556.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/key-for-wheels-telescopic-hz-237-1c-614556.html</loc></url>
   <url><loc>https://autoluxury.mk/p/kluch-za-trkala-premium-17-19-21-23-wc-17250-1-614554.html</loc></url>
   <url><loc>https://autoluxury.mk/p/kluch-za-trkala-4-kraken-pro-xz-23-102-614552.html</loc></url>
   <url><loc>https://autoluxury.mk/p/kluch-za-trkala-4-kraken-premium-614550.html</loc></url>
@@ -6026,7 +6032,7 @@
   <url><loc>https://autoluxury.mk/p/znak-brabus-mini-x2-614132.html</loc></url>
   <url><loc>https://autoluxury.mk/p/znak-bmw-x5-zaden-614131.html</loc></url>
   <url><loc>https://autoluxury.mk/p/znak-bmw-80mm-crna-bela-614130.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/oznaka-za-bmw-80mm-premimum-black-614128.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/badge-for-bmw-80mm-premimum-black-614128.html</loc></url>
   <url><loc>https://autoluxury.mk/p/znak-bmw-80mm-karbon-614127.html</loc></url>
   <url><loc>https://autoluxury.mk/p/znak-bmw-80mm-premium-614125.html</loc></url>
   <url><loc>https://autoluxury.mk/p/oznaka-za-bmw-80mm-premimum-614124.html</loc></url>
@@ -6059,7 +6065,7 @@
   <url><loc>https://autoluxury.mk/p/zvuchnik-bt-meckt-msk1-614095.html</loc></url>
   <url><loc>https://autoluxury.mk/p/zvuchnik-pervoi-elips-16x23mm-ctc-6907-614094.html</loc></url>
   <url><loc>https://autoluxury.mk/p/zvuchnik-pervoi-16cm-ctc-607-614092.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/zvuchnik-pervoi-13cm-ctc-507-614090.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/speaker-pervoi-13cm-ctc-507-614090.html</loc></url>
   <url><loc>https://autoluxury.mk/p/zvuchnik-pervoi-10cm-ctc-407-614088.html</loc></url>
   <url><loc>https://autoluxury.mk/p/zashtitnici-za-pragovi-premium-4kom-614086.html</loc></url>
   <url><loc>https://autoluxury.mk/p/zashtitnici-za-pragovi-vw-4kom-614085.html</loc></url>
@@ -6067,19 +6073,19 @@
   <url><loc>https://autoluxury.mk/p/zashtitnici-za-pragovi-bmw-4kom-614081.html</loc></url>
   <url><loc>https://autoluxury.mk/p/zashtitnici-za-pragovi-audi-4kom-614079.html</loc></url>
   <url><loc>https://autoluxury.mk/p/zashtitnik-na-kederi-300ml-autoland-614077.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/zashtitna-prekrivka-za-shofershajbna-premium-w15720-4-614076.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/zashtitna-prekrivka-za-shofershajbna-aew20-09-6-614074.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/zashtitna-lajsna-za-vrati-crna-5m-rchang-wc-15525-3-614072.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/protective-cover-for-windscreen-premium-w15720-4-614076.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/protective-cover-for-windscreen-aew20-09-6-614074.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/protective-trim-for-doors-black-5m-rchang-wc-15525-3-614072.html</loc></url>
   <url><loc>https://autoluxury.mk/p/zashtitna-lajsna-za-vrati-crvena-614070.html</loc></url>
   <url><loc>https://autoluxury.mk/p/zashtitna-lajsna-za-branici-4kom-wc-12077-614068.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/zashtiten-lak-500ml-motip-004009-614066.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/protective-lacquer-500ml-motip-004009-614066.html</loc></url>
   <url><loc>https://autoluxury.mk/p/zashtiten-lak-500ml-motip-614064.html</loc></url>
   <url><loc>https://autoluxury.mk/p/zategach-za-tovar-6m-614063.html</loc></url>
   <url><loc>https://autoluxury.mk/p/zategach-za-tovar-2kom-4-5m-614061.html</loc></url>
   <url><loc>https://autoluxury.mk/p/zategach-za-tovar-10m-3000kg-614059.html</loc></url>
   <url><loc>https://autoluxury.mk/p/zatvarach-na-volan-614057.html</loc></url>
   <url><loc>https://autoluxury.mk/p/zapalka-za-kola-plavo-12v-w09649-3-614056.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/zapalka-za-kola-12v-vw-group-614054.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/car-cigarette-lighter-12v-vw-group-614054.html</loc></url>
   <url><loc>https://autoluxury.mk/p/zapalka-za-kola-12v-mazda-614052.html</loc></url>
   <url><loc>https://autoluxury.mk/p/zapalka-za-kola-12v-w09649-2-614050.html</loc></url>
   <url><loc>https://autoluxury.mk/p/zapalka-za-citroen-peugeot-12v-w10758-1-614048.html</loc></url>
@@ -6146,7 +6152,7 @@
   <url><loc>https://autoluxury.mk/p/zaden-brishach-so-drzhach-citreon-c4-i-h-b-5door-613940.html</loc></url>
   <url><loc>https://autoluxury.mk/p/zaden-brishach-so-drzhach-caddy-613939.html</loc></url>
   <url><loc>https://autoluxury.mk/p/zaden-brishach-so-drzhach-bmw-x5-f15-613937.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/zaden-brishach-so-drzhach-bmw-x5-e70-613935.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/rear-wiper-with-holder-bmw-x5-e70-613935.html</loc></url>
   <url><loc>https://autoluxury.mk/p/zaden-brishach-so-drzhach-bmw-x3-f25-613933.html</loc></url>
   <url><loc>https://autoluxury.mk/p/zaden-brishach-so-drzhach-bmw-x3-e83-613931.html</loc></url>
   <url><loc>https://autoluxury.mk/p/zaden-brishach-so-drzhach-bmw-x1-2010-613929.html</loc></url>
@@ -6154,7 +6160,7 @@
   <url><loc>https://autoluxury.mk/p/zaden-brishach-so-drzhach-bmw-e91-613925.html</loc></url>
   <url><loc>https://autoluxury.mk/p/zaden-brishach-so-drzhach-bmw-e60-2003-2010-613923.html</loc></url>
   <url><loc>https://autoluxury.mk/p/zaden-brishach-so-drzhach-bmw-e46-613921.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/zaden-brishach-so-drzhach-bmw-1-613919.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/rear-wiper-with-holder-bmw-1-613919.html</loc></url>
   <url><loc>https://autoluxury.mk/p/zaden-brishach-so-drzhach-audi-q7-613917.html</loc></url>
   <url><loc>https://autoluxury.mk/p/zaden-brishach-so-drzhach-audi-q5-2008-2014-613915.html</loc></url>
   <url><loc>https://autoluxury.mk/p/rear-wiper-with-holder-audi-a6-613913.html</loc></url>
@@ -6367,7 +6373,7 @@
   <url><loc>https://autoluxury.mk/p/dvokomponenten-lepak-epoxy-45g-613564.html</loc></url>
   <url><loc>https://autoluxury.mk/p/dvokomponenten-lepak-epoxy-35g-613562.html</loc></url>
   <url><loc>https://autoluxury.mk/p/dvokomponenten-lepak-bemo-57g-613560.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/dvokomponenten-lepak-bemo-56-7g-613558.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/two-component-adhesive-bemo-56-7g-613558.html</loc></url>
   <url><loc>https://autoluxury.mk/p/gumichka-kluch-porsche-613556.html</loc></url>
   <url><loc>https://autoluxury.mk/p/gumici-set-zeleni-270kom-613555.html</loc></url>
   <url><loc>https://autoluxury.mk/p/gumici-set-740kom-613553.html</loc></url>
@@ -6383,9 +6389,9 @@
   <url><loc>https://autoluxury.mk/p/gumeni-patosnici-smz-149-smz-149-613534.html</loc></url>
   <url><loc>https://autoluxury.mk/p/gumeni-patosnici-smz-148-smz-148-613532.html</loc></url>
   <url><loc>https://autoluxury.mk/p/gumeni-patosnici-smz-147-smz-147-613530.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/gumeni-patosnici-smz-146-smz-146-613528.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/rubber-floor-mats-smz-146-smz-146-613528.html</loc></url>
   <url><loc>https://autoluxury.mk/p/gumeni-patosnici-smz-145-smz-145-613526.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/gumeni-patosnici-smz-144-smz-144-613524.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/rubber-floor-mats-smz-144-smz-144-613524.html</loc></url>
   <url><loc>https://autoluxury.mk/p/rubber-floor-mats-smz-143-smz-143-613522.html</loc></url>
   <url><loc>https://autoluxury.mk/p/gumeni-patosnici-smz-142-smz-142-613520.html</loc></url>
   <url><loc>https://autoluxury.mk/p/gumeni-patosnici-smz-141-smz-141-613518.html</loc></url>
@@ -6401,7 +6407,7 @@
   <url><loc>https://autoluxury.mk/p/gumen-bufer-absorber-d-613498.html</loc></url>
   <url><loc>https://autoluxury.mk/p/gumen-bufer-absorber-c-613496.html</loc></url>
   <url><loc>https://autoluxury.mk/p/gumen-bufer-absorber-b-613494.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/grebalka-za-sneg-so-chetka-premium-613492.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/ice-scraper-with-brush-premium-613492.html</loc></url>
   <url><loc>https://autoluxury.mk/p/grebalka-za-sneg-so-chetka-comfort-613490.html</loc></url>
   <url><loc>https://autoluxury.mk/p/grebalka-za-sneg-so-chetka-613488.html</loc></url>
   <url><loc>https://autoluxury.mk/p/grebalka-za-sneg-aluminska-so-chetka-613486.html</loc></url>
@@ -7962,8 +7968,8 @@
   <url><loc>https://autoluxury.mk/p/dtr-avto-parfem-polir-gardenija-250ml-d308g-610897.html</loc></url>
   <url><loc>https://autoluxury.mk/p/dtr-avto-parfem-polir-vanila-250ml-d308v-610895.html</loc></url>
   <url><loc>https://autoluxury.mk/p/drl-dnevni-svetla-i-maglenki-red-ring-hw21-07-23-610893.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/drl-dnevni-svetla-i-maglenki-89mm-610891.html</loc></url>
-  <url><loc>https://autoluxury.mk/p/drl-dnevni-svetla-i-maglenki-76mm-610889.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/drl-daytime-lights-and-fog-lights-89mm-610891.html</loc></url>
+  <url><loc>https://autoluxury.mk/p/drl-daytime-lights-and-fog-lights-76mm-610889.html</loc></url>
   <url><loc>https://autoluxury.mk/p/diffuser-mercedes-w218-16-18-amg-610887.html</loc></url>
   <url><loc>https://autoluxury.mk/p/d8s-6000k-50-more-light-ph4572-610886.html</loc></url>
   <url><loc>https://autoluxury.mk/p/d5s-6000k-50-more-light-ph4556-610884.html</loc></url>
