@@ -405,6 +405,11 @@
   }
   .card-img img{width:100%;height:100%;object-fit:contain;transition:scale .4s ease;background:#fff;}
   @media (prefers-reduced-motion: no-preference){ .card:hover .card-img img{scale:1.04;} }
+  /* shenja "New" për produktet e shtuara së fundmi */
+  .new-badge{position:absolute;top:12px;right:12px;z-index:2;pointer-events:none;
+    background:var(--gold);color:var(--ink);font-family:var(--display);font-weight:800;font-size:15px;letter-spacing:.02em;
+    padding:5px 11px;border-radius:6px;box-shadow:0 6px 14px -6px rgba(169,133,60,.8);}
+  @media(max-width:760px){ .new-badge{top:8px;right:8px;font-size:13px;padding:4px 8px;} }
   .card-body{padding:4px 16px 16px;display:flex;flex-direction:column;gap:6px;flex:1;}
   .card-cat{font-size:11px;font-weight:700;color:var(--gold-deep);letter-spacing:.04em;}
   .card-name,a.card-name{
@@ -936,8 +941,13 @@ function saveCart(){ localStorage.setItem('al_cart', JSON.stringify(CART)); rend
    - renditja si te autoking: më të rejat lart (source_id = numri i produktit te autoking),
      produktet e tua (pa source_id) dalin të parat. */
 let PRODUCTS_READY = false;
-const PRODUCT_QUERY = 'products?select=id,source_id,name,price,category,image_url&active=eq.true&order=created_at.desc,source_id.desc.nullslast,id';
-const prepProduct = p=>{ p.category = normCat(p.category); p.group = CAT_TO_GROUP[p.category] || ''; p.price = roundPrice(p.price); return p; };
+const PRODUCT_QUERY = 'products?select=id,source_id,name,price,category,image_url,created_at&active=eq.true&order=created_at.desc,source_id.desc.nullslast,id';
+/* Shenja "New": produktet që i shton sinkronizimi (ose ti nga admin) dalin "New" për NEW_DAYS ditë.
+   Importi i madh i 14.11.2026 (~8.000 produkte) nuk llogaritet si i ri, prandaj kufiri NEW_AFTER. */
+const NEW_DAYS = 14;
+const NEW_AFTER = Date.parse('2026-11-15T00:00:00Z');
+const isNew = p => { const t = Date.parse(p.created_at || ''); return t > NEW_AFTER && Date.now() - t < NEW_DAYS * 864e5; };
+const prepProduct = p=>{ p.category = normCat(p.category); p.group = CAT_TO_GROUP[p.category] || ''; p.price = roundPrice(p.price); p.isNew = isNew(p); return p; };
 async function fetchPage(from, size, withCount){
   const res = await fetch(`${SB_URL}/rest/v1/${PRODUCT_QUERY}&offset=${from}&limit=${size}`, {
     headers: { apikey: SB_KEY, Authorization: 'Bearer ' + SB_KEY, ...(withCount ? {Prefer:'count=exact'} : {}) }
@@ -1342,6 +1352,7 @@ let RENDERED = [];
 function cardHtml(p){
   return `
     <article class="card">
+      ${p.isNew ? '<span class="new-badge">New</span>' : ''}
       <div class="card-img" onclick="openProduct('${p.id}')">${p.image_url ? imgTag(p.image_url, p.name, '(max-width:760px) 46vw, 230px', ' loading="lazy"') : 'AUTO LUXURY'}</div>
       <div class="card-body">
         <div class="card-cat">${escH(p.category)}</div>
