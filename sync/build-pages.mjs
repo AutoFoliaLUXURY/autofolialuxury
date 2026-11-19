@@ -18,6 +18,8 @@ const SB_URL = process.env.SUPABASE_URL || 'https://fzgnhfbsibskkuiwcrls.supabas
 const SITE = (process.env.SITE_URL || 'https://autoluxury.mk/').replace(/\/?$/, '/');
 const OUT = path.resolve(process.env.OUT_DIR || '.');
 const PHONE = '+38970855355', PHONE_TXT = '+389 70 855 355';
+// logoja: stema e artë + AUTO LUXURY + Скопје (e njëjtë me index.html)
+const LOGO_INNER = `<img class="lx-mark" src="../assets/logo-mark.svg" alt="" width="52" height="52"><span class="lx-words"><span class="lx-name"><span class="lx-auto">Auto</span><span class="lx-lux">Luxury</span></span><span class="lx-city">Скопје</span></span>`;
 let KEY = process.env.SUPABASE_KEY;
 if (!KEY) {
   const m = fs.readFileSync(path.join(OUT, 'index.html'), 'utf8').match(/const SB_KEY = '([^']+)'/);
@@ -94,7 +96,9 @@ const head = ({ title, desc, url, image, type = 'website', extra = '' }) => `<!D
 <meta name="description" content="${esc(desc)}">
 <link rel="canonical" href="${esc(url)}">
 <meta name="theme-color" content="#15181C">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23C8A45D'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='28' font-weight='800' text-anchor='middle' fill='%23111'%3EAL%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/assets/logo-mark.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <meta property="og:type" content="${type}">
 <meta property="og:site_name" content="Auto Luxury">
 <meta property="og:locale" content="mk_MK">
@@ -116,7 +120,7 @@ ${extra}
 </div></div>
 <header class="top">
   <div class="wrap bar">
-    <a class="logo" href="../" aria-label="Auto Luxury – почетна"><span class="lx-auto">Auto</span><span class="lx-lux">Luxury</span></a>
+    <a class="logo" href="../" aria-label="Auto Luxury – почетна">${LOGO_INNER}</a>
     <search class="srch">
       <form action="../" method="get">
         <label for="q" class="sr-only">Пребарај производи</label>
@@ -132,7 +136,7 @@ ${extra}
   </div></nav>
 </header>`;
 const foot = `<footer class="foot"><div class="wrap foot-in">
-  <div><a class="logo" href="../"><span class="lx-auto">Auto</span><span class="lx-lux">Luxury</span></a>
+  <div><a class="logo" href="../">${LOGO_INNER}</a>
   <p>Авто опрема и додатоци, Сарај, Скопје. Брза достава низ цела Македонија.</p></div>
   <div><p><b>Контакт</b><br><a href="tel:${PHONE}">${PHONE_TXT}</a></p>
   <p><a href="../c/index.html">Сите категории</a><br><a href="../">Онлајн продавница</a></p></div>

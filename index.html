@@ -12,7 +12,10 @@
   // Google i ndjek linket, por indekson faqet e vërteta të produkteve (/p/...)
   if(/[?&](q|p)=/.test(location.search)){ const m=document.createElement('meta'); m.name='robots'; m.content='noindex,follow'; document.head.appendChild(m); }
 </script>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23C8A45D'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='28' font-weight='800' text-anchor='middle' fill='%23111'%3EAL%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/assets/logo-mark.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
 <!-- kur linku ndahet në Facebook / Viber / WhatsApp -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Auto Luxury">
@@ -108,23 +111,22 @@
   header{position:sticky;top:0;z-index:40;box-shadow:0 1px 0 var(--border);}
   .headbar-bg{background:var(--surface);}
   .headbar{display:flex;align-items:center;justify-content:space-between;gap:28px;height:84px;}
-  /* logoja: AUTO në grafit + LUXURY në ar metalik me një shkëlqim që kalon (një herë kur hapet faqja, sërish në hover) */
-  .logo{
-    position:relative;display:inline-flex;align-items:baseline;gap:9px;flex:0 0 auto;padding:4px 0 9px;
-    font-family:var(--display);font-style:italic;font-weight:800;text-transform:uppercase;line-height:.9;color:var(--text);
-  }
-  .lx-auto{font-size:38px;letter-spacing:.015em;}
+  /* logoja: stema e artë "A" + AUTO në grafit, LUXURY në ar metalik (shkëlqim një herë kur hapet, sërish në hover) + "Скопје" */
+  .logo{position:relative;display:inline-flex;align-items:center;gap:14px;flex:0 0 auto;color:var(--text);}
+  .lx-mark{width:56px;height:56px;flex:0 0 auto;display:block;filter:drop-shadow(0 3px 6px rgba(21,24,28,.22));}
+  .lx-words{display:flex;flex-direction:column;gap:7px;}
+  .lx-name{display:flex;gap:.34em;font-family:var(--display);font-weight:800;text-transform:uppercase;line-height:.9;}
+  .lx-auto{font-size:36px;letter-spacing:.14em;}
   .lx-lux{
-    font-size:38px;letter-spacing:.05em;padding-right:.12em;
+    font-size:36px;letter-spacing:.14em;margin-right:-.14em;
     background:linear-gradient(105deg,#6E4F1C 0%,#B88C3E 14%,#F8E7B0 28%,#D2AE62 40%,#8A672A 52%,#E8C97E 66%,#FFF4CF 74%,#B4883A 86%,#7A5A22 100%);
     background-size:240% 100%;background-position:0 0;
     -webkit-background-clip:text;background-clip:text;color:transparent;
-    filter:drop-shadow(0 1px 0 rgba(90,64,20,.25));
   }
-  .logo::after{
-    content:"";position:absolute;left:2px;right:0;bottom:0;height:2px;border-radius:2px;
-    background:linear-gradient(90deg,currentColor 0 33%,transparent 33% 36%,#B88C3E 36%,#F8E7B0 62%,rgba(210,174,98,0) 100%);
-  }
+  .lx-city{display:flex;align-items:center;gap:9px;font:700 10px/1 var(--body, Manrope, sans-serif);letter-spacing:.42em;text-transform:uppercase;color:#9A7A3C;padding-left:.42em;}
+  .lx-city::before,.lx-city::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,#C9A35A);}
+  .lx-city::after{background:linear-gradient(90deg,#C9A35A,transparent);}
+  footer .logo{color:#fff;}
   @media (prefers-reduced-motion: no-preference){
     .lx-lux{animation:lx-shine 2.4s cubic-bezier(.4,0,.2,1) .4s both;}
     .logo:hover .lx-lux{animation:lx-shine 1.4s cubic-bezier(.4,0,.2,1) both;}
@@ -585,8 +587,12 @@
     .topbar{display:none;}
     .topbar-row{gap:16px;font-size:12px;}
     .headbar{flex-wrap:wrap;height:auto;padding-top:12px;padding-bottom:12px;gap:10px;}
-    .lx-auto,.lx-lux{font-size:29px;}
-    .logo{gap:7px;}
+    .lx-auto,.lx-lux{font-size:23px;letter-spacing:.1em;}
+    .lx-lux{margin-right:-.1em;}
+    .logo{gap:9px;}
+    .lx-mark{width:40px;height:40px;}
+    .lx-words{gap:4px;}
+    .lx-city{font-size:7.5px;letter-spacing:.36em;}
     .head-call{display:none;}
     .head-search{order:3;flex:1 1 100%;max-width:none;}
     .head-search form{height:46px;}
@@ -703,7 +709,8 @@
   <div class="headbar-bg">
     <div class="wrap headbar">
       <a class="logo" href="#top" aria-label="Auto Luxury – почетна">
-        <span class="lx-auto">Auto</span><span class="lx-lux">Luxury</span>
+        <img class="lx-mark" src="assets/logo-mark.svg" alt="" width="56" height="56">
+        <span class="lx-words"><span class="lx-name"><span class="lx-auto">Auto</span><span class="lx-lux">Luxury</span></span><span class="lx-city">Скопје</span></span>
       </a>
       <search class="head-search">
         <form id="searchForm">
@@ -804,7 +811,8 @@
   <div class="wrap foot-cols">
     <section id="about" aria-labelledby="aboutTitle">
       <a class="logo" href="#top" aria-hidden="true" tabindex="-1">
-        <span class="lx-auto">Auto</span><span class="lx-lux">Luxury</span>
+        <img class="lx-mark" src="assets/logo-mark.svg" alt="" width="56" height="56" loading="lazy">
+        <span class="lx-words"><span class="lx-name"><span class="lx-auto">Auto</span><span class="lx-lux">Luxury</span></span><span class="lx-city">Скопје</span></span>
       </a>
       <h3 id="aboutTitle" class="sr-only">За нас</h3>
       <p>Auto Luxury од Сарај, Скопје – над 7.900 производи: ЛЕД амбиент и осветлување, волани и навлаки, спојлери и дифузери, автокозметика и опрема. Брза достава низ цела Македонија.</p>

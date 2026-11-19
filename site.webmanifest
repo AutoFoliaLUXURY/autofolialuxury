@@ -1,0 +1,12 @@
+{
+  "name": "Auto Luxury",
+  "short_name": "Auto Luxury",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#0F1114",
+  "theme_color": "#111111",
+  "icons": [
+    { "src": "/assets/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/assets/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
