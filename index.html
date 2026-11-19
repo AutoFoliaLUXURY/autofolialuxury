@@ -42,6 +42,9 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fzgnhfbsibskkuiwcrls.supabase.co" crossorigin>
+<link rel="preconnect" href="https://fzgnhfbsibskkuiwcrls.supabase.co">
+<link rel="preconnect" href="https://autoking.com.mk">
 <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:ital,wght@0,600;0,700;0,800;1,700;1,800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   /* =========================================================
@@ -982,6 +985,7 @@ async function loadProducts(){
       `<div class="empty-state" style="grid-column:1/-1">Производите не можеа да се вчитаат. Освежете ја страницата или јавете се на ${CONTACT_PHONE}.</div>`;
   }
   PRODUCTS_READY = true;
+  warmSearch();
   // shporta e ruajtur më parë merr çmimet e reja
   CART.forEach(it=>{ const p = PRODUCTS.find(x=>String(x.id)===String(it.id)); if(p) it.price = Number(p.price); });
   saveCart();
@@ -1274,6 +1278,16 @@ let DESC_HITS = new Set(), DESC_HITS_FOR = '';
 function prepSearch(p){
   if(p._n !== undefined) return;
   p._n = normS(p.name); p._c = compactS(p.name); p._cat = normS(p.category);
+}
+// përgatit kërkimin në kohë të lirë, pak nga pak → hapja e parë e produktit dhe kërkimi i parë pa ngecje
+function warmSearch(i = 0){
+  const idle = window.requestIdleCallback || (f=>setTimeout(()=>f({timeRemaining:()=>8}), 60));
+  idle(d=>{
+    while(i < PRODUCTS.length && d.timeRemaining() > 2){
+      for(const end = Math.min(i + 150, PRODUCTS.length); i < end; i++) prepSearch(PRODUCTS[i]);
+    }
+    if(i < PRODUCTS.length) warmSearch(i);
+  });
 }
 function scoreProduct(p, toks){
   prepSearch(p);
@@ -1605,10 +1619,15 @@ async function openProduct(id){
         <div class="pd-desc" id="pdDesc">Се вчитува...</div>
       </div>
     </div>
-    ${simHtml(p)}`;
+    <div id="pdSim"></div>`;
   if(!pdWrap.open) pdWrap.showModal();
   box.scrollTop = 0;
   box.querySelector('.primary-btn').focus();
+  // produktet e ngjashme llogariten pasi dritarja të jetë shfaqur → hapje e menjëhershme edhe në telefon
+  requestAnimationFrame(()=> setTimeout(()=>{
+    const sim = document.getElementById('pdSim');
+    if(sim && OPEN_ID === String(id)) sim.outerHTML = simHtml(p);
+  }, 0));
   let desc = DESC_CACHE[id];
   if(desc === undefined){
     try{
