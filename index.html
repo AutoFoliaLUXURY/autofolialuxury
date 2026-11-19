@@ -300,6 +300,20 @@
   .slider.paused .dot.active::after{animation-play-state:paused;}
   @keyframes progress{from{transform:scaleX(0);}to{transform:scaleX(1);}}
 
+  /* ---------- banera të gatshme (foto e plotë nga admin → Слајдер) ----------
+     Kompjuter: 1920 × 720 px  ·  Celular: 1080 × 1000 px */
+  .slide-banner .banner-link{display:block;width:100%;height:100%;padding:0;border:0;background:none;cursor:pointer;}
+  .slide-banner picture,.slide-banner img{display:block;width:100%;height:100%;}
+  .slide-banner img{object-fit:cover;object-position:center;scale:1.04;transition:scale 6s ease-out;}
+  .slide-banner.active img{scale:1;}
+  .slide-banner .banner-link:focus-visible{outline:3px solid var(--gold);outline-offset:-3px;}
+  .slider.banners{height:auto;aspect-ratio:1920/720;}
+  .slider.banners .slider-bar{left:50%;translate:-50% 0;bottom:18px;}
+  .slider.banners .slide-count{display:none;}
+  .slider.banners .dot{width:11px;height:11px;border-radius:50%;background:rgba(255,255,255,.85);box-shadow:0 1px 4px rgba(0,0,0,.4);}
+  .slider.banners .dot.active{background:rgba(255,255,255,.35);}
+  .slider.banners .dot.active::after{border-radius:50%;}
+
   /* ---------- përparësitë ---------- */
   .perks{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:20px;}
   .perk{display:flex;gap:14px;align-items:flex-start;background:var(--surface);border-radius:var(--r);padding:18px;box-shadow:var(--shadow);}
@@ -586,6 +600,10 @@
     .slider-bar{bottom:22px;left:22px;}
     .dot{width:30px;}
     .slider-btn{display:none;}
+    /* në celular baneri shkon nga buza në buzë, si në foton e dizajnit */
+    .hero-area:has(.slider.banners){padding-top:0;}
+    .slider.banners{aspect-ratio:1080/1000;margin:0 -16px;border-radius:0;box-shadow:none;}
+    .slider.banners .dot{width:11px;}
     .perks{grid-template-columns:1fr 1fr;gap:10px;}
     .perk{flex-direction:column;gap:10px;padding:14px;}
     .sec-head h2,.section-head h2{font-size:26px;}
@@ -946,6 +964,8 @@ async function loadProducts(){
     for(let from = PAGE; from < (first.total || 0); from += PAGE) rest.push(fetchPage(from, PAGE, false));
     const pages = await Promise.all(rest);
     pages.forEach(pg=> PRODUCTS.push(...pg.rows.map(prepProduct)));
+    // produkti i hapur nga slideri para se të vinin të gjitha mund të jetë shtuar dy herë
+    const seen = new Set(); PRODUCTS = PRODUCTS.filter(p=> !seen.has(p.id) && seen.add(p.id));
   }catch(e){
     console.error(e);
     if(!PRODUCTS.length) document.getElementById('grid').innerHTML =
@@ -1089,10 +1109,12 @@ let SLIDES = [
 ];
 async function loadSlideConfig(){
   try{
-    const rows = await sbGet('slides?select=kicker,title,text,image_url,link_group,link_cat&active=eq.true&order=position.asc,id.asc');
+    // select=* që faqja të mos prishet edhe kur kolonat banner_* s'janë shtuar ende (supabase/slides-banner.sql)
+    const rows = await sbGet('slides?select=*&active=eq.true&order=position.asc,id.asc');
     if(Array.isArray(rows) && rows.length){
       SLIDES = rows.map(r=>({ kicker:r.kicker||'', title:r.title||'', text:r.text||'',
-        group:r.link_group||'', cat:r.link_cat||'', image:r.image_url||'' }));
+        group:r.link_group||'', cat:r.link_cat||'', image:r.image_url||'',
+        banner:r.banner_url||'', bannerM:r.banner_mobile_url||'', product:r.link_product||'' }));
     }
   }catch(e){ console.warn('slides: përdoren slajdet e paracaktuara', e); }
 }
@@ -1104,7 +1126,17 @@ function buildSlider(){
   const wrap = document.getElementById('slides');
   const dots = document.getElementById('dots');
   sliderEl.style.setProperty('--slide-ms', SLIDE_MS + 'ms');
-  wrap.innerHTML = SLIDES.map((s,i)=>`
+  // kur të gjitha slajdet janë banera, slider-i merr përmasat e fotos (1920×720 / 1080×1000)
+  sliderEl.classList.toggle('banners', SLIDES.length > 0 && SLIDES.every(isBanner));
+  wrap.innerHTML = SLIDES.map((s,i)=> isBanner(s) ? `
+    <div class="slide slide-banner${i===0?' active':''}" role="group" aria-roledescription="слајд" aria-label="${i+1} од ${SLIDES.length}" ${i!==0?'inert':''}>
+      <button class="banner-link" data-i="${i}" aria-label="${escH(s.title || 'Погледни ги производите')}">
+        <picture>
+          <source media="(max-width:760px)" srcset="${escH(s.bannerM || s.banner)}">
+          <img src="${escH(s.banner || s.bannerM)}" alt="${escH(s.title)}" ${i===0 ? 'fetchpriority="high"' : 'loading="lazy" fetchpriority="low"'} decoding="async">
+        </picture>
+      </button>
+    </div>` : `
     <div class="slide${i===0?' active':''}" role="group" aria-roledescription="слајд" aria-label="${i+1} од ${SLIDES.length}" ${i!==0?'inert':''}>
       <div class="wrap">
         <div class="slide-text">
@@ -1117,8 +1149,9 @@ function buildSlider(){
       </div>
     </div>`).join('');
   dots.innerHTML = SLIDES.map((s,i)=>`<button class="dot${i===0?' active':''}" aria-label="Слајд ${i+1}: ${escH(s.title)}" ${i===0?'aria-current="true"':''} data-i="${i}"></button>`).join('');
-  wrap.querySelectorAll('.cta').forEach(b=>b.onclick = ()=>{
+  wrap.querySelectorAll('.cta, .banner-link').forEach(b=>b.onclick = ()=>{
     const s = SLIDES[+b.dataset.i];
+    if(s.product){ openSlideProduct(s.product); return; }
     selectGroup(s.group, true);
     if(s.cat){ ACTIVE_CAT = normCat(s.cat); buildCategories(); renderGrid(); }
   });
@@ -1128,12 +1161,25 @@ function buildSlider(){
   updateCount();
   loadSlideImages();
 }
+function isBanner(s){ return !!(s.banner || s.bannerM); }
+/* klik te slajdi me produkt të zgjedhur nga admin → hapet dritarja e atij produkti.
+   Nëse produktet s'janë ngarkuar ende (8.000 copë), merret vetëm ai produkt nga serveri. */
+async function openSlideProduct(id){
+  if(!PRODUCTS.some(x=>String(x.id)===String(id))){
+    try{
+      const r = await sbGet('products?select=id,source_id,name,price,category,image_url&active=eq.true&id=eq.' + encodeURIComponent(id));
+      if(!r[0]) return; // produkti është fshirë ose fshehur
+      if(!PRODUCTS.some(x=>String(x.id)===String(id))) PRODUCTS.push(prepProduct(r[0]));
+    }catch(e){ console.error(e); return; }
+  }
+  openProduct(id);
+}
 function slideImg(src, i){
   return imgTag(src, '', '(max-width:760px) 200px, 340px', i===0 ? ' fetchpriority="high"' : ' fetchpriority="low" loading="lazy"');
 }
 async function loadSlideImages(){
   await Promise.all(SLIDES.map(async (s,i)=>{
-    if(s.image) return;
+    if(s.image || isBanner(s)) return;
     const cats = s.cat ? [s.cat] : (GROUPS.find(g=>g.name===s.group)?.cats || []);
     if(!cats.length) return;
     const list = cats.map(c=>`"${c.replace(/"/g,'')}"`).join(',');
