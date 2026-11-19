@@ -918,7 +918,7 @@ function saveCart(){ localStorage.setItem('al_cart', JSON.stringify(CART)); rend
    - renditja si te autoking: më të rejat lart (source_id = numri i produktit te autoking),
      produktet e tua (pa source_id) dalin të parat. */
 let PRODUCTS_READY = false;
-const PRODUCT_QUERY = 'products?select=id,source_id,name,price,category,image_url&active=eq.true&order=source_id.desc.nullsfirst,created_at.desc,id';
+const PRODUCT_QUERY = 'products?select=id,source_id,name,price,category,image_url&active=eq.true&order=created_at.desc,source_id.desc.nullslast,id';
 const prepProduct = p=>{ p.category = normCat(p.category); p.group = CAT_TO_GROUP[p.category] || ''; p.price = roundPrice(p.price); return p; };
 async function fetchPage(from, size, withCount){
   const res = await fetch(`${SB_URL}/rest/v1/${PRODUCT_QUERY}&offset=${from}&limit=${size}`, {
