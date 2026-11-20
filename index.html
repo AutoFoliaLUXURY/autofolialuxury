@@ -108,6 +108,13 @@
   .topbar a:hover{color:#fff;}
   .topbar .tb-right{margin-left:auto;gap:22px;}
   .topbar .tb-right a{color:var(--on-ink);font-weight:600;}
+  /* gjuha: AL / MK me flamur */
+  .lang-sw{display:inline-flex;align-items:center;gap:2px;padding:2px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);}
+  .lang-sw button{display:inline-flex;align-items:center;gap:6px;border:0;background:transparent;color:var(--on-ink-muted);font:800 12px/1 Manrope,sans-serif;letter-spacing:.06em;padding:4px 10px 4px 5px;border-radius:999px;transition:background-color .2s,color .2s;}
+  .lang-sw button:hover{color:#fff;}
+  .lang-sw button[aria-pressed="true"]{background:var(--gold);color:var(--ink);}
+  .flag{width:19px;height:13px;border-radius:2px;display:block;flex:0 0 auto;box-shadow:0 0 0 1px rgba(0,0,0,.28);}
+  .lang-m{display:none;}
 
   /* ---------- koka ---------- */
   header{position:sticky;top:0;z-index:40;box-shadow:0 1px 0 var(--border);}
@@ -596,6 +603,12 @@
     .lx-words{gap:4px;}
     .lx-city{font-size:7.5px;letter-spacing:.36em;}
     .head-call{display:none;}
+    .lang-m{display:inline-flex;background:var(--surface-2);border-color:var(--border);}
+    .lang-m button{padding:6px 7px;font-size:0;gap:0;}
+    .lang-m .flag{width:21px;height:14px;}
+    .lang-m button[aria-pressed="false"] .flag{opacity:.55;}
+    .head-right{gap:4px;}
+    .cart-btn .hc-txt{display:none;}
     .head-search{order:3;flex:1 1 100%;max-width:none;}
     .head-search form{height:46px;}
     .head-search select{max-width:108px;padding:0 4px 0 10px;font-size:12px;}
@@ -697,6 +710,8 @@
   <symbol id="i-box" viewBox="0 0 24 24"><path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/></symbol>
   <symbol id="i-check" viewBox="0 0 24 24"><path d="M9 11l3 3 8-8"/><path d="M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h9"/></symbol>
   <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></symbol>
+  <symbol id="f-al" viewBox="0 0 30 20"><image href="data:image/png;base64,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" width="30" height="20" preserveAspectRatio="none"/></symbol>
+  <symbol id="f-mk" viewBox="0 0 30 20"><rect width="30" height="20" fill="#D20000"/><g fill="#FFE600"><path d="M15 10 0 8.2V11.8ZM15 10 30 8.2V11.8ZM15 10 13.3 0H16.7ZM15 10 13.3 20H16.7ZM15 10 0 0H3.2L0 2.4ZM15 10 30 0H26.8L30 2.4ZM15 10 0 20H3.2L0 17.6ZM15 10 30 20H26.8L30 17.6Z"/><circle cx="15" cy="10" r="3.4" stroke="#D20000" stroke-width=".8"/></g></symbol>
 </svg>
 
 <header>
@@ -705,7 +720,7 @@
       <span><svg class="ico"><use href="#i-pin"/></svg>Сарај, Скопје</span>
       <a href="tel:+38970855355"><svg class="ico"><use href="#i-phone"/></svg>+389 70 855 355</a>
       <span class="tb-hide"><svg class="ico"><use href="#i-truck"/></svg>Достава низ цела Македонија</span>
-      <span class="tb-right tb-hide"><a href="#about">За нас</a><a href="#contact">Контакт</a></span>
+      <span class="tb-right tb-hide"><a href="#about">За нас</a><a href="#contact">Контакт</a><span class="lang-sw" role="group" aria-label="Јазик / Gjuha"><button type="button" data-lang="sq" aria-pressed="false" title="Shqip"><svg class="flag" aria-hidden="true"><use href="#f-al"/></svg>AL</button><button type="button" data-lang="mk" aria-pressed="true" title="Македонски"><svg class="flag" aria-hidden="true"><use href="#f-mk"/></svg>MK</button></span></span>
     </div>
   </div>
   <div class="headbar-bg">
@@ -724,6 +739,7 @@
         </form>
       </search>
       <div class="head-right">
+        <span class="lang-sw lang-m" role="group" aria-label="Јазик / Gjuha"><button type="button" data-lang="sq" aria-pressed="false" title="Shqip"><svg class="flag" aria-hidden="true"><use href="#f-al"/></svg>AL</button><button type="button" data-lang="mk" aria-pressed="true" title="Македонски"><svg class="flag" aria-hidden="true"><use href="#f-mk"/></svg>MK</button></span>
         <a class="head-call" href="tel:+38970855355">
           <svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg>
           <span><small>Ви треба помош?</small><span class="hc-txt">Јави се</span></span>
@@ -1728,7 +1744,7 @@ document.getElementById('coForm').onsubmit = async e=>{
   const address = document.getElementById('fAddress').value.trim();
   const note = document.getElementById('fNote').value.trim();
   if(!name || !phone || !address){
-    alert('Ве молиме пополнете име, телефон и адреса.');
+    alert(T('Ве молиме пополнете име, телефон и адреса.'));
     return;
   }
   const btn = document.getElementById('submitOrder');
@@ -1750,7 +1766,7 @@ document.getElementById('coForm').onsubmit = async e=>{
     saveCart();
   }catch(e){
     console.error(e);
-    alert('Настана грешка. Обидете се повторно или јавете се на ' + CONTACT_PHONE);
+    alert(T('Настана грешка. Обидете се повторно или јавете се на ' + CONTACT_PHONE));
     btn.disabled = false; btn.textContent = 'Испрати порачка';
   }
 };
@@ -1764,6 +1780,172 @@ renderCart();
 buildBrands();
 loadSlideConfig().then(buildSlider);
 loadProducts();
+</script>
+<script>
+/* =========================================================
+   GJUHA: MK (bazë) / AL (shqip)
+   Faqja shkruhet në maqedonisht; kur zgjidhet AL, tekstet e ndërfaqes
+   (menytë, butonat, kategoritë, kosha, formulari) përkthehen këtu.
+   Emrat dhe përshkrimet e produkteve mbeten siç vijnë nga katalogu.
+   ========================================================= */
+const SQ = {
+  'Сарај, Скопје':'Saraj, Shkup', 'Скопје':'Shkup',
+  'Достава низ цела Македонија':'Dërgesa në të gjithë Maqedoninë',
+  'За нас':'Rreth nesh', 'Контакт':'Kontakt',
+  'Auto Luxury – почетна':'Auto Luxury – ballina',
+  'Категорија за пребарување':'Kategoria për kërkim',
+  'Сите категории':'Të gjitha kategoritë',
+  'Пребарај производи':'Kërko produkte', 'Пребарај':'Kërko',
+  'Пребарај производ, модел или шифра… (пр. F10, ambient)':'Kërko produkt, model ose kod… (p.sh. F10, ambient)',
+  'Ви треба помош?':'Ju duhet ndihmë?', 'Јави се':'Na telefononi',
+  'Кошничка':'Shporta', 'Производи':'Produktet', 'Главна навигација':'Navigimi kryesor',
+  'Почетна':'Ballina', 'Сите производи':'Të gjitha produktet', 'Нови производи':'Produkte të reja',
+  'Брендови':'Brendet', 'Нарачки и совет:':'Porosi dhe këshilla:',
+  'Авто опрема, ЛЕД светла и додатоци во Сарај, Скопје':'Pajisje për makina, drita LED dhe aksesorë në Saraj, Shkup',
+  'Издвоено':'Të veçuara', 'Претходен слајд':'Slajdi i mëparshëm', 'Следен слајд':'Slajdi tjetër',
+  'Над 7.900 производи':'Mbi 7.900 produkte',
+  'Осветлување, ентериер, екстериер и автокозметика':'Ndriçim, interier, eksterier dhe autokozmetikë',
+  'Достава низ Македонија':'Dërgesa në gjithë Maqedoninë',
+  'Брзо до вашата врата, во секој град':'Shpejt deri te dera juaj, në çdo qytet',
+  'Нарачка за една минута':'Porosi për një minutë',
+  'Додајте во кошничка, ние ве повикуваме за потврда':'Shtoni në shportë, ne ju telefonojmë për konfirmim',
+  'Совет за вашето возило':'Këshilla për automjetin tuaj', 'Прашајте нè на':'Na pyesni në',
+  'Категории':'Kategoritë', '← Назад':'← Mbrapa', 'Категорија':'Kategoria',
+  'Прикажи повеќе':'Shfaq më shumë',
+  'Auto Luxury од Сарај, Скопје – над 7.900 производи: ЛЕД амбиент и осветлување, волани и навлаки, спојлери и дифузери, автокозметика и опрема. Брза достава низ цела Македонија.':
+    'Auto Luxury nga Saraji, Shkup – mbi 7.900 produkte: ambient dhe ndriçim LED, timonë dhe veshje, spoilerë dhe difuzorë, autokozmetikë dhe pajisje. Dërgesë e shpejtë në të gjithë Maqedoninë.',
+  'Вашата кошничка':'Shporta juaj', 'Вкупно':'Gjithsej', 'Продолжи со порачка':'Vazhdo me porosinë',
+  'Зголемена слика':'Foto e zmadhuar', 'Затвори':'Mbyll',
+  'Слика – кликни за зум, движи со стрелки':'Foto – kliko për zmadhim, lëviz me shigjeta',
+  'Кликни на сликата за зум':'Kliko mbi foton për zmadhim',
+  'Податоци за достава':'Të dhënat për dërgesë',
+  'Ќе ве контактираме за потврда на порачката.':'Do t’ju kontaktojmë për konfirmimin e porosisë.',
+  'Име и презиме':'Emri dhe mbiemri', 'Име Презиме':'Emër Mbiemër', 'Телефон':'Telefoni',
+  'Адреса за достава':'Adresa për dërgesë', 'Улица, број, град':'Rruga, numri, qyteti',
+  'Забелешка (опционално)':'Shënim (opsional)', 'Боја, детали...':'Ngjyra, detaje...',
+  'Откажи':'Anulo', 'Испрати порачка':'Dërgo porosinë', 'Се испраќа...':'Po dërgohet...',
+  'Порачката е примена!':'Porosia u pranua!',
+  'Ве молиме пополнете име, телефон и адреса.':'Ju lutemi plotësoni emrin, telefonin dhe adresën.',
+  'Нема производи.':'Nuk ka produkte.', 'Додади':'Shto', 'Додади во кошничка':'Shto në shportë',
+  'Се вчитува…':'Po ngarkohet…', 'Се вчитува...':'Po ngarkohet...',
+  'Слични производи':'Produkte të ngjashme', 'Зголеми ја сликата':'Zmadho foton', '🔍 Зголеми':'🔍 Zmadho',
+  'Отвори ја страницата на производот ↗':'Hap faqen e produktit ↗',
+  'Кошничката е празна.':'Shporta është bosh.', 'Отстрани':'Hiq',
+  'Погледни ги производите':'Shiko produktet', 'Сите':'Të gjitha',
+  'Ексклузивни модели':'Modele ekskluzive', 'Накрајници за ауспух':'Maja për marmitë',
+  'Карбон, хром и црни завршници за секој стил.':'Karbon, krom dhe të zeza për çdo stil.',
+  'Нова генерација':'Gjenerata e re', 'ЛЕД светла и барови':'Drita dhe shirita LED',
+  'Посилна светлина, помала потрошувачка.':'Dritë më e fortë, harxhim më i vogël.',
+  'Чистење и нега':'Pastrim dhe kujdes', 'Автокозметика':'Autokozmetikë',
+  'Сè што ви треба за возило што сјае.':'Gjithçka që ju duhet për një makinë që shkëlqen.',
+  'Ентериер':'Interier', 'Волани и навлаки':'Timonë dhe veshje', 'Премиум допир при секое возење.':'Prekje premium në çdo udhëtim.',
+  // grupet
+  'АВТО ОПРЕМА':'PAJISJE PËR MAKINA', 'АВТОКОЗМЕТИКА':'AUTOKOZMETIKË', 'ЕКСТЕРИЕР':'EKSTERIER',
+  'ИНТЕРИЕР':'INTERIER', 'ОСВЕТЛУВАЊЕ':'NDRIÇIM', 'ЕЛЕКТРИКА':'ELEKTRIKË', 'АВТО ДОДАТОЦИ':'AKSESORË PËR MAKINA',
+  // kategoritë
+  'АЛАТИ':'VEGLA', 'БРИШАЧИ':'FSHIRËSE XHAMI', 'ПАТУВАЊЕ':'UDHËTIM', 'ЦЕРАДИ':'MBULESA MAKINE',
+  'АРЕОН':'AREON', 'АУТОЛАНД':'AUTOLAND', 'КЛИ':'KLI', 'МОТИП':'MOTIP', 'ПАРФЕМИ IMAO':'PARFUME IMAO', 'ТУРТЛЕ':'TURTLE',
+  'ЧЕТКИ, КРПИ И СУНЃЕРИ':'FURÇA, LECKA DHE SFUNGJERË', 'БОДИ КИТОВИ':'BODY KIT', 'ДИФУЗЕРИ':'DIFUZORË',
+  'КАПАЦИ ЗА СТРАНИЧНИ РЕТРОВИЗОРИ':'KAPAKË PËR PASQYRAT ANËSORE', 'НАКРАЈНИК ЗА АУСПУХ':'MAJË PËR MARMITË',
+  'ПРАГОВИ':'PRAGJE', 'ПРЕДЕН ЛИП СПОЈЛЕР':'LIP SPOILER I PARMË', 'ПРЕДНА МАСКА':'MASKË E PARME',
+  'ПРЕДНИ/ЗАДНИ БРАНИЦИ':'PARAKOLPË PARA/PRAPA', 'РАТКАПНИ':'TASA RROTASH', 'СПОЈЛЕР':'SPOILER',
+  'ВОЛАНИ':'TIMONË', 'НАВЛАКИ ЗА ВОЛАН':'VESHJE PËR TIMON', 'НАВЛАКИ ЗА СЕДИШТИ':'VESHJE PËR ULËSE',
+  'ПАТОСНИЦИ':'TAPETE', 'РАЧКА ЗА МЕНУВАЧ':'DORËZ MARSHI', 'РАЧКИ ЗА ВРАТИ':'DORËZA DYERSH',
+  'PHOTON СИЈАЛИЦИ':'LLAMBA PHOTON', 'КСЕНОН':'KSENON', 'ЛЕД':'LED', 'ТРАФОА':'TRANSFORMATORË',
+  'ФАРОВИ':'FENERË', 'ХАЛОГЕН':'HALOGJEN', 'ШТОПОВИ':'STOPA',
+  'АКУМУЛАТОРИ - БАТЕРИИ':'AKUMULATORË - BATERI', 'ДРУГО':'TË TJERA', 'КАМЕРА ЗА КОЛА':'KAMERA PËR MAKINË',
+  'МП3 ТРАНСМИТЕРИ':'TRANSMETUES MP3', 'ПАРКИНГ СЕНЗОРИ':'SENSORË PARKIMI', 'ПРЕКИДАЧИ':'NDËRPRERËS',
+  'РАДИО И ОПРЕМА':'RADIO DHE PAJISJE', 'ГАЛАНТЕРИЈА':'GALANTERI', 'КЛУЧЕВИ':'ÇELËSA',
+  'МОБИЛНА ГАЛАНТЕРИЈА':'AKSESORË CELULARI', 'ПАНЦИР ЦРЕВА':'TUBA TË BLINDUAR', 'ПРИВЕЗОК':'VARËSE ÇELËSASH',
+  'СТАКЛО ЗА РЕТРОВИЗОР':'XHAM PËR PASQYRË', 'СТИКЕРИ':'NGJITËSE', 'ФОЛИЈА':'FOLIE'
+};
+// tekste me numra / emra brenda
+const SQ_RX = [
+  [/^([\d.,]+) производи( · се вчитуваат уште…)?$/, (m,n,l)=> n+' produkte'+(l?' · po ngarkohen ende…':'')],
+  [/^(.+) \(([\d.,]+)\)$/, (m,c,n)=> SQ[c] ? SQ[c]+' ('+n+')' : m],
+  [/^Резултати за „(.*)“$/, (m,q)=> 'Rezultate për „'+q+'“'],
+  [/^Други производи за „(.*)“$/, (m,q)=> 'Produkte të tjera për „'+q+'“'],
+  [/^Додади во кошничка: (.*)$/s, (m,n)=> 'Shto në shportë: '+n],
+  [/^Слајд (\d+) од (\d+): (.*)$/s, (m,a,b,t)=> 'Slajdi '+a+' nga '+b+': '+(SQ[t]||t)],
+  [/^Слајд (\d+): (.*)$/s, (m,a,t)=> 'Slajdi '+a+': '+(SQ[t]||t)],
+  [/^(\d+) од (\d+)$/, (m,a,b)=> a+' nga '+b],
+  [/^За повеќе информации јавете се на (.*)\.$/, (m,p)=> 'Për më shumë informacione na telefononi në '+p+'.'],
+  [/^Ќе ве контактираме наскоро на (.*) за потврда и достава\.$/, (m,p)=> 'Do t’ju kontaktojmë së shpejti në '+p+' për konfirmim dhe dërgesë.'],
+  [/^Производите не можеа да се вчитаат\. Освежете ја страницата или јавете се на (.*)\.$/, (m,p)=> 'Produktet nuk u ngarkuan. Rifreskoni faqen ose na telefononi në '+p+'.'],
+  [/^Настана грешка\. Обидете се повторно или јавете се на (.*)$/, (m,p)=> 'Ndodhi një gabim. Provoni përsëri ose na telefononi në '+p],
+];
+let LANG = 'mk';
+function trSQ(s){
+  const k = s.trim();
+  if(!k || !/[А-Яа-яЃѓЌќЉљЊњЏџЅѕЈјЀѐЍѝ]/.test(k)) return null;
+  let out = SQ[k];
+  if(out === undefined){
+    for(const [rx, fn] of SQ_RX){ if(rx.test(k)){ const r = k.replace(rx, fn); if(r !== k){ out = r; break; } } }
+  }
+  if(out === undefined) return null;
+  return s.replace(k, out);
+}
+function T(s){ return LANG === 'sq' ? (trSQ(s) ?? s) : s; }
+
+const TR_ATTRS = ['placeholder','aria-label','title'];
+const TR_TEXT = new Map();   // nyja → [origjinali, përkthimi]
+const TR_ATTR = [];          // [elementi, atributi, origjinali, përkthimi]
+const SKIP = new Set(['SCRIPT','STYLE','TEXTAREA','NOSCRIPT']);
+function trText(n){
+  const v = n.nodeValue, t = trSQ(v);
+  if(t !== null && t !== v){
+    if(TR_TEXT.size > 4000) TR_TEXT.forEach((_, k)=>{ if(!k.isConnected) TR_TEXT.delete(k); });
+    TR_TEXT.set(n, [v, t]); n.nodeValue = t;
+  }
+}
+function trEl(el){
+  for(const a of TR_ATTRS){
+    const v = el.getAttribute(a); if(!v) continue;
+    const t = trSQ(v);
+    if(t !== null && t !== v){ TR_ATTR.push([el, a, v, t]); el.setAttribute(a, t); }
+  }
+}
+function trTree(root){
+  if(root.nodeType === 3){ if(!SKIP.has(root.parentNode?.nodeName)) trText(root); return; }
+  if(root.nodeType !== 1 || SKIP.has(root.nodeName)) return;
+  trEl(root);
+  root.querySelectorAll('[placeholder],[aria-label],[title]').forEach(trEl);
+  const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, { acceptNode:n => SKIP.has(n.parentNode.nodeName) ? 2 : 1 });
+  for(let n; (n = w.nextNode()); ) trText(n);
+}
+const trObs = new MutationObserver(muts=>{
+  for(const m of muts){
+    if(m.type === 'childList') m.addedNodes.forEach(trTree);
+    else if(m.type === 'characterData') trTree(m.target);
+    else if(m.type === 'attributes') trEl(m.target);
+  }
+});
+const TITLE_MK = document.title;
+function setLang(l, save){
+  if(l === LANG) return;
+  LANG = l;
+  if(save){ try{ localStorage.setItem('al_lang', l); }catch(e){} }
+  document.documentElement.lang = l === 'sq' ? 'sq' : 'mk';
+  document.querySelectorAll('.lang-sw button').forEach(b=> b.setAttribute('aria-pressed', String(b.dataset.lang === l)));
+  if(l === 'sq'){
+    document.title = 'Pajisje për makina, drita LED dhe aksesorë – Saraj, Shkup | Auto Luxury';
+    trTree(document.body);
+    trObs.observe(document.body, { subtree:true, childList:true, characterData:true, attributes:true, attributeFilter:TR_ATTRS });
+  }else{
+    trObs.disconnect();
+    document.title = TITLE_MK;
+    TR_TEXT.forEach(([o, t], n)=>{ if(n.isConnected && n.nodeValue === t) n.nodeValue = o; });
+    TR_ATTR.forEach(([el, a, o, t])=>{ if(el.isConnected && el.getAttribute(a) === t) el.setAttribute(a, o); });
+    TR_TEXT.clear(); TR_ATTR.length = 0;
+  }
+}
+document.querySelectorAll('.lang-sw button').forEach(b=> b.addEventListener('click', ()=> setLang(b.dataset.lang, true)));
+(function(){
+  let l = null;
+  try{ l = localStorage.getItem('al_lang'); }catch(e){}
+  if(!l) l = (navigator.languages || [navigator.language]).some(x=> /^sq\b/i.test(x || '')) ? 'sq' : 'mk';
+  if(l === 'sq') setLang('sq', false);
+})();
 </script>
 </body>
 </html>
