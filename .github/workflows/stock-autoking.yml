@@ -1,0 +1,47 @@
+name: Stoku nga Autoking
+
+on:
+  schedule:
+    - cron: '0 1 * * *'   # çdo natë në 01:00 UTC (02:00 / 03:00 ora jonë)
+  workflow_dispatch:       # butoni "Run workflow" për ta nisur me dorë
+
+permissions:
+  contents: write   # për të ruajtur assets/stock.json në repo
+  pages: write
+
+concurrency:
+  group: build-pages     # mos u përplas me krijimin e faqeve
+  cancel-in-progress: false
+
+jobs:
+  stock:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Lexo stokun
+        run: node sync/stock-autoking.mjs
+      - name: Ruaj ndryshimet
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/stock.json
+          if git diff --cached --quiet; then
+            echo "Asnjë ndryshim."
+            echo "CHANGED=0" >> "$GITHUB_ENV"
+          else
+            git commit -q -m "Përditëso stokun"
+            git pull --rebase -q
+            git push
+            echo "CHANGED=1" >> "$GITHUB_ENV"
+          fi
+      - name: Rifresko GitHub Pages
+        if: env.CHANGED == '1'
+        run: gh api -X POST "repos/${{ github.repository }}/pages/builds" || echo "Pages do të rifreskohet vetë."
+        env:
+          GH_TOKEN: ${{ github.token }}
