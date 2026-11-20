@@ -522,6 +522,12 @@
   .pd-info{padding:40px 34px;display:flex;flex-direction:column;gap:14px;}
   .pd-info h3{font-size:30px;line-height:1.1;margin:0;text-transform:none;}
   .pd-price{font-family:var(--display);font-size:38px;font-weight:800;color:var(--text);line-height:1;}
+  .pd-price-row{display:flex;align-items:center;flex-wrap:wrap;gap:10px 16px;}
+  .stock{display:inline-flex;align-items:center;gap:8px;padding:7px 13px 7px 11px;border-radius:999px;font-size:13.5px;font-weight:800;line-height:1.2;}
+  .stock::before{content:"";width:9px;height:9px;border-radius:50%;background:currentColor;box-shadow:0 0 0 3px color-mix(in srgb,currentColor 22%,transparent);flex:0 0 auto;}
+  .stock.in{color:#17803D;background:#E8F6EC;}
+  .stock.out{color:#C8432B;background:#FCECE8;}
+  .stock[hidden]{display:none;}
   .pd-desc{font-size:14px;line-height:1.7;color:var(--text-muted);white-space:pre-line;border-top:1px solid var(--border);padding-top:16px;}
   .pd-sim{border-top:1px solid var(--border);padding:26px 34px 34px;background:var(--surface-2);}
   .pd-sim h4{font-size:22px;text-transform:uppercase;margin:0 0 16px;}
@@ -1622,6 +1628,22 @@ zoomImg.onclick = e=>{
 };
 
 let OPEN_ID = null;
+/* Stoku sipas Autoking (assets/stock.json, rifreskohet çdo natë nga sync/stock-autoking.mjs):
+   1 = në magazinë (Magacin Vizbegovo), 2 = në dyqan (Autoking Vizbegovo), 3 = të dyja, 0 = asgjëkund */
+let STOCK = null;
+function loadStock(){
+  return STOCK ??= fetch('assets/stock.json', { cache:'no-cache' }).then(r=> r.ok ? r.json() : {}).then(j=> j.s || {}).catch(()=> ({}));
+}
+const STOCK_TXT = { 3:'Има на залиха', 1:'Има на залиха во магацин', 2:'Има на залиха во продавница', 0:'Нема на залиха' };
+async function showStock(p){
+  if(p.source_id == null) return;   // produktet e tua: pa informacion stoku
+  const s = (await loadStock())[p.source_id];
+  const el = document.getElementById('pdStock');
+  if(s === undefined || !el || OPEN_ID !== String(p.id)) return;
+  el.className = 'stock ' + (s ? 'in' : 'out');
+  el.textContent = STOCK_TXT[s] ?? '';
+  el.hidden = false;
+}
 async function openProduct(id){
   const p = PRODUCTS.find(x=>String(x.id)===String(id));
   if(!p) return;
@@ -1640,13 +1662,14 @@ async function openProduct(id){
         <div class="card-cat">${escH(p.category)}</div>
         <h3 id="pdTitle">${escH(p.name)}</h3>
         <a class="pd-page" href="${escH(productHref(p))}">Отвори ја страницата на производот ↗</a>
-        <div class="pd-price">${money(p.price)}</div>
+        <div class="pd-price-row"><div class="pd-price">${money(p.price)}</div><span class="stock" id="pdStock" hidden></span></div>
         <button class="primary-btn" autofocus onclick="closeProduct();addToCart(PRODUCTS.find(x=>String(x.id)==='${p.id}').id)">Додади во кошничка</button>
         <div class="pd-desc" id="pdDesc">Се вчитува...</div>
       </div>
     </div>
     <div id="pdSim"></div>`;
   if(!pdWrap.open) pdWrap.showModal();
+  showStock(p);
   box.scrollTop = 0;
   box.querySelector('.primary-btn').focus();
   // produktet e ngjashme llogariten pasi dritarja të jetë shfaqur → hapje e menjëhershme edhe në telefon
@@ -1831,6 +1854,8 @@ const SQ = {
   'Слични производи':'Produkte të ngjashme', 'Зголеми ја сликата':'Zmadho foton', '🔍 Зголеми':'🔍 Zmadho',
   'Отвори ја страницата на производот ↗':'Hap faqen e produktit ↗',
   'Кошничката е празна.':'Shporta është bosh.', 'Отстрани':'Hiq',
+  'Има на залиха':'Ka në stok', 'Има на залиха во магацин':'Ka në stok në magazinë',
+  'Има на залиха во продавница':'Ka në stok në dyqan', 'Нема на залиха':'Nuk ka në stok',
   'Погледни ги производите':'Shiko produktet', 'Сите':'Të gjitha',
   'Ексклузивни модели':'Modele ekskluzive', 'Накрајници за ауспух':'Maja për marmitë',
   'Карбон, хром и црни завршници за секој стил.':'Karbon, krom dhe të zeza për çdo stil.',
